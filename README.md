@@ -14,6 +14,19 @@ npm install national-rail-darwin
 
 ### Usage
 
+Darwin exposes 11 functions
+- GetArrBoardWithDetails
+- GetArrDepBoardWithDetails
+- GetArrivalBoard
+- getArrivalDepartureBoard
+- getDepartureBoard
+- getDepBoardWithDetails
+- getFastestDepartures
+- getFastestDeparturesWithDetails
+- getNextDepartures
+- getNextDeparturesWithDetails
+- getServiceDetails
+
 ```javascript
 var rail = require('national-rail-darwin')
 rail.getDepartureBoard('LGX', 10, options, function(err,result){
