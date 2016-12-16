@@ -4,7 +4,7 @@
 
 national-rail-darwin aims to give you json object representations of the SOAP responses from National Rail's Darwin api. 
 
-Currently only CRS codes are supported, a future update will allow full station names to be used.
+Currently only CRS codes are supported, a future update will allow full station names to be used. You can find a complete list of CRS codes on the [ National Rail website ] (http://www.nationalrail.co.uk/stations_destinations/48541.aspx)
 
 ### Installation
 
