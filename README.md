@@ -19,8 +19,11 @@ Currently 3 of the 11 functions that Darwin exposes are available in `national-r
 - getDepartureBoard(crsCode, number of rows, options, callback)
 - getServiceDetails(serviceId, callback)
 
+Your api token can either be provided when the client is created or picked up from the environment variable `DARWIN_TOKEN`
+
 ```javascript
-var rail = require('national-rail-darwin')
+var Rail = require('./index.js')
+var client = new Rail('API TOKEN')
 rail.getDepartureBoard('LGX', 10, options, function(err,result){
 	//do stuff
 })

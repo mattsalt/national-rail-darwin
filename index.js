@@ -4,8 +4,13 @@ var bluebird = require('bluebird')
 var templates = require('./templates.js')
 var baseUrl = 'https://lite.realtime.nationalrail.co.uk/OpenLDBWS/ldb9.asmx'
 
-var thenablePOST = function(xml){
-   var xmlWithToken = xml.replace('${TOKEN}', process.env.DARWIN_TOKEN)
+var Darwin = function(apiKey, options){
+	this.key = apiKey || process.env.DARWIN_TOKEN
+	console.log('this.key = ' + this.key)
+}
+
+Darwin.prototype.thenablePOST = function(xml){
+   var xmlWithToken = xml.replace('${TOKEN}',this.key)
    return new bluebird(function(resolve, reject){
       request.post({
          url: baseUrl,
@@ -14,7 +19,6 @@ var thenablePOST = function(xml){
          },
          body:xmlWithToken
          }, function(err, response, body){
-         console.log(xmlWithToken)
          if(err){
             reject(err)
          }else if(response.statusCode > 300){
@@ -25,9 +29,9 @@ var thenablePOST = function(xml){
       })
    })
 }
-var parseDepartureBoardResponse = function(soapResponse){
+Darwin.prototype.parseDepartureBoardResponse = function(soapResponse){
    var board =
-   extractResponseObject(soapResponse, 'GetDepartureBoardResponse')
+   this.extractResponseObject(soapResponse, 'GetDepartureBoardResponse')
    .childNamed('GetStationBoardResult')
    .childNamed('lt5:trainServices')
    var trains = []
@@ -63,15 +67,15 @@ var parseDepartureBoardResponse = function(soapResponse){
    return result
 }
 
-var extractResponseObject = function(soapMessage, response){
+Darwin.prototype.extractResponseObject = function(soapMessage, response){
 	var parsed = new xmldoc.XmlDocument(soapMessage)
 	var payload = parsed.childNamed('soap:Body').childNamed(response)
 	return payload
 }
 
-var parseArrivalsBoardResponse = function(soapResponse){
+Darwin.prototype.parseArrivalsBoardResponse = function(soapResponse){
    var parsed = new xmldoc.XmlDocument(soapResponse)
-   var board = extractResponseObject(soapResponse, 'GetArrivalBoardResponse')
+   var board = this.extractResponseObject(soapResponse, 'GetArrivalBoardResponse')
    .childNamed('GetStationBoardResult')
    .childNamed('lt5:trainServices')
    var trains = []
@@ -107,8 +111,8 @@ var parseArrivalsBoardResponse = function(soapResponse){
    return result
 }
 
-var parseServiceIdResponse = function(soapResponse){ 
-   var serviceXml = extractResponseObject(soapResponse, 'GetServiceDetailsResponse')
+Darwin.prototype.parseServiceIdResponse = function(soapResponse){ 
+   var serviceXml = this.extractResponseObject(soapResponse, 'GetServiceDetailsResponse')
    .childNamed('GetServiceDetailsResult')
    var service = {}
    serviceXml.eachChild(function(element){
@@ -142,7 +146,8 @@ var parseServiceIdResponse = function(soapResponse){
    return result
 }
 
-var getDepartureBoard = function(station, numrows, options, callback){
+Darwin.prototype.getDepartureBoard = function(station, numrows, options, callback){
+	var client = this	
 	var requestXML = templates.departureBoard.replace('${ROWS}', numrows)
 	requestXML = requestXML.replace('${FROM}', station)
 	if(options && options.filter){
@@ -150,14 +155,15 @@ var getDepartureBoard = function(station, numrows, options, callback){
 	}else{
 		requestXML = requestXML.replace('${FILTER}', '')
 	}
-	thenablePOST(requestXML).then(function(result){
-		callback(null, parseDepartureBoardResponse(result))
+	client.thenablePOST(requestXML).then(function(result){
+		callback(null, client.parseDepartureBoardResponse(result))
 	}).catch(function(err){
 		callback(err, null)
 	})
 }
 
-var getArrivalsBoard = function(station, numrows, options, callback){
+Darwin.prototype.getArrivalsBoard = function(station, numrows, options, callback){
+	var client = this
 	var requestXML = templates.arrivalsBoard.replace('${ROWS}', numrows)
 	requestXML = requestXML.replace('${FROM}', station)
 	if(options && options.filter){
@@ -165,22 +171,21 @@ var getArrivalsBoard = function(station, numrows, options, callback){
 	}else{
 		requestXML = requestXML.replace('${FILTER}', '')
 	}
-	thenablePOST(requestXML).then(function(result){
-		callback(null, parseArrivalsBoardResponse(result))
+	client.thenablePOST(requestXML).then(function(result){
+		callback(null, client.parseArrivalsBoardResponse(result))
 	}).catch(function(err){
 		callback(err, null)
 	})
 }
 
-var getServiceDetails = function(serviceId, callback){
+Darwin.prototype.getServiceDetails = function(serviceId, callback){
+	var client = this
 	var requestXML = templates.serviceDetails.replace('${SERVICEID}', serviceId)
-	thenablePOST(requestXML).then(function(result){
-		callback(null, parseServiceIdResponse(result))
+	client.thenablePOST(requestXML).then(function(result){
+		callback(null, client.parseServiceIdResponse(result))
 	}).catch(function(err){
 		callback(err, null)
 	})
 }
 
-module.exports.getDepartureBoard = getDepartureBoard
-module.exports.getArrivalsBoard = getArrivalsBoard
-module.exports.getServiceDetails = getServiceDetails
+module.exports = Darwin

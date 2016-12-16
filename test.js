@@ -1,5 +1,7 @@
-var rail = require('./index.js')
-rail.getDepartureBoard('ISL',10, null, function(err, result){
+var Rail = require('./index.js')
+var client = new Rail()
+
+client.getDepartureBoard('ISL',10, null, function(err, result){
 	if (err){
 		console.log(err)
 	}else{
@@ -7,7 +9,7 @@ rail.getDepartureBoard('ISL',10, null, function(err, result){
 	}
 })
 
-rail.getArrivalsBoard('ISL',10, null, function(err, result){
+client.getArrivalsBoard('ISL',10, null, function(err, result){
 	if (err){
 		console.log(err)
 	}else{
@@ -15,7 +17,7 @@ rail.getArrivalsBoard('ISL',10, null, function(err, result){
 	}
 })
 
-rail.getServiceDetails('K1L2XHjY1JUq5ou4Oz2UUw==', function(err, result){
+client.getServiceDetails('K1L2XHjY1JUq5ou4Oz2UUw==', function(err, result){
 	if (err){
 		console.log(err)
 	}else{
