@@ -1,16 +1,16 @@
 # national-rail-darwin
 
-H3 Introduction
+### Introduction
 
 national-rail-darwin aims to give you json object representations of the SOAP responses from National Rail's Darwin api. 
 
 Currently only CRS codes are supported, a future update will allow full station names to be used.
 
-H3 Installation
+### Installation
 
 ```npm install national-rail-darwin
 
-H3 Usage
+### Usage
 
 ```javascript
 var rail = require('national-rail-darwin')
