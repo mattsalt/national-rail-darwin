@@ -1,0 +1,29 @@
+{
+  "name": "national-rail-darwin",
+  "version": "0.0.2",
+  "description": " national rail's darwin soap based api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d5039m/national-rail-darwin.git"
+  },
+  "keywords": [
+    "'national",
+    "rail'",
+    "trains"
+  ],
+  "author": "Matthew Salt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/d5039m/national-rail-darwin/issues"
+  },
+  "homepage": "https://github.com/d5039m/national-rail-darwin#readme",
+  "dependencies": {
+    "bluebird": "3.4.6",
+    "request": "2.79.0",
+    "xmldoc": "0.5.1"
+  }
+}
