@@ -14,7 +14,7 @@ npm install national-rail-darwin
 
 ### Usage
 
-Darwin exposes 11 functions
+Darwin exposes 11 functions, 3 of which are currently available in `national-rail-darwin`
 - GetArrBoardWithDetails
 - GetArrDepBoardWithDetails
 - GetArrivalBoard
