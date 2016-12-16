@@ -8,7 +8,9 @@ Currently only CRS codes are supported, a future update will allow full station 
 
 ### Installation
 
-```npm install national-rail-darwin
+```
+npm install national-rail-darwin
+```
 
 ### Usage
 
