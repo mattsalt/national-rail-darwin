@@ -24,4 +24,12 @@ var rail = require('national-rail-darwin')
 rail.getDepartureBoard('LGX', 10, options, function(err,result){
 	//do stuff
 })
+
+rail.getArrivalsBoard('PUT',10, null, function(err, result){
+	//do stuff
+})
+
+rail.getServiceDetails('SERVICE ID', function(err, result){
+	//do stuff
+})
 ```
