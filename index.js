@@ -34,7 +34,7 @@ Darwin.prototype.thenablePOST = function(xml){
 
 Darwin.prototype.getDepartureBoard = function(station, options, callback){
 	if(options && options.rows){
-		var requestXML = templates.departureBoard.replace('${ROWS}', numrows)	
+		var requestXML = templates.departureBoard.replace('${ROWS}', options.numrows)	
 	}else{
 		var requestXML = templates.departureBoard.replace('${ROWS}', 15)
 	}
@@ -54,11 +54,10 @@ Darwin.prototype.getDepartureBoard = function(station, options, callback){
 
 Darwin.prototype.getArrivalsBoard = function(station, options, callback){
 	if(options && options.rows){
-		var requestXML = templates.departureBoard.replace('${ROWS}', numrows)	
+		var requestXML = templates.departureBoard.replace('${ROWS}', options.numrows)	
 	}else{
 		var requestXML = templates.departureBoard.replace('${ROWS}', 15)
 	}
-	var requestXML = templates.arrivalsBoard.replace('${ROWS}', numrows)
 	requestXML = requestXML.replace('${FROM}', station)
 	if(options && options.filter){
 		requestXML = requestXML.replace('${FILTER}', options.filter)
