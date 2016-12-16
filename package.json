@@ -11,9 +11,10 @@
     "url": "git+https://github.com/d5039m/national-rail-darwin.git"
   },
   "keywords": [
-    "'national",
-    "rail'",
-    "trains"
+    "national-rail",
+    "darwin",
+    "trains",
+    "rail"
   ],
   "author": "Matthew Salt",
   "license": "MIT",
