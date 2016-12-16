@@ -54,9 +54,9 @@ Darwin.prototype.getDepartureBoard = function(station, options, callback){
 
 Darwin.prototype.getArrivalsBoard = function(station, options, callback){
 	if(options && options.rows){
-		var requestXML = templates.departureBoard.replace('${ROWS}', options.numrows)	
+		var requestXML = templates.arrivalsBoard.replace('${ROWS}', options.numrows)	
 	}else{
-		var requestXML = templates.departureBoard.replace('${ROWS}', 15)
+		var requestXML = templates.arrivalsBoard.replace('${ROWS}', 15)
 	}
 	requestXML = requestXML.replace('${FROM}', station)
 	if(options && options.filter){
