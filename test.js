@@ -1,15 +1,16 @@
 var Rail = require('./index.js')
 var client = new Rail()
 
-client.getDepartureBoard('ISL',10, null, function(err, result){
+client.getDepartureBoard('ISL', null, function(err, result){
 	if (err){
 		console.log(err)
 	}else{
-		console.log(result)
+		console.log('succeed')
+		// console.log(result)
 	}
 })
 
-client.getArrivalsBoard('ISL',10, null, function(err, result){
+client.getArrivalsBoard('ISL', null, function(err, result){
 	if (err){
 		console.log(err)
 	}else{

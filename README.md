@@ -15,8 +15,8 @@ npm install national-rail-darwin
 ### Usage
 
 Currently 3 of the 11 functions that Darwin exposes are available in `national-rail-darwin`
-- getArrivalBoard(crsCode, number of rows, options, callback)
-- getDepartureBoard(crsCode, number of rows, options, callback)
+- getArrivalBoard(crsCode, options, callback)
+- getDepartureBoard(crsCode, options, callback)
 - getServiceDetails(serviceId, callback)
 
 Your api token can either be provided when the client is created or picked up from the environment variable `DARWIN_TOKEN`
@@ -24,11 +24,11 @@ Your api token can either be provided when the client is created or picked up fr
 ```javascript
 var Rail = require('./index.js')
 var client = new Rail('API TOKEN')
-rail.getDepartureBoard('LGX', 10, options, function(err,result){
+rail.getDepartureBoard('LGX', options, function(err,result){
 	//do stuff
 })
 
-rail.getArrivalsBoard('PUT',10, null, function(err, result){
+rail.getArrivalsBoard('PUT', null, function(err, result){
 	//do stuff
 })
 
@@ -36,3 +36,7 @@ rail.getServiceDetails('SERVICE ID', function(err, result){
 	//do stuff
 })
 ```
+
+### Options
+
+Some functions take an optional options object. See the specific method definitions for details.
