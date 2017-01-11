@@ -15,7 +15,7 @@ var departureBoardTemplate =
 +"<ldb:timeWindow>120</ldb:timeWindow>"
 +"</ldb:GetDepartureBoardRequest>"
 +"</soapenv:Body>"
-+"</soapenv:Envelope>"
++"</soapenv:Envelope>";
 
 var arrivalsBoardTemplate = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:typ=\"http://thalesgroup.com/RTTI/2013-11-28/Token/types\" xmlns:ldb=\"http://thalesgroup.com/RTTI/2016-02-16/ldb/\">"
 +"   <soapenv:Header>"
@@ -33,7 +33,7 @@ var arrivalsBoardTemplate = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xm
 +"         <ldb:timeWindow>120</ldb:timeWindow>"
 +"      </ldb:GetArrivalBoardRequest>"
 +"   </soapenv:Body>"
-+"</soapenv:Envelope>"
++"</soapenv:Envelope>";
 
 var serviceDetailsTemplate = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:typ=\"http://thalesgroup.com/RTTI/2013-11-28/Token/types\" xmlns:ldb=\"http://thalesgroup.com/RTTI/2016-02-16/ldb/\">"
 +"   <soapenv:Header>"
@@ -46,9 +46,9 @@ var serviceDetailsTemplate = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.x
 +"         <ldb:serviceID>${SERVICEID}</ldb:serviceID>"
 +"      </ldb:GetServiceDetailsRequest>"
 +"   </soapenv:Body>"
-+"</soapenv:Envelope>"
++"</soapenv:Envelope>";
 
 
-module.exports.departureBoard = departureBoardTemplate
-module.exports.arrivalsBoard = arrivalsBoardTemplate
-module.exports.serviceDetails = serviceDetailsTemplate
+module.exports.departureBoard = departureBoardTemplate;
+module.exports.arrivalsBoard = arrivalsBoardTemplate;
+module.exports.serviceDetails = serviceDetailsTemplate;
