@@ -82,4 +82,24 @@ Darwin.prototype.getServiceDetails = function (serviceId, callback) {
     })
 };
 
+Darwin.prototype.getNextDeparture = function (station, destination, options, callback) {
+    var requestXML = templates.nextDeparture.replace('${STATION}', station);
+    requestXML = requestXML.replace('${DESTINATION}', destination);
+    this.thenablePOST(requestXML).then(function (result) {
+        callback(null, parser.parseNextDestinationResponse(result))
+    }).catch(function (err) {
+        callback(err, null);
+    });
+};
+
+Darwin.prototype.getArrival = function (station, destination, options, callback) {
+    var requestXML = templates.nextArrival.replace('${STATION}', station);
+    requestXML = requestXML.replace('${DESTINATION}', destination);
+    this.thenablePOST(requestXML).then(function (result) {
+        callback(null, parser.parseNextArrivalResponse(result))
+    }).catch(function (err) {
+        callback(err, null);
+    });
+};
+
 module.exports = Darwin;

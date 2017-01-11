@@ -1,5 +1,12 @@
 var xmldoc = require('xmldoc');
 
+function parseLocation(location) {
+    return {
+        name: location.childNamed('lt4:locationName').val,
+        crs: location.childNamed('lt4:crs').val
+    };
+}
+
 parseArrivalsBoardResponse = function (soapResponse) {
     var board = extractResponseObject(soapResponse, 'GetArrivalBoardResponse')
         .childNamed('GetStationBoardResult')
@@ -13,7 +20,9 @@ parseArrivalsBoardResponse = function (soapResponse) {
             'std': null,
             'etd': null,
             'platform': null,
-            'delayReason': null
+            'delayReason': null,
+            'origin': null,
+            'destination': null
         };
 
         service.eachChild(function (element) {
@@ -37,6 +46,14 @@ parseArrivalsBoardResponse = function (soapResponse) {
                     break;
                 case 'lt4:length':
                     train.length = element.val;
+                    break;
+                case 'lt5:origin':
+                    var location = element.childNamed('lt4:location');
+                    train.origin = parseLocation(location);
+                    break;
+                case 'lt5:destination':
+                    var location = element.childNamed('lt4:location');
+                    train.destination = parseLocation(location);
                     break;
             }
         });
@@ -114,7 +131,9 @@ parseDepartureBoardResponse = function (soapResponse) {
             'std': null,
             'etd': null,
             'platform': null,
-            'delayReason': null
+            'delayReason': null,
+            'origin': null,
+            'destination': null
         };
 
         service.eachChild(function (element) {
@@ -139,6 +158,127 @@ parseDepartureBoardResponse = function (soapResponse) {
                 case 'lt4:length':
                     train.length = element.val;
                     break;
+                case 'lt5:origin':
+                    var location = element.childNamed('lt4:location');
+                    train.origin = parseLocation(location);
+                    break;
+                case 'lt5:destination':
+                    var location = element.childNamed('lt4:location');
+                    train.destination = parseLocation(location);
+                    break;
+            }
+        });
+        trains.push(train)
+    });
+
+    return {'trainServices': trains};
+};
+
+parseNextDestinationResponse = function (response) {
+    var board = extractResponseObject(response, 'GetNextDeparturesResponse')
+        .childNamed('DeparturesBoard')
+        .childNamed('lt5:departures')
+        .childNamed('lt5:destination');
+    var trains = [];
+
+    board.eachChild(function (service) {
+        var train = {
+            'sta': null,
+            'eta': null,
+            'std': null,
+            'etd': null,
+            'platform': null,
+            'delayReason': null,
+            'origin': null,
+            'destination': null
+        };
+
+        service.eachChild(function (element) {
+            switch (element.name) {
+                case 'lt4:std':
+                    train.std = element.val;
+                    train.sta = element.val;
+                    break;
+                case 'lt4:etd':
+                    train.etd = element.val;
+                    train.eta = element.val;
+                    break;
+                case 'lt4:platform':
+                    train.platform = element.val;
+                    break;
+                case 'lt4:delayReason':
+                    train.delayReason = element.val;
+                    break;
+                case 'lt4:serviceID':
+                    train.serviceId = element.val;
+                    break;
+                case 'lt4:length':
+                    train.length = element.val;
+                    break;
+                case 'lt5:origin':
+                    var location = element.childNamed('lt4:location');
+                    train.origin = parseLocation(location);
+                    break;
+                case 'lt5:destination':
+                    var location = element.childNamed('lt4:location');
+                    train.destination = parseLocation(location);
+                    break;
+            }
+        });
+        trains.push(train)
+    });
+
+    return {'trainServices': trains};
+};
+
+parseNextArrivalResponse = function (response) {
+    var board = extractResponseObject(response, 'GetArrivalBoardResponse')
+        .childNamed('GetStationBoardResult')
+        .childNamed('lt5:trainServices');
+    var trains = [];
+
+    board.eachChild(function (service) {
+        var train = {
+            'sta': null,
+            'eta': null,
+            'std': null,
+            'etd': null,
+            'platform': null,
+            'delayReason': null,
+            'origin': null,
+            'destination': null
+        };
+
+        service.eachChild(function (element) {
+            switch (element.name) {
+                case 'lt4:std':
+                    train.std = element.val;
+                    train.sta = element.val;
+                    break;
+                case 'lt4:etd':
+                    train.etd = element.val;
+                    train.eta = element.val;
+                    break;
+                case 'lt4:platform':
+                    train.platform = element.val;
+                    break;
+                case 'lt4:delayReason':
+                    train.delayReason = element.val;
+                    break;
+                case 'lt4:serviceID':
+                    train.serviceId = element.val;
+                    break;
+                case 'lt4:length':
+                    train.length = element.val;
+                    break;
+                case 'lt5:origin':
+                    var location = element.childNamed('lt4:location');
+                    train.origin = parseLocation(location);
+                    break;
+                case 'lt5:destination':
+                    var location = element.childNamed('lt4:location');
+                    train.destination = parseLocation(location);
+                    break;
             }
         });
         trains.push(train)
@@ -150,3 +290,5 @@ parseDepartureBoardResponse = function (soapResponse) {
 module.exports.parseDepartureBoardResponse = parseDepartureBoardResponse;
 module.exports.parseServiceIdResponse = parseServiceIdResponse;
 module.exports.parseArrivalsBoardResponse = parseArrivalsBoardResponse;
+module.exports.parseNextDestinationResponse = parseNextDestinationResponse;
+module.exports.parseNextArrivalResponse = parseNextArrivalResponse;
