@@ -107,11 +107,48 @@ parseServiceIdResponse = function (soapResponse) {
             case 'lt5:rsid':
                 service.rsid = element.val;
                 break;
+            case 'lt4:previousCallingPoints':
+                var previousCallingPoints = element.childNamed('lt4:callingPointList')
+                service.previousCallingPoints = parseCallingPointList(previousCallingPoints)
+                break;
+            case 'lt4:subsequentCallingPoints':
+                var subsequentCallingPoints = element.childNamed('lt4:callingPointList')
+                service.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
+                break;
         }
     });
 
     return {'serviceDetails': service}
 };
+
+parseCallingPointList = function (soapCallingPointList){
+    callingPoints = []
+    soapCallingPointList.eachChild(function(child){
+        callingPoint = {}
+        child.eachChild(function(element){
+            console.log(element.name)
+            switch( element.name ){
+                case 'lt4:length':
+                    callingPoint.length = element.val;
+                    break;
+                case 'lt4:crs':
+                    callingPoint.crs = element.val;
+                    break;
+                case 'lt4:locationName':
+                    callingPoint.locationName = element.val;
+                    break;
+                case 'lt4:st':
+                    callingPoint.st = element.val;
+                    break;
+                case 'lt4:et':
+                    callingPoint.et = element.val;
+                    break;
+            }
+        })
+        callingPoints.push(callingPoint)
+    })
+    return callingPoints
+}
 
 extractResponseObject = function (soapMessage, response) {
     var parsed = new xmldoc.XmlDocument(soapMessage);
@@ -166,6 +203,7 @@ parseDepartureBoardResponse = function (soapResponse) {
                     var location = element.childNamed('lt4:location');
                     train.destination = parseLocation(location);
                     break;
+
             }
         });
         trains.push(train)
