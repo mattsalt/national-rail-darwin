@@ -14,10 +14,11 @@ npm install national-rail-darwin
 
 ### Usage
 
-Currently 3 of the 11 functions that Darwin exposes are available in `national-rail-darwin`
+Currently 4 of the 11 functions that Darwin exposes are available in `national-rail-darwin`
 - getArrivalBoard(crsCode, options, callback)
 - getDepartureBoard(crsCode, options, callback)
 - getServiceDetails(serviceId, callback)
+- getNextDeparture(crsCode, destinationCrsCode, options, callback)
 
 Your api token can either be provided when the client is created or picked up from the environment variable `DARWIN_TOKEN`
 
@@ -40,3 +41,42 @@ rail.getServiceDetails('SERVICE ID', function(err, result){
 ### Options
 
 Some functions take an optional options object. See the specific method definitions for details.
+
+### Methods
+
+```javascript
+rail.getDepartureBoard('LGX', {}}, function(err,result){
+    //do stuff
+})
+```
+
+Gets the live departure board for the supplied station. 
+Options:
+filter: Only show trains that call at the supplied station.
+rows: Maximum number of services to retrieve.
+
+```javascript
+rail.getArrivalsBoard('PUT', {}}, function(err, result){
+    //do stuff
+})
+```
+Similar to getDepartureBoard but shows live arrivals information for a particular station.
+Options:
+filter: Only show trains that have called at the supplied station.
+rows: Maximum number of services to retrieve.
+
+
+```javascript
+rail.getServiceDetails('SERVICE ID', function(err, result){
+    //do stuff
+})
+```
+
+Gets detailed information about a particular service. ServiceId is returned from other calls such as getDepartureBoard or getNextDeparture. The object returns includes all calling points of the service requested.
+
+```javascript
+rail.getNextDeparture(crsCode, destinationCrsCode, {}, function(err, result){
+    //do stuff
+})
+```
+Returns the next train leaving from supplied station calling at the destination CrsCode.
