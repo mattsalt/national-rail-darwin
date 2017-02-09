@@ -26,5 +26,8 @@
     "bluebird": "3.4.6",
     "request": "2.79.0",
     "xmldoc": "0.5.1"
+  },
+  "devDependencies": {
+    "standard": "^8.6.0"
   }
 }

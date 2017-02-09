@@ -1,7 +1,7 @@
-var Rail = require('./index.js');
+var Rail = require('./index.js')
 var fs = require('fs')
 var token = fs.readFileSync('./token.txt')
-var client = new Rail();
+var client = new Rail(token)
 
 // client.getDepartureBoard('ISL', null, function (err, result) {
 //     if (err) {
@@ -11,13 +11,13 @@ var client = new Rail();
 //     }
 // });
 
-// client.getServiceDetails('2oawPO4VxtqC3k9MCBO+zg==', function (err, result) {
-//     if (err) {
-//         console.log(err)
-//     } else {
-//         console.log(result)
-//     }
-// });
+client.getServiceDetails('1saKq95dW/EP0huVfmHC/A==', function (err, result) {
+    if (err) {
+        console.log(err)
+    } else {
+        console.log(result)
+    }
+});
 
     // client.getNextDeparture('ISL','PUT',{}, function (err, result) {
     //     if (err) {
@@ -27,11 +27,11 @@ var client = new Rail();
     //     }
     // });
 
-client.getArrival('ISL','PUT',{}, function (err, result) {
-    if (err) {
-        console.log(err)
-    } else {
-        console.log(result)
-    }
-});
+    // client.getArrival('ISL', 'PUT', {}, function (err, result) {
+    //   if (err) {
+    //         console.log(err)
+    //   } else {
+    //          console.log(result)
+    //   }
+    // })
 
