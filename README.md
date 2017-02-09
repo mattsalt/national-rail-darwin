@@ -28,15 +28,15 @@ Your api token can either be provided when the client is created or picked up fr
 var Rail = require('./index.js')
 var client = new Rail('API TOKEN')
 rail.getDepartureBoard('LGX', options, function(err,result){
-	//do stuff
+    //do stuff
 })
 
 rail.getArrivalsBoard('PUT', null, function(err, result){
-	//do stuff
+    //do stuff
 })
 
 rail.getServiceDetails('SERVICE ID', function(err, result){
-	//do stuff
+    //do stuff
 })
 ```
 
@@ -46,6 +46,30 @@ Some functions take an optional options object. See the specific method definiti
 
 ### Methods
 
+All methods return arrays of basic service objects of the form:
+```
+{ 
+  sta: '23:57',
+  eta: 'On time',
+  std: '23:57',
+  etd: 'On time',
+  platform: '2',
+  delayReason: null,
+  origin: {
+    name:stationname,
+    crs:sta
+  },
+  destination: {    
+    name:stationname,
+    crs:sta 
+  },
+  length: '5',
+  serviceId: 'xxxxxxxxxxxxxxxx+xx/xxx=='
+}
+```       
+Some methods enrich this with additional detail. These are specified in with the individual methods.
+
+#### getDepartureBoard
 ```javascript
 rail.getDepartureBoard('LGX', {}}, function(err,result){
     //do stuff
@@ -54,28 +78,14 @@ rail.getDepartureBoard('LGX', {}}, function(err,result){
 
 Gets the live departure board for the supplied station. 
 Options:
-filter: Only show trains that call at the supplied station.
-rows: Maximum number of services to retrieve.
+'filter': Only show trains that call at the supplied station.
+'rows': Maximum number of services to retrieve.
 
 returns an array of the following objects:
 ```
-[{ sta: '23:57',
-       eta: 'On time',
-       std: '23:57',
-       etd: 'On time',
-       platform: '2',
-       delayReason: null,
-       origin: {
-         name:stationname,
-         crs:sta
-       },
-       destination: {
-         name:stationname,
-         crs:sta
-       },
-       length: '5',
-       serviceId: 'xxxxxxxxxxxxxxxx+xx/xxx==' } ]
+
 ```
+#### getArrivalsBoard
 
 ```javascript
 rail.getArrivalsBoard('PUT', {}}, function(err, result){
@@ -84,10 +94,10 @@ rail.getArrivalsBoard('PUT', {}}, function(err, result){
 ```
 Similar to getDepartureBoard but shows live arrivals information for a particular station.
 Options:
-filter: Only show trains that have called at the supplied station.
-rows: Maximum number of services to retrieve.
+'filter': Only show trains that have called at the supplied station.
+'rows': Maximum number of services to retrieve.
 
-
+#### getServiceDetails
 ```javascript
 rail.getServiceDetails('SERVICE ID', function(err, result){
     //do stuff
@@ -96,6 +106,7 @@ rail.getServiceDetails('SERVICE ID', function(err, result){
 
 Gets detailed information about a particular service. ServiceId is returned from other calls such as getDepartureBoard or getNextDeparture. The object returns includes all calling points of the service requested.
 
+#### getNextDepartures
 ```javascript
 rail.getNextDeparture(crsCode, destinationCrsCode, {}, function(err, result){
     //do stuff
