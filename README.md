@@ -83,10 +83,6 @@ Options:
 'filter': Only show trains that call at the supplied station.
 'rows': Maximum number of services to retrieve.
 
-returns an array of the following objects:
-```
-
-```
 #### getArrivalsBoard
 
 ```javascript
