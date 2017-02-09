@@ -1,5 +1,7 @@
 # national-rail-darwin
 
+[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+
 ### Introduction
 
 `national-rail-darwin` aims to give you json object representations of the SOAP responses from National Rail's Darwin api. 
