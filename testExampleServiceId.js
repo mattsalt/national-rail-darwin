@@ -1,6 +1,6 @@
 var parsers = require('./parsers.js')
-fs = require('fs')
-fileContent = fs.readFileSync('./exampleResponses/serviceDetails.xml', 'UTF-8')
+var fs = require('fs')
+var fileContent = fs.readFileSync('./exampleResponses/serviceDetails.xml', 'UTF-8')
 
 console.log(fileContent)
 
