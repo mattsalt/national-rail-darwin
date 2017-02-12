@@ -25,7 +25,7 @@ Currently 5 of the 11 functions that Darwin exposes are available in `national-r
 
 Version 1.0.0 will be released when all 11 functions are implemented.
 
-Your api token can either be provided when the client is created or picked up from the environment variable `DARWIN_TOKEN`
+Your api token can either be provided when the client is created or picked up from the environment variable `DARWIN_TOKEN`.
 
 ### Options
 
