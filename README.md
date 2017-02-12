@@ -101,6 +101,6 @@ rail.getDepartureBoardWithDetails('LGX', {}, function(err,result){
     //do stuff
 })
 ```
-Adds subsequent calling points list to the standard departure board response.
+Adds a list of future calling points to the standard departure board response.
 'filter': Only show trains that call at the supplied station.
 'rows': Maximum number of services to retrieve.
