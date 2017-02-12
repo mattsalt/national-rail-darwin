@@ -110,4 +110,4 @@ rail.getNextDeparture(crsCode, destinationCrsCode, {}, function(err, result){
     //do stuff
 })
 ```
-Returns the next train leaving from supplied station calling at the destination CrsCode.
+Returns the next train leaving from supplied station calling at the destination CRSCode.
