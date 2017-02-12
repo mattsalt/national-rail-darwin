@@ -68,10 +68,8 @@ Darwin.prototype.getDepartureBoardWithDetails = function (station, options, call
     requestXML = requestXML.replace('$$FILTER$$', '')
   }
   this.thenablePOST(requestXML).then(function (result) {
-    console.log('1')
     callback(null, parser.parseDepartureBoardWithDetailsResponse(result))
   }).catch(function (err) {
-    console.log('2')
     callback(err, null)
   })
 }
