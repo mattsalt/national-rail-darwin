@@ -2,6 +2,7 @@ var Rail = require('./index.js')
 var fs = require('fs')
 var token = fs.readFileSync('./token.txt')
 var client = new Rail(token)
+var util = require('util')
 
 // client.getDepartureBoard('ISL', null, function (err, result) {
 //     if (err) {
@@ -19,11 +20,19 @@ var client = new Rail(token)
 //     }
 // });
 
-client.getNextDeparture('ISL', 'PUT', {}, function (err, result) {
+// client.getNextDeparture('ISL', 'PUT', {}, function (err, result) {
+//   if (err) {
+//     console.log(err)
+//   } else {
+//     console.log(result)
+//   }
+// })
+
+client.getDepartureBoardWithDetails('SVG', {}, function (err, result) {
   if (err) {
     console.log(err)
   } else {
-    console.log(result)
+    console.log(util.inspect(result, false, null))
   }
 })
 

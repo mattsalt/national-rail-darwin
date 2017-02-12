@@ -126,7 +126,6 @@ function parseCallingPointList (soapCallingPointList) {
   soapCallingPointList.eachChild(function (child) {
     var callingPoint = {}
     child.eachChild(function (element) {
-      console.log(element.name)
       switch (element.name) {
         case 'lt4:length':
           callingPoint.length = element.val
@@ -209,6 +208,64 @@ function parseDepartureBoardResponse (soapResponse) {
     trains.push(train)
   })
 
+  return {'trainServices': trains}
+}
+
+function parseDepartureBoardWithDetailsResponse (soapResponse) {
+  var board = extractResponseObject(soapResponse, 'GetDepBoardWithDetailsResponse')
+        .childNamed('GetStationBoardResult')
+        .childNamed('lt5:trainServices')
+  var trains = []
+  board.eachChild(function (service) {
+    var train = {
+      'sta': null,
+      'eta': null,
+      'std': null,
+      'etd': null,
+      'platform': null,
+      'delayReason': null,
+      'origin': null,
+      'destination': null
+    }
+
+    service.eachChild(function (element) {
+      switch (element.name) {
+        case 'lt4:std':
+          train.std = element.val
+          train.sta = element.val
+          break
+        case 'lt4:etd':
+          train.etd = element.val
+          train.eta = element.val
+          break
+        case 'lt4:platform':
+          train.platform = element.val
+          break
+        case 'lt4:delayReason':
+          train.delayReason = element.val
+          break
+        case 'lt4:serviceID':
+          train.serviceId = element.val
+          break
+        case 'lt4:length':
+          train.length = element.val
+          break
+        case 'lt5:origin':
+          var origin = element.childNamed('lt4:location')
+          train.origin = parseLocation(origin)
+          break
+        case 'lt5:destination':
+          var destin = element.childNamed('lt4:location')
+          train.destination = parseLocation(destin)
+          break
+        case 'lt5:subsequentCallingPoints':
+          var subsequentCallingPoints = element.childNamed('lt4:callingPointList')
+          train.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
+          break
+      }
+    })
+    trains.push(train)
+  })
   return {'trainServices': trains}
 }
 
@@ -326,6 +383,7 @@ function parseNextArrivalResponse (response) {
 }
 
 module.exports.parseDepartureBoardResponse = parseDepartureBoardResponse
+module.exports.parseDepartureBoardWithDetailsResponse = parseDepartureBoardWithDetailsResponse
 module.exports.parseServiceIdResponse = parseServiceIdResponse
 module.exports.parseArrivalsBoardResponse = parseArrivalsBoardResponse
 module.exports.parseNextDestinationResponse = parseNextDestinationResponse

@@ -26,25 +26,9 @@ Version 1.0.0 will be released when all 11 functions are implemented.
 
 Your api token can either be provided when the client is created or picked up from the environment variable `DARWIN_TOKEN`
 
-```javascript
-var Rail = require('./index.js')
-var client = new Rail('API TOKEN')
-rail.getDepartureBoard('LGX', options, function(err,result){
-    //do stuff
-})
-
-rail.getArrivalsBoard('PUT', null, function(err, result){
-    //do stuff
-})
-
-rail.getServiceDetails('SERVICE ID', function(err, result){
-    //do stuff
-})
-```
-
 ### Options
 
-Some functions take an optional options object. See the specific method definitions for details.
+Some functions take an options object. See the specific method definitions for details of these.
 
 ### Methods
 
@@ -58,22 +42,21 @@ All methods return arrays of basic service objects of the form:
   platform: '2',
   delayReason: null,
   origin: {
-    name:stationname,
-    crs:sta
+    name:<stationname>,
+    crs:<crsCode>
   },
   destination: {    
-    name:stationname,
-    crs:sta 
+    name:<stationname>,
+    crs:<crsCode>
   },
   length: '5',
   serviceId: 'xxxxxxxxxxxxxxxx+xx/xxx=='
 }
 ```       
-Some methods enrich this with additional detail. These are specified in with the individual methods.
 
 #### getDepartureBoard
 ```javascript
-rail.getDepartureBoard('LGX', {}}, function(err,result){
+rail.getDepartureBoard('LGX', {}, function(err,result){
     //do stuff
 })
 ```
@@ -86,7 +69,7 @@ Options:
 #### getArrivalsBoard
 
 ```javascript
-rail.getArrivalsBoard('PUT', {}}, function(err, result){
+rail.getArrivalsBoard('PUT', {}, function(err, result){
     //do stuff
 })
 ```
@@ -104,10 +87,20 @@ rail.getServiceDetails('SERVICE ID', function(err, result){
 
 Gets detailed information about a particular service. ServiceId is returned from other calls such as getDepartureBoard or getNextDeparture. The object returns includes all calling points of the service requested.
 
-#### getNextDepartures
+#### getNextDeparture
 ```javascript
 rail.getNextDeparture(crsCode, destinationCrsCode, {}, function(err, result){
     //do stuff
 })
 ```
 Returns the next train leaving from supplied station calling at the destination CRSCode.
+
+#### getDepartureBoardWithDetails
+```javascript
+rail.getDepartureBoardWithDetails('LGX', {}, function(err,result){
+    //do stuff
+})
+```
+Adds subsequent calling points list to the standard departure board response.
+'filter': Only show trains that call at the supplied station.
+'rows': Maximum number of services to retrieve.

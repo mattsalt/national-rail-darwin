@@ -53,6 +53,29 @@ Darwin.prototype.getDepartureBoard = function (station, options, callback) {
   })
 }
 
+Darwin.prototype.getDepartureBoardWithDetails = function (station, options, callback) {
+  var requestXML = null
+  if (options && options.rows) {
+    requestXML = templates.departureBoardWithDetails.replace('$$ROWS$$', options.numrows)
+  } else {
+    requestXML = templates.departureBoardWithDetails.replace('$$ROWS$$', 15)
+  }
+
+  requestXML = requestXML.replace('$$FROM$$', station)
+  if (options && options.filter) {
+    requestXML = requestXML.replace('$$FILTER$$', options.filter)
+  } else {
+    requestXML = requestXML.replace('$$FILTER$$', '')
+  }
+  this.thenablePOST(requestXML).then(function (result) {
+    console.log('1')
+    callback(null, parser.parseDepartureBoardWithDetailsResponse(result))
+  }).catch(function (err) {
+    console.log('2')
+    callback(err, null)
+  })
+}
+
 Darwin.prototype.getArrivalsBoard = function (station, options, callback) {
   var requestXML = null
   if (options && options.rows) {
