@@ -12,55 +12,9 @@ function parseArrivalsBoardResponse (soapResponse) {
         .childNamed('GetStationBoardResult')
         .childNamed('lt5:trainServices')
   var trains = []
-
   board.eachChild(function (service) {
-    var train = {
-      'sta': null,
-      'eta': null,
-      'std': null,
-      'etd': null,
-      'platform': null,
-      'delayReason': null,
-      'origin': null,
-      'destination': null
-    }
-
-    service.eachChild(function (element) {
-      switch (element.name) {
-        case 'lt4:std':
-          train.std = element.val
-          train.sta = element.val
-          break
-        case 'lt4:etd':
-          train.etd = element.val
-          train.eta = element.val
-          break
-        case 'lt4:platform':
-          train.platform = element.val
-          break
-        case 'lt4:delayReason':
-          train.delayReason = element.val
-          break
-        case 'lt4:serviceID':
-          train.serviceId = element.val
-          break
-        case 'lt4:length':
-          train.length = element.val
-          break
-        case 'lt5:origin':
-          var origin = element.childNamed('lt4:location')
-          train.origin = parseLocation(origin)
-          break
-        case 'lt5:destination':
-          var destin = element.childNamed('lt4:location')
-          train.destination = parseLocation(destin)
-          break
-      }
-    })
-
-    trains.push(train)
+    trains.push(parseStandardService(service))
   })
-
   return {'trainServices': trains}
 }
 
@@ -71,55 +25,15 @@ function parseArrivalsBoardWithDetails (soapResponse) {
   var trains = []
 
   board.eachChild(function (service) {
-    var train = {
-      'sta': null,
-      'eta': null,
-      'std': null,
-      'etd': null,
-      'platform': null,
-      'delayReason': null,
-      'origin': null,
-      'destination': null
-    }
-
+    var train = parseStandardService(service)
     service.eachChild(function (element) {
       switch (element.name) {
-        case 'lt4:std':
-          train.std = element.val
-          train.sta = element.val
-          break
-        case 'lt4:etd':
-          train.etd = element.val
-          train.eta = element.val
-          break
-        case 'lt4:platform':
-          train.platform = element.val
-          break
-        case 'lt4:delayReason':
-          train.delayReason = element.val
-          break
-        case 'lt4:serviceID':
-          train.serviceId = element.val
-          break
-        case 'lt4:length':
-          train.length = element.val
-          break
-        case 'lt5:origin':
-          var origin = element.childNamed('lt4:location')
-          train.origin = parseLocation(origin)
-          break
-        case 'lt5:destination':
-          var destin = element.childNamed('lt4:location')
-          train.destination = parseLocation(destin)
-          break
         case 'lt5:previousCallingPoints':
           var previousCallingPoints = element.childNamed('lt4:callingPointList')
-          console.log('PREVIOUS -> ' + previousCallingPoints)
           train.previousCallingPoints = parseCallingPointList(previousCallingPoints)
           break
       }
     })
-
     trains.push(train)
   })
 
@@ -131,55 +45,9 @@ function parseArrivalsDepartureBoard (soapResponse) {
         .childNamed('GetStationBoardResult')
         .childNamed('lt5:trainServices')
   var trains = []
-
   board.eachChild(function (service) {
-    var train = {
-      'sta': null,
-      'eta': null,
-      'std': null,
-      'etd': null,
-      'platform': null,
-      'delayReason': null,
-      'origin': null,
-      'destination': null
-    }
-
-    service.eachChild(function (element) {
-      switch (element.name) {
-        case 'lt4:std':
-          train.std = element.val
-          train.sta = element.val
-          break
-        case 'lt4:etd':
-          train.etd = element.val
-          train.eta = element.val
-          break
-        case 'lt4:platform':
-          train.platform = element.val
-          break
-        case 'lt4:delayReason':
-          train.delayReason = element.val
-          break
-        case 'lt4:serviceID':
-          train.serviceId = element.val
-          break
-        case 'lt4:length':
-          train.length = element.val
-          break
-        case 'lt5:origin':
-          var origin = element.childNamed('lt4:location')
-          train.origin = parseLocation(origin)
-          break
-        case 'lt5:destination':
-          var destin = element.childNamed('lt4:location')
-          train.destination = parseLocation(destin)
-          break
-      }
-    })
-
-    trains.push(train)
+    trains.push(parseStandardService(service))
   })
-
   return {'trainServices': trains}
 }
 
@@ -190,47 +58,9 @@ function parseArrivalsDepartureBoardWithDetails (soapResponse) {
   var trains = []
 
   board.eachChild(function (service) {
-    var train = {
-      'sta': null,
-      'eta': null,
-      'std': null,
-      'etd': null,
-      'platform': null,
-      'delayReason': null,
-      'origin': null,
-      'destination': null
-    }
-
+    var train = parseStandardService(service)
     service.eachChild(function (element) {
       switch (element.name) {
-        case 'lt4:std':
-          train.std = element.val
-          train.sta = element.val
-          break
-        case 'lt4:etd':
-          train.etd = element.val
-          train.eta = element.val
-          break
-        case 'lt4:platform':
-          train.platform = element.val
-          break
-        case 'lt4:delayReason':
-          train.delayReason = element.val
-          break
-        case 'lt4:serviceID':
-          train.serviceId = element.val
-          break
-        case 'lt4:length':
-          train.length = element.val
-          break
-        case 'lt5:origin':
-          var origin = element.childNamed('lt4:location')
-          train.origin = parseLocation(origin)
-          break
-        case 'lt5:destination':
-          var destin = element.childNamed('lt4:location')
-          train.destination = parseLocation(destin)
-          break
         case 'lt5:previousCallingPoints':
           var previousCallingPoints = element.childNamed('lt4:callingPointList')
           train.previousCallingPoints = parseCallingPointList(previousCallingPoints)
@@ -241,7 +71,6 @@ function parseArrivalsDepartureBoardWithDetails (soapResponse) {
           break
       }
     })
-
     trains.push(train)
   })
 
@@ -251,46 +80,10 @@ function parseArrivalsDepartureBoardWithDetails (soapResponse) {
 function parseServiceIdResponse (soapResponse) {
   var serviceXml = extractResponseObject(soapResponse, 'GetServiceDetailsResponse')
         .childNamed('GetServiceDetailsResult')
-  var service = {}
+  var service = parseStandardService(serviceXml)
 
   serviceXml.eachChild(function (element) {
     switch (element.name) {
-      case 'lt4:generatedAt':
-        service.generatedAt = element.val
-        break
-      case 'lt4:sta':
-        service.sta = element.val
-        break
-      case 'lt4:eta':
-        service.eta = element.val
-        break
-      case 'lt4:etd':
-        service.etd = element.val
-        break
-      case 'lt4:std':
-        service.std = element.val
-        break
-      case 'lt4:platform':
-        service.platform = element.val
-        break
-      case 'lt4:delayReason':
-        service.delayReason = element.val
-        break
-      case 'lt4:serviceID':
-        service.serviceId = element.val
-        break
-      case 'lt4:length':
-        service.length = element.val
-        break
-      case 'lt4:operator':
-        service.operator = element.val
-        break
-      case 'lt4:operatorCode':
-        service.operatorCode = element.val
-        break
-      case 'lt5:rsid':
-        service.rsid = element.val
-        break
       case 'lt4:previousCallingPoints':
         var previousCallingPoints = element.childNamed('lt4:callingPointList')
         service.previousCallingPoints = parseCallingPointList(previousCallingPoints)
@@ -345,53 +138,8 @@ function parseDepartureBoardResponse (soapResponse) {
   var trains = []
 
   board.eachChild(function (service) {
-    var train = {
-      'sta': null,
-      'eta': null,
-      'std': null,
-      'etd': null,
-      'platform': null,
-      'delayReason': null,
-      'origin': null,
-      'destination': null
-    }
-
-    service.eachChild(function (element) {
-      switch (element.name) {
-        case 'lt4:std':
-          train.std = element.val
-          train.sta = element.val
-          break
-        case 'lt4:etd':
-          train.etd = element.val
-          train.eta = element.val
-          break
-        case 'lt4:platform':
-          train.platform = element.val
-          break
-        case 'lt4:delayReason':
-          train.delayReason = element.val
-          break
-        case 'lt4:serviceID':
-          train.serviceId = element.val
-          break
-        case 'lt4:length':
-          train.length = element.val
-          break
-        case 'lt5:origin':
-          var origin = element.childNamed('lt4:location')
-          train.origin = parseLocation(origin)
-          break
-        case 'lt5:destination':
-          var destin = element.childNamed('lt4:location')
-          train.destination = parseLocation(destin)
-          break
-
-      }
-    })
-    trains.push(train)
+    trains.push(parseStandardService(service))
   })
-
   return {'trainServices': trains}
 }
 
@@ -401,50 +149,12 @@ function parseDepartureBoardWithDetailsResponse (soapResponse) {
         .childNamed('lt5:trainServices')
   var trains = []
   board.eachChild(function (service) {
-    var train = {
-      'sta': null,
-      'eta': null,
-      'std': null,
-      'etd': null,
-      'platform': null,
-      'delayReason': null,
-      'origin': null,
-      'destination': null
-    }
-
+    var train = parseStandardService(service)
     service.eachChild(function (element) {
       switch (element.name) {
-        case 'lt4:std':
-          train.std = element.val
-          train.sta = element.val
-          break
-        case 'lt4:etd':
-          train.etd = element.val
-          train.eta = element.val
-          break
-        case 'lt4:platform':
-          train.platform = element.val
-          break
-        case 'lt4:delayReason':
-          train.delayReason = element.val
-          break
-        case 'lt4:serviceID':
-          train.serviceId = element.val
-          break
-        case 'lt4:length':
-          train.length = element.val
-          break
-        case 'lt5:origin':
-          var origin = element.childNamed('lt4:location')
-          train.origin = parseLocation(origin)
-          break
-        case 'lt5:destination':
-          var destin = element.childNamed('lt4:location')
-          train.destination = parseLocation(destin)
-          break
         case 'lt5:subsequentCallingPoints':
           var subsequentCallingPoints = element.childNamed('lt4:callingPointList')
-          train.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
+          service.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
           break
       }
     })
@@ -461,50 +171,7 @@ function parseNextDestinationResponse (response) {
   var trains = []
 
   board.eachChild(function (service) {
-    var train = {
-      'sta': null,
-      'eta': null,
-      'std': null,
-      'etd': null,
-      'platform': null,
-      'delayReason': null,
-      'origin': null,
-      'destination': null
-    }
-
-    service.eachChild(function (element) {
-      switch (element.name) {
-        case 'lt4:std':
-          train.std = element.val
-          train.sta = element.val
-          break
-        case 'lt4:etd':
-          train.etd = element.val
-          train.eta = element.val
-          break
-        case 'lt4:platform':
-          train.platform = element.val
-          break
-        case 'lt4:delayReason':
-          train.delayReason = element.val
-          break
-        case 'lt4:serviceID':
-          train.serviceId = element.val
-          break
-        case 'lt4:length':
-          train.length = element.val
-          break
-        case 'lt5:origin':
-          var origin = element.childNamed('lt4:location')
-          train.origin = parseLocation(origin)
-          break
-        case 'lt5:destination':
-          var destin = element.childNamed('lt4:location')
-          train.destination = parseLocation(destin)
-          break
-      }
-    })
-    trains.push(train)
+    trains.push(parseStandardService(service))
   })
 
   return {'trainServices': trains}
@@ -518,47 +185,9 @@ function parseNextDepartureWithDetailsResponse (response) {
   var trains = []
 
   board.eachChild(function (service) {
-    var train = {
-      'sta': null,
-      'eta': null,
-      'std': null,
-      'etd': null,
-      'platform': null,
-      'delayReason': null,
-      'origin': null,
-      'destination': null
-    }
-
+    var train = parseStandardService(service)
     service.eachChild(function (element) {
       switch (element.name) {
-        case 'lt4:std':
-          train.std = element.val
-          train.sta = element.val
-          break
-        case 'lt4:etd':
-          train.etd = element.val
-          train.eta = element.val
-          break
-        case 'lt4:platform':
-          train.platform = element.val
-          break
-        case 'lt4:delayReason':
-          train.delayReason = element.val
-          break
-        case 'lt4:serviceID':
-          train.serviceId = element.val
-          break
-        case 'lt4:length':
-          train.length = element.val
-          break
-        case 'lt5:origin':
-          var origin = element.childNamed('lt4:location')
-          train.origin = parseLocation(origin)
-          break
-        case 'lt5:destination':
-          var destin = element.childNamed('lt4:location')
-          train.destination = parseLocation(destin)
-          break
         case 'lt5:subsequentCallingPoints':
           var subsequentCallingPoints = element.childNamed('lt4:callingPointList')
           service.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
@@ -578,50 +207,7 @@ function parseNextArrivalResponse (response) {
   var trains = []
 
   board.eachChild(function (service) {
-    var train = {
-      'sta': null,
-      'eta': null,
-      'std': null,
-      'etd': null,
-      'platform': null,
-      'delayReason': null,
-      'origin': null,
-      'destination': null
-    }
-
-    service.eachChild(function (element) {
-      switch (element.name) {
-        case 'lt4:std':
-          train.std = element.val
-          train.sta = element.val
-          break
-        case 'lt4:etd':
-          train.etd = element.val
-          train.eta = element.val
-          break
-        case 'lt4:platform':
-          train.platform = element.val
-          break
-        case 'lt4:delayReason':
-          train.delayReason = element.val
-          break
-        case 'lt4:serviceID':
-          train.serviceId = element.val
-          break
-        case 'lt4:length':
-          train.length = element.val
-          break
-        case 'lt5:origin':
-          var origin = element.childNamed('lt4:location')
-          train.origin = parseLocation(origin)
-          break
-        case 'lt5:destination':
-          var destin = element.childNamed('lt4:location')
-          train.destination = parseLocation(destin)
-          break
-      }
-    })
-    trains.push(train)
+    trains.push(parseStandardService(service))
   })
   return {'trainServices': trains}
 }
@@ -632,52 +218,8 @@ function parseFastestDeparture (response) {
         .childNamed('lt5:departures')
         .childNamed('lt5:destination')
   var trains = []
-
   board.eachChild(function (service) {
-    var train = {
-      'sta': null,
-      'eta': null,
-      'std': null,
-      'etd': null,
-      'platform': null,
-      'delayReason': null,
-      'origin': null,
-      'destination': null
-    }
-
-    service.eachChild(function (element) {
-      switch (element.name) {
-        case 'lt4:std':
-          train.std = element.val
-          train.sta = element.val
-          break
-        case 'lt4:etd':
-          train.etd = element.val
-          train.eta = element.val
-          break
-        case 'lt4:platform':
-          train.platform = element.val
-          break
-        case 'lt4:delayReason':
-          train.delayReason = element.val
-          break
-        case 'lt4:serviceID':
-          train.serviceId = element.val
-          break
-        case 'lt4:length':
-          train.length = element.val
-          break
-        case 'lt5:origin':
-          var origin = element.childNamed('lt4:location')
-          train.origin = parseLocation(origin)
-          break
-        case 'lt5:destination':
-          var destin = element.childNamed('lt4:location')
-          train.destination = parseLocation(destin)
-          break
-      }
-    })
-    trains.push(train)
+    trains.push(parseStandardService(service))
   })
   return {'trainServices': trains}
 }
@@ -687,54 +229,15 @@ function parseFastestDepartureWithDetails (response) {
         .childNamed('DeparturesBoard')
         .childNamed('lt5:departures')
         .childNamed('lt5:destination')
-   console.log(board)
   var trains = []
 
   board.eachChild(function (service) {
-    var train = {
-      'sta': null,
-      'eta': null,
-      'std': null,
-      'etd': null,
-      'platform': null,
-      'delayReason': null,
-      'origin': null,
-      'destination': null
-    }
-
+    var train = parseStandardService(service)
     service.eachChild(function (element) {
       switch (element.name) {
-        case 'lt4:std':
-          train.std = element.val
-          train.sta = element.val
-          break
-        case 'lt4:etd':
-          train.etd = element.val
-          train.eta = element.val
-          break
-        case 'lt4:platform':
-          train.platform = element.val
-          break
-        case 'lt4:delayReason':
-          train.delayReason = element.val
-          break
-        case 'lt4:serviceID':
-          train.serviceId = element.val
-          break
-        case 'lt4:length':
-          train.length = element.val
-          break
-        case 'lt5:origin':
-          var origin = element.childNamed('lt4:location')
-          train.origin = parseLocation(origin)
-          break
-        case 'lt5:destination':
-          var destin = element.childNamed('lt4:location')
-          train.destination = parseLocation(destin)
-          break
         case 'lt5:subsequentCallingPoints':
           var subsequentCallingPoints = element.childNamed('lt4:callingPointList')
-          train.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
+          service.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
           break
       }
     })
@@ -742,6 +245,60 @@ function parseFastestDepartureWithDetails (response) {
   })
   return {'trainServices': trains}
 }
+
+function parseStandardService (service) {
+  var train = {}
+  service.eachChild(function (element) {
+    switch (element.name) {
+      case 'lt4:generatedAt':
+        service.generatedAt = element.val
+        break
+      case 'lt4:std':
+        train.std = element.val
+        break
+      case 'lt4:etd':
+        train.etd = element.val
+        break
+      case 'lt4:sta':
+        train.sta = element.val
+        break
+      case 'lt4:eta':
+        train.eta = element.val
+        break
+      case 'lt4:platform':
+        train.platform = element.val
+        break
+      case 'lt4:delayReason':
+        train.delayReason = element.val
+        break
+      case 'lt4:serviceID':
+        train.serviceId = element.val
+        break
+      case 'lt4:length':
+        train.length = element.val
+        break
+      case 'lt4:operator':
+        train.operator = element.val
+        break
+      case 'lt4:operatorCode':
+        service.operatorCode = element.val
+        break
+      case 'lt5:rsid':
+        service.rsid = element.val
+        break
+      case 'lt5:origin':
+        var origin = element.childNamed('lt4:location')
+        train.origin = parseLocation(origin)
+        break
+      case 'lt5:destination':
+        var destin = element.childNamed('lt4:location')
+        train.destination = parseLocation(destin)
+        break
+    }
+  })
+  return train
+}
+
 module.exports.parseArrivalsBoardWithDetails = parseArrivalsBoardWithDetails
 module.exports.parseArrivalsDepartureBoard = parseArrivalsDepartureBoard
 module.exports.parseArrivalsDepartureBoardWithDetails = parseArrivalsDepartureBoardWithDetails

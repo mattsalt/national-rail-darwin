@@ -1,4 +1,4 @@
-var arrivalsBoardWithDetails = 
+var arrivalsBoardWithDetails =
 `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://thalesgroup.com/RTTI/2013-11-28/Token/types" xmlns:ldb="http://thalesgroup.com/RTTI/2016-02-16/ldb/">` +
 `   <soapenv:Header>` +
 `      <typ:AccessToken>` +
@@ -17,7 +17,7 @@ var arrivalsBoardWithDetails =
 `   </soapenv:Body>` +
 `</soapenv:Envelope>`
 
-var arrivalsDepartureBoard = 
+var arrivalsDepartureBoard =
 `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://thalesgroup.com/RTTI/2013-11-28/Token/types" xmlns:ldb="http://thalesgroup.com/RTTI/2016-02-16/ldb/">` +
 `   <soapenv:Header>` +
 `      <typ:AccessToken>` +
@@ -36,7 +36,7 @@ var arrivalsDepartureBoard =
 `   </soapenv:Body>` +
 `</soapenv:Envelope>`
 
-var arrivalsDepartureBoardWithDetails = 
+var arrivalsDepartureBoardWithDetails =
 `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://thalesgroup.com/RTTI/2013-11-28/Token/types" xmlns:ldb="http://thalesgroup.com/RTTI/2016-02-16/ldb/">` +
 `   <soapenv:Header>` +
 `      <typ:AccessToken>` +
@@ -93,7 +93,7 @@ var departureBoardWithDetails =
 `</soapenv:Body>` +
 `</soapenv:Envelope>`
 
-var arrivalsBoardTemplate = 
+var arrivalsBoardTemplate =
 `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://thalesgroup.com/RTTI/2013-11-28/Token/types" xmlns:ldb="http://thalesgroup.com/RTTI/2016-02-16/ldb/">` +
 `   <soapenv:Header>` +
 `      <typ:AccessToken>` +
@@ -112,7 +112,7 @@ var arrivalsBoardTemplate =
 `   </soapenv:Body>` +
 `</soapenv:Envelope>`
 
-var serviceDetailsTemplate = 
+var serviceDetailsTemplate =
 `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://thalesgroup.com/RTTI/2013-11-28/Token/types" xmlns:ldb="http://thalesgroup.com/RTTI/2016-02-16/ldb/">` +
  `   <soapenv:Header>` +
  `      <typ:AccessToken>` +
@@ -126,7 +126,7 @@ var serviceDetailsTemplate =
  `   </soapenv:Body>` +
  `</soapenv:Envelope>`
 
-var nextDeparture = 
+var nextDeparture =
 `<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://thalesgroup.com/RTTI/2013-11-28/Token/types" xmlns:ldb="http://thalesgroup.com/RTTI/2016-02-16/ldb/">` +
  `    <soap:Header>` +
  `        <typ:AccessToken>` +
@@ -145,7 +145,7 @@ var nextDeparture =
  `    </soap:Body>` +
  `</soap:Envelope>`
 
- var nextDepartureWithDetails = 
+var nextDepartureWithDetails =
  `<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://thalesgroup.com/RTTI/2013-11-28/Token/types" xmlns:ldb="http://thalesgroup.com/RTTI/2016-02-16/ldb/">` +
  `    <soap:Header>` +
  `        <typ:AccessToken>` +
@@ -198,7 +198,7 @@ var fastestDeparture =
 `         <ldb:timeOffset>0</ldb:timeOffset>` +
 `         <ldb:timeWindow>120</ldb:timeWindow>` +
 `      </ldb:GetFastestDeparturesRequest>` +
-`   </soapenv:Body>` +  
+`   </soapenv:Body>` +
 `</soapenv:Envelope>`
 
 var fastestDepartureWithDetails =
@@ -217,9 +217,8 @@ var fastestDepartureWithDetails =
 `         <ldb:timeOffset>0</ldb:timeOffset>` +
 `         <ldb:timeWindow>120</ldb:timeWindow>` +
 `      </ldb:GetFastestDeparturesWithDetailsRequest>` +
-`   </soapenv:Body>` +  
+`   </soapenv:Body>` +
 `</soapenv:Envelope>`
-
 
 module.exports.departureBoard = departureBoardTemplate
 module.exports.arrivalsBoard = arrivalsBoardTemplate
@@ -232,6 +231,5 @@ module.exports.nextDepartureWithDetails = nextDepartureWithDetails
 module.exports.departureBoardWithDetails = departureBoardWithDetails
 module.exports.fastestDeparture = fastestDeparture
 module.exports.fastestDepartureWithDetails = fastestDepartureWithDetails
-
 
 module.exports.nextArrival = nextArrival
