@@ -169,7 +169,7 @@ function parseFastestDepartureWithDetails (response) {
       switch (element.name) {
         case 'lt5:subsequentCallingPoints':
           var subsequentCallingPoints = element.childNamed('lt4:callingPointList')
-          service.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
+          train.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
           break
       }
     })
@@ -220,10 +220,10 @@ function parseStandardService (service) {
         train.operator = element.val
         break
       case 'lt4:operatorCode':
-        service.operatorCode = element.val
+        train.operatorCode = element.val
         break
       case 'lt5:rsid':
-        service.rsid = element.val
+        train.rsid = element.val
         break
       case 'lt5:origin':
         var origin = element.childNamed('lt4:location')
