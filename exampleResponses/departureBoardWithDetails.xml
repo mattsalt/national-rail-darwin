@@ -1,0 +1,662 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <soap:Body>
+      <GetDepBoardWithDetailsResponse xmlns="http://thalesgroup.com/RTTI/2016-02-16/ldb/">
+         <GetStationBoardResult xmlns:lt3="http://thalesgroup.com/RTTI/2015-05-14/ldb/types" xmlns:lt5="http://thalesgroup.com/RTTI/2016-02-16/ldb/types" xmlns:lt4="http://thalesgroup.com/RTTI/2015-11-27/ldb/types" xmlns:lt="http://thalesgroup.com/RTTI/2012-01-13/ldb/types" xmlns:lt2="http://thalesgroup.com/RTTI/2014-02-20/ldb/types">
+            <lt4:generatedAt>2017-02-15T18:52:22.1332389+00:00</lt4:generatedAt>
+            <lt4:locationName>Stevenage</lt4:locationName>
+            <lt4:crs>SVG</lt4:crs>
+            <lt4:filterLocationName>Hitchin</lt4:filterLocationName>
+            <lt4:filtercrs>HIT</lt4:filtercrs>
+            <lt4:platformAvailable>true</lt4:platformAvailable>
+            <lt5:trainServices>
+               <lt5:service>
+                  <lt4:std>19:04</lt4:std>
+                  <lt4:etd>On time</lt4:etd>
+                  <lt4:platform>4</lt4:platform>
+                  <lt4:operator>Great Northern</lt4:operator>
+                  <lt4:operatorCode>GN</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:serviceID>1/p2FY2CrCEaRjIh40kL1g==</lt4:serviceID>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>London Kings Cross</lt4:locationName>
+                        <lt4:crs>KGX</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>Cambridge</lt4:locationName>
+                        <lt4:crs>CBG</lt4:crs>
+                     </lt4:location>
+                  </lt5:destination>
+                  <lt5:subsequentCallingPoints>
+                     <lt4:callingPointList>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Hitchin</lt4:locationName>
+                           <lt4:crs>HIT</lt4:crs>
+                           <lt4:st>19:09</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Letchworth Garden City</lt4:locationName>
+                           <lt4:crs>LET</lt4:crs>
+                           <lt4:st>19:15</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Baldock</lt4:locationName>
+                           <lt4:crs>BDK</lt4:crs>
+                           <lt4:st>19:18</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Ashwell &amp; Morden</lt4:locationName>
+                           <lt4:crs>AWM</lt4:crs>
+                           <lt4:st>19:23</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Royston</lt4:locationName>
+                           <lt4:crs>RYS</lt4:crs>
+                           <lt4:st>19:28</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Meldreth</lt4:locationName>
+                           <lt4:crs>MEL</lt4:crs>
+                           <lt4:st>19:38</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Shepreth</lt4:locationName>
+                           <lt4:crs>STH</lt4:crs>
+                           <lt4:st>19:41</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Foxton</lt4:locationName>
+                           <lt4:crs>FXN</lt4:crs>
+                           <lt4:st>19:43</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Cambridge</lt4:locationName>
+                           <lt4:crs>CBG</lt4:crs>
+                           <lt4:st>19:56</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                     </lt4:callingPointList>
+                  </lt5:subsequentCallingPoints>
+               </lt5:service>
+               <lt5:service>
+                  <lt4:std>19:10</lt4:std>
+                  <lt4:etd>On time</lt4:etd>
+                  <lt4:platform>4</lt4:platform>
+                  <lt4:operator>Great Northern</lt4:operator>
+                  <lt4:operatorCode>GN</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:serviceID>tYGWygmUQ8u1iZeFulg5wQ==</lt4:serviceID>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>London Kings Cross</lt4:locationName>
+                        <lt4:crs>KGX</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>Peterborough</lt4:locationName>
+                        <lt4:crs>PBO</lt4:crs>
+                     </lt4:location>
+                  </lt5:destination>
+                  <lt5:subsequentCallingPoints>
+                     <lt4:callingPointList>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Hitchin</lt4:locationName>
+                           <lt4:crs>HIT</lt4:crs>
+                           <lt4:st>19:15</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Arlesey</lt4:locationName>
+                           <lt4:crs>ARL</lt4:crs>
+                           <lt4:st>19:21</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Biggleswade</lt4:locationName>
+                           <lt4:crs>BIW</lt4:crs>
+                           <lt4:st>19:26</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Sandy</lt4:locationName>
+                           <lt4:crs>SDY</lt4:crs>
+                           <lt4:st>19:31</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>St Neots</lt4:locationName>
+                           <lt4:crs>SNO</lt4:crs>
+                           <lt4:st>19:39</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Huntingdon</lt4:locationName>
+                           <lt4:crs>HUN</lt4:crs>
+                           <lt4:st>19:47</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Peterborough</lt4:locationName>
+                           <lt4:crs>PBO</lt4:crs>
+                           <lt4:st>20:03</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                     </lt4:callingPointList>
+                  </lt5:subsequentCallingPoints>
+               </lt5:service>
+               <lt5:service>
+                  <lt4:std>19:14</lt4:std>
+                  <lt4:etd>On time</lt4:etd>
+                  <lt4:platform>3</lt4:platform>
+                  <lt4:operator>Great Northern</lt4:operator>
+                  <lt4:operatorCode>GN</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:serviceID>CrSs+KdFr1aaBelrXGmsvg==</lt4:serviceID>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>London Kings Cross</lt4:locationName>
+                        <lt4:crs>KGX</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>Royston</lt4:locationName>
+                        <lt4:crs>RYS</lt4:crs>
+                     </lt4:location>
+                  </lt5:destination>
+                  <lt5:subsequentCallingPoints>
+                     <lt4:callingPointList>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Hitchin</lt4:locationName>
+                           <lt4:crs>HIT</lt4:crs>
+                           <lt4:st>19:19</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Letchworth Garden City</lt4:locationName>
+                           <lt4:crs>LET</lt4:crs>
+                           <lt4:st>19:24</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Baldock</lt4:locationName>
+                           <lt4:crs>BDK</lt4:crs>
+                           <lt4:st>19:28</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Ashwell &amp; Morden</lt4:locationName>
+                           <lt4:crs>AWM</lt4:crs>
+                           <lt4:st>19:33</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Royston</lt4:locationName>
+                           <lt4:crs>RYS</lt4:crs>
+                           <lt4:st>19:41</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                     </lt4:callingPointList>
+                  </lt5:subsequentCallingPoints>
+               </lt5:service>
+               <lt5:service>
+                  <lt4:std>19:42</lt4:std>
+                  <lt4:etd>On time</lt4:etd>
+                  <lt4:platform>4</lt4:platform>
+                  <lt4:operator>Great Northern</lt4:operator>
+                  <lt4:operatorCode>GN</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:serviceID>B8xuAp9m0FMRGE5LJK9ihA==</lt4:serviceID>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>London Kings Cross</lt4:locationName>
+                        <lt4:crs>KGX</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>Cambridge</lt4:locationName>
+                        <lt4:crs>CBG</lt4:crs>
+                     </lt4:location>
+                  </lt5:destination>
+                  <lt5:subsequentCallingPoints>
+                     <lt4:callingPointList>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Hitchin</lt4:locationName>
+                           <lt4:crs>HIT</lt4:crs>
+                           <lt4:st>19:47</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Letchworth Garden City</lt4:locationName>
+                           <lt4:crs>LET</lt4:crs>
+                           <lt4:st>19:54</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Baldock</lt4:locationName>
+                           <lt4:crs>BDK</lt4:crs>
+                           <lt4:st>19:58</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Ashwell &amp; Morden</lt4:locationName>
+                           <lt4:crs>AWM</lt4:crs>
+                           <lt4:st>20:04</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Royston</lt4:locationName>
+                           <lt4:crs>RYS</lt4:crs>
+                           <lt4:st>20:09</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Meldreth</lt4:locationName>
+                           <lt4:crs>MEL</lt4:crs>
+                           <lt4:st>20:14</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Shepreth</lt4:locationName>
+                           <lt4:crs>STH</lt4:crs>
+                           <lt4:st>20:17</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Foxton</lt4:locationName>
+                           <lt4:crs>FXN</lt4:crs>
+                           <lt4:st>20:19</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Cambridge</lt4:locationName>
+                           <lt4:crs>CBG</lt4:crs>
+                           <lt4:st>20:32</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                     </lt4:callingPointList>
+                  </lt5:subsequentCallingPoints>
+               </lt5:service>
+               <lt5:service>
+                  <lt4:std>19:48</lt4:std>
+                  <lt4:etd>On time</lt4:etd>
+                  <lt4:platform>4</lt4:platform>
+                  <lt4:operator>Great Northern</lt4:operator>
+                  <lt4:operatorCode>GN</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:serviceID>QtSrHV2f/t6kbubzk50ZfQ==</lt4:serviceID>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>London Kings Cross</lt4:locationName>
+                        <lt4:crs>KGX</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>Peterborough</lt4:locationName>
+                        <lt4:crs>PBO</lt4:crs>
+                     </lt4:location>
+                  </lt5:destination>
+                  <lt5:subsequentCallingPoints>
+                     <lt4:callingPointList>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Hitchin</lt4:locationName>
+                           <lt4:crs>HIT</lt4:crs>
+                           <lt4:st>19:53</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Arlesey</lt4:locationName>
+                           <lt4:crs>ARL</lt4:crs>
+                           <lt4:st>19:59</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Biggleswade</lt4:locationName>
+                           <lt4:crs>BIW</lt4:crs>
+                           <lt4:st>20:04</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Sandy</lt4:locationName>
+                           <lt4:crs>SDY</lt4:crs>
+                           <lt4:st>20:08</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>St Neots</lt4:locationName>
+                           <lt4:crs>SNO</lt4:crs>
+                           <lt4:st>20:15</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Huntingdon</lt4:locationName>
+                           <lt4:crs>HUN</lt4:crs>
+                           <lt4:st>20:23</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Peterborough</lt4:locationName>
+                           <lt4:crs>PBO</lt4:crs>
+                           <lt4:st>20:41</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                     </lt4:callingPointList>
+                  </lt5:subsequentCallingPoints>
+               </lt5:service>
+               <lt5:service>
+                  <lt4:std>20:04</lt4:std>
+                  <lt4:etd>On time</lt4:etd>
+                  <lt4:platform>4</lt4:platform>
+                  <lt4:operator>Great Northern</lt4:operator>
+                  <lt4:operatorCode>GN</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:serviceID>FJOa23nrdK2U1+N7EYobkA==</lt4:serviceID>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>London Kings Cross</lt4:locationName>
+                        <lt4:crs>KGX</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>Cambridge</lt4:locationName>
+                        <lt4:crs>CBG</lt4:crs>
+                     </lt4:location>
+                  </lt5:destination>
+                  <lt5:subsequentCallingPoints>
+                     <lt4:callingPointList>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Hitchin</lt4:locationName>
+                           <lt4:crs>HIT</lt4:crs>
+                           <lt4:st>20:09</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Letchworth Garden City</lt4:locationName>
+                           <lt4:crs>LET</lt4:crs>
+                           <lt4:st>20:15</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Baldock</lt4:locationName>
+                           <lt4:crs>BDK</lt4:crs>
+                           <lt4:st>20:18</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Ashwell &amp; Morden</lt4:locationName>
+                           <lt4:crs>AWM</lt4:crs>
+                           <lt4:st>20:23</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Royston</lt4:locationName>
+                           <lt4:crs>RYS</lt4:crs>
+                           <lt4:st>20:28</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Meldreth</lt4:locationName>
+                           <lt4:crs>MEL</lt4:crs>
+                           <lt4:st>20:33</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Shepreth</lt4:locationName>
+                           <lt4:crs>STH</lt4:crs>
+                           <lt4:st>20:36</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Foxton</lt4:locationName>
+                           <lt4:crs>FXN</lt4:crs>
+                           <lt4:st>20:38</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Cambridge</lt4:locationName>
+                           <lt4:crs>CBG</lt4:crs>
+                           <lt4:st>20:50</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                     </lt4:callingPointList>
+                  </lt5:subsequentCallingPoints>
+               </lt5:service>
+               <lt5:service>
+                  <lt4:std>20:10</lt4:std>
+                  <lt4:etd>On time</lt4:etd>
+                  <lt4:platform>4</lt4:platform>
+                  <lt4:operator>Great Northern</lt4:operator>
+                  <lt4:operatorCode>GN</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:serviceID>54kFSREl9XnnLa/2ACYIhg==</lt4:serviceID>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>London Kings Cross</lt4:locationName>
+                        <lt4:crs>KGX</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>Letchworth Garden City</lt4:locationName>
+                        <lt4:crs>LET</lt4:crs>
+                     </lt4:location>
+                  </lt5:destination>
+                  <lt5:subsequentCallingPoints>
+                     <lt4:callingPointList>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Hitchin</lt4:locationName>
+                           <lt4:crs>HIT</lt4:crs>
+                           <lt4:st>20:16</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Letchworth Garden City</lt4:locationName>
+                           <lt4:crs>LET</lt4:crs>
+                           <lt4:st>20:23</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                     </lt4:callingPointList>
+                  </lt5:subsequentCallingPoints>
+               </lt5:service>
+               <lt5:service>
+                  <lt4:std>20:19</lt4:std>
+                  <lt4:etd>On time</lt4:etd>
+                  <lt4:platform>4</lt4:platform>
+                  <lt4:operator>Great Northern</lt4:operator>
+                  <lt4:operatorCode>GN</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:serviceID>hwSmxhgaq0evoQtggISXgg==</lt4:serviceID>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>London Kings Cross</lt4:locationName>
+                        <lt4:crs>KGX</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>Peterborough</lt4:locationName>
+                        <lt4:crs>PBO</lt4:crs>
+                     </lt4:location>
+                  </lt5:destination>
+                  <lt5:subsequentCallingPoints>
+                     <lt4:callingPointList>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Hitchin</lt4:locationName>
+                           <lt4:crs>HIT</lt4:crs>
+                           <lt4:st>20:24</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Arlesey</lt4:locationName>
+                           <lt4:crs>ARL</lt4:crs>
+                           <lt4:st>20:30</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Biggleswade</lt4:locationName>
+                           <lt4:crs>BIW</lt4:crs>
+                           <lt4:st>20:36</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Sandy</lt4:locationName>
+                           <lt4:crs>SDY</lt4:crs>
+                           <lt4:st>20:40</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>St Neots</lt4:locationName>
+                           <lt4:crs>SNO</lt4:crs>
+                           <lt4:st>20:48</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Huntingdon</lt4:locationName>
+                           <lt4:crs>HUN</lt4:crs>
+                           <lt4:st>20:57</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Peterborough</lt4:locationName>
+                           <lt4:crs>PBO</lt4:crs>
+                           <lt4:st>21:14</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                     </lt4:callingPointList>
+                  </lt5:subsequentCallingPoints>
+               </lt5:service>
+               <lt5:service>
+                  <lt4:std>20:24</lt4:std>
+                  <lt4:etd>On time</lt4:etd>
+                  <lt4:platform>4</lt4:platform>
+                  <lt4:operator>Great Northern</lt4:operator>
+                  <lt4:operatorCode>GN</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:serviceID>bHNkGl1z+vp62ldU4h7Tog==</lt4:serviceID>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>Moorgate</lt4:locationName>
+                        <lt4:crs>MOG</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>Letchworth Garden City</lt4:locationName>
+                        <lt4:crs>LET</lt4:crs>
+                     </lt4:location>
+                  </lt5:destination>
+                  <lt5:subsequentCallingPoints>
+                     <lt4:callingPointList>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Hitchin</lt4:locationName>
+                           <lt4:crs>HIT</lt4:crs>
+                           <lt4:st>20:29</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Letchworth Garden City</lt4:locationName>
+                           <lt4:crs>LET</lt4:crs>
+                           <lt4:st>20:35</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                     </lt4:callingPointList>
+                  </lt5:subsequentCallingPoints>
+               </lt5:service>
+               <lt5:service>
+                  <lt4:std>20:43</lt4:std>
+                  <lt4:etd>On time</lt4:etd>
+                  <lt4:platform>4</lt4:platform>
+                  <lt4:operator>Great Northern</lt4:operator>
+                  <lt4:operatorCode>GN</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:serviceID>Gu3RYXEojOF0L/vHW8Ec5A==</lt4:serviceID>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>London Kings Cross</lt4:locationName>
+                        <lt4:crs>KGX</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>Cambridge</lt4:locationName>
+                        <lt4:crs>CBG</lt4:crs>
+                     </lt4:location>
+                  </lt5:destination>
+                  <lt5:subsequentCallingPoints>
+                     <lt4:callingPointList>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Hitchin</lt4:locationName>
+                           <lt4:crs>HIT</lt4:crs>
+                           <lt4:st>20:48</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Letchworth Garden City</lt4:locationName>
+                           <lt4:crs>LET</lt4:crs>
+                           <lt4:st>20:53</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Baldock</lt4:locationName>
+                           <lt4:crs>BDK</lt4:crs>
+                           <lt4:st>20:57</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Ashwell &amp; Morden</lt4:locationName>
+                           <lt4:crs>AWM</lt4:crs>
+                           <lt4:st>21:02</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Royston</lt4:locationName>
+                           <lt4:crs>RYS</lt4:crs>
+                           <lt4:st>21:07</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Meldreth</lt4:locationName>
+                           <lt4:crs>MEL</lt4:crs>
+                           <lt4:st>21:11</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Shepreth</lt4:locationName>
+                           <lt4:crs>STH</lt4:crs>
+                           <lt4:st>21:14</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Foxton</lt4:locationName>
+                           <lt4:crs>FXN</lt4:crs>
+                           <lt4:st>21:17</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Cambridge</lt4:locationName>
+                           <lt4:crs>CBG</lt4:crs>
+                           <lt4:st>21:30</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                        </lt4:callingPoint>
+                     </lt4:callingPointList>
+                  </lt5:subsequentCallingPoints>
+               </lt5:service>
+            </lt5:trainServices>
+         </GetStationBoardResult>
+      </GetDepBoardWithDetailsResponse>
+   </soap:Body>
+</soap:Envelope>

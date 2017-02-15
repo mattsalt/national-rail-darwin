@@ -1,0 +1,38 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <soap:Body>
+      <GetNextDeparturesResponse xmlns="http://thalesgroup.com/RTTI/2016-02-16/ldb/">
+         <DeparturesBoard xmlns:lt3="http://thalesgroup.com/RTTI/2015-05-14/ldb/types" xmlns:lt5="http://thalesgroup.com/RTTI/2016-02-16/ldb/types" xmlns:lt4="http://thalesgroup.com/RTTI/2015-11-27/ldb/types" xmlns:lt="http://thalesgroup.com/RTTI/2012-01-13/ldb/types" xmlns:lt2="http://thalesgroup.com/RTTI/2014-02-20/ldb/types">
+            <lt4:generatedAt>2017-02-15T18:54:15.3105134+00:00</lt4:generatedAt>
+            <lt4:locationName>York</lt4:locationName>
+            <lt4:crs>YRK</lt4:crs>
+            <lt4:platformAvailable>true</lt4:platformAvailable>
+            <lt5:departures>
+               <lt5:destination crs="LDS">
+                  <lt5:service>
+                     <lt4:std>18:53</lt4:std>
+                     <lt4:etd>On time</lt4:etd>
+                     <lt4:platform>10</lt4:platform>
+                     <lt4:operator>TransPennine Express</lt4:operator>
+                     <lt4:operatorCode>TP</lt4:operatorCode>
+                     <lt4:serviceType>train</lt4:serviceType>
+                     <lt4:serviceID>FjQo0aNoOLICxHUKw6Je+g==</lt4:serviceID>
+                     <lt5:rsid>TP536900</lt5:rsid>
+                     <lt5:origin>
+                        <lt4:location>
+                           <lt4:locationName>York</lt4:locationName>
+                           <lt4:crs>YRK</lt4:crs>
+                        </lt4:location>
+                     </lt5:origin>
+                     <lt5:destination>
+                        <lt4:location>
+                           <lt4:locationName>Manchester Piccadilly</lt4:locationName>
+                           <lt4:crs>MAN</lt4:crs>
+                        </lt4:location>
+                     </lt5:destination>
+                  </lt5:service>
+               </lt5:destination>
+            </lt5:departures>
+         </DeparturesBoard>
+      </GetNextDeparturesResponse>
+   </soap:Body>
+</soap:Envelope>
