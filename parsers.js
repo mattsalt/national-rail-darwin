@@ -112,12 +112,8 @@ function parseDepartureBoardWithDetailsResponse (soapResponse) {
 }
 
 function parseNextDestinationResponse (response) {
-  var board = extractResponseObject(response, 'GetNextDeparturesResponse')
-        .childNamed('DeparturesBoard')
-        .childNamed('lt5:departures')
-        .childNamed('lt5:destination')
+  var board = getDepartureBoardDestination(response, 'GetNextDeparturesResponse')
   var trains = []
-
   board.eachChild(function (service) {
     trains.push(parseStandardService(service))
   })
@@ -126,10 +122,7 @@ function parseNextDestinationResponse (response) {
 }
 
 function parseNextDepartureWithDetailsResponse (response) {
-  var board = extractResponseObject(response, 'GetNextDeparturesWithDetailsResponse')
-        .childNamed('DeparturesBoard')
-        .childNamed('lt5:departures')
-        .childNamed('lt5:destination')
+  var board = getDepartureBoardDestination(response, 'GetNextDeparturesWithDetailsResponse')
   var trains = []
 
   board.eachChild(function (service) {
@@ -158,10 +151,7 @@ function parseNextArrivalResponse (response) {
 }
 
 function parseFastestDeparture (response) {
-  var board = extractResponseObject(response, 'GetFastestDeparturesResponse')
-        .childNamed('DeparturesBoard')
-        .childNamed('lt5:departures')
-        .childNamed('lt5:destination')
+  var board = getDepartureBoardDestination(response, 'GetFastestDeparturesResponse')
   var trains = []
   board.eachChild(function (service) {
     trains.push(parseStandardService(service))
@@ -170,10 +160,7 @@ function parseFastestDeparture (response) {
 }
 
 function parseFastestDepartureWithDetails (response) {
-  var board = extractResponseObject(response, 'GetFastestDeparturesWithDetailsResponse')
-        .childNamed('DeparturesBoard')
-        .childNamed('lt5:departures')
-        .childNamed('lt5:destination')
+  var board = getDepartureBoardDestination(response, 'GetFastestDeparturesWithDetailsResponse')
   var trains = []
 
   board.eachChild(function (service) {
@@ -289,6 +276,14 @@ function parseLocation (location) {
     name: location.childNamed('lt4:locationName').val,
     crs: location.childNamed('lt4:crs').val
   }
+}
+
+function getDepartureBoardDestination (response, responseType) {
+  var board = extractResponseObject(response, responseType)
+        .childNamed('DeparturesBoard')
+        .childNamed('lt5:departures')
+        .childNamed('lt5:destination')
+  return board
 }
 
 module.exports.parseArrivalsBoardWithDetails = parseArrivalsBoardWithDetails
