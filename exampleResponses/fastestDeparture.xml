@@ -1,0 +1,41 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <soap:Body>
+      <GetFastestDeparturesResponse xmlns="http://thalesgroup.com/RTTI/2016-02-16/ldb/">
+         <DeparturesBoard xmlns:lt3="http://thalesgroup.com/RTTI/2015-05-14/ldb/types" xmlns:lt5="http://thalesgroup.com/RTTI/2016-02-16/ldb/types" xmlns:lt4="http://thalesgroup.com/RTTI/2015-11-27/ldb/types" xmlns:lt="http://thalesgroup.com/RTTI/2012-01-13/ldb/types" xmlns:lt2="http://thalesgroup.com/RTTI/2014-02-20/ldb/types">
+            <lt4:generatedAt>2017-02-15T07:44:47.1642676+00:00</lt4:generatedAt>
+            <lt4:locationName>Isleworth</lt4:locationName>
+            <lt4:crs>ISL</lt4:crs>
+            <lt4:platformAvailable>true</lt4:platformAvailable>
+            <lt5:departures>
+               <lt5:destination crs="WAT">
+                  <lt5:service>
+                     <lt4:sta>07:47</lt4:sta>
+                     <lt4:eta>On time</lt4:eta>
+                     <lt4:std>07:47</lt4:std>
+                     <lt4:etd>On time</lt4:etd>
+                     <lt4:platform>1</lt4:platform>
+                     <lt4:operator>South West Trains</lt4:operator>
+                     <lt4:operatorCode>SW</lt4:operatorCode>
+                     <lt4:serviceType>train</lt4:serviceType>
+                     <lt4:length>10</lt4:length>
+                     <lt4:serviceID>h+ZvwWteiW7bdhcG1S/fBw==</lt4:serviceID>
+                     <lt5:origin>
+                        <lt4:location>
+                           <lt4:locationName>Weybridge</lt4:locationName>
+                           <lt4:crs>WYB</lt4:crs>
+                        </lt4:location>
+                     </lt5:origin>
+                     <lt5:destination>
+                        <lt4:location>
+                           <lt4:locationName>London Waterloo</lt4:locationName>
+                           <lt4:crs>WAT</lt4:crs>
+                           <lt4:via>via Brentford</lt4:via>
+                        </lt4:location>
+                     </lt5:destination>
+                  </lt5:service>
+               </lt5:destination>
+            </lt5:departures>
+         </DeparturesBoard>
+      </GetFastestDeparturesResponse>
+   </soap:Body>
+</soap:Envelope>

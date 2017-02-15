@@ -94,6 +94,66 @@ Darwin.prototype.getArrivalsBoard = function (station, options, callback) {
   })
 }
 
+Darwin.prototype.getArrivalsBoardWithDetails = function (station, options, callback) {
+  var requestXML = null
+  if (options && options.rows) {
+    requestXML = templates.arrivalsBoard.replace('$$ROWS$$', options.numrows)
+  } else {
+    requestXML = templates.arrivalsBoard.replace('$$ROWS$$', 15)
+  }
+  requestXML = requestXML.replace('$$FROM$$', station)
+  if (options && options.destination) {
+    requestXML = requestXML.replace('$$FILTER$$', options.destination)
+  } else {
+    requestXML = requestXML.replace('$$FILTER$$', '')
+  }
+  this.thenablePOST(requestXML).then(function (result) {
+    callback(null, parser.parseArrivalsBoardWithDetails(result))
+  }).catch(function (err) {
+    callback(err, null)
+  })
+}
+
+Darwin.prototype.getArrivalsDepartureBoard = function (station, options, callback) {
+  var requestXML = null
+  if (options && options.rows) {
+    requestXML = templates.arrivalsBoard.replace('$$ROWS$$', options.numrows)
+  } else {
+    requestXML = templates.arrivalsBoard.replace('$$ROWS$$', 15)
+  }
+  requestXML = requestXML.replace('$$FROM$$', station)
+  if (options && options.destination) {
+    requestXML = requestXML.replace('$$FILTER$$', options.destination)
+  } else {
+    requestXML = requestXML.replace('$$FILTER$$', '')
+  }
+  this.thenablePOST(requestXML).then(function (result) {
+    callback(null, parser.parseArrivalsDepartureBoard(result))
+  }).catch(function (err) {
+    callback(err, null)
+  })
+}
+
+Darwin.prototype.getArrivalsDepartureBoardWithDetails = function (station, options, callback) {
+  var requestXML = null
+  if (options && options.rows) {
+    requestXML = templates.arrivalsBoard.replace('$$ROWS$$', options.numrows)
+  } else {
+    requestXML = templates.arrivalsBoard.replace('$$ROWS$$', 15)
+  }
+  requestXML = requestXML.replace('$$FROM$$', station)
+  if (options && options.destination) {
+    requestXML = requestXML.replace('$$FILTER$$', options.destination)
+  } else {
+    requestXML = requestXML.replace('$$FILTER$$', '')
+  }
+  this.thenablePOST(requestXML).then(function (result) {
+    callback(null, parser.parseArrivalsDepartureBoardWithDetails(result))
+  }).catch(function (err) {
+    callback(err, null)
+  })
+}
+
 Darwin.prototype.getServiceDetails = function (serviceId, callback) {
   var requestXML = templates.serviceDetails.replace('$$SERVICEID$$', serviceId)
   this.thenablePOST(requestXML).then(function (result) {
@@ -113,6 +173,16 @@ Darwin.prototype.getNextDeparture = function (station, destination, options, cal
   })
 }
 
+Darwin.prototype.getNextDepartureWithDetails = function (station, destination, options, callback) {
+  var requestXML = templates.nextDeparture.replace('$$STATION$$', station)
+  requestXML = requestXML.replace('$$DESTINATION$$', destination)
+  this.thenablePOST(requestXML).then(function (result) {
+    callback(null, parser.parseNextDepartureWithDetailsResponse(result))
+  }).catch(function (err) {
+    callback(err, null)
+  })
+}
+
 Darwin.prototype.getArrival = function (station, destination, options, callback) {
   var requestXML = templates.nextArrival.replace('$$STATION$$', station)
   requestXML = requestXML.replace('$$DESTINATION$$', destination)
@@ -123,4 +193,23 @@ Darwin.prototype.getArrival = function (station, destination, options, callback)
   })
 }
 
+Darwin.prototype.getFastestDeparture = function (station, destination, options, callback) {
+  var requestXML = templates.nextArrival.replace('$$STATION$$', station)
+  requestXML = requestXML.replace('$$DESTINATION$$', destination)
+  this.thenablePOST(requestXML).then(function (result) {
+    callback(null, parser.parseFastestDeparture(result))
+  }).catch(function (err) {
+    callback(err, null)
+  })
+}
+
+Darwin.prototype.getFastestDepartureWithDetails = function (station, destination, options, callback) {
+  var requestXML = templates.nextArrival.replace('$$STATION$$', station)
+  requestXML = requestXML.replace('$$DESTINATION$$', destination)
+  this.thenablePOST(requestXML).then(function (result) {
+    callback(null, parser.parseParseFastestDepartureWithDetail(result))
+  }).catch(function (err) {
+    callback(err, null)
+  })
+}
 module.exports = Darwin

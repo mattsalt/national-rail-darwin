@@ -1,0 +1,559 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <soap:Body>
+      <GetArrBoardWithDetailsResponse xmlns="http://thalesgroup.com/RTTI/2016-02-16/ldb/">
+         <GetStationBoardResult xmlns:lt3="http://thalesgroup.com/RTTI/2015-05-14/ldb/types" xmlns:lt5="http://thalesgroup.com/RTTI/2016-02-16/ldb/types" xmlns:lt4="http://thalesgroup.com/RTTI/2015-11-27/ldb/types" xmlns:lt="http://thalesgroup.com/RTTI/2012-01-13/ldb/types" xmlns:lt2="http://thalesgroup.com/RTTI/2014-02-20/ldb/types">
+            <lt4:generatedAt>2017-02-14T21:28:12.1558459+00:00</lt4:generatedAt>
+            <lt4:locationName>Isleworth</lt4:locationName>
+            <lt4:crs>ISL</lt4:crs>
+            <lt4:platformAvailable>true</lt4:platformAvailable>
+            <lt5:trainServices>
+               <lt5:service>
+                  <lt4:sta>21:27</lt4:sta>
+                  <lt4:eta>On time</lt4:eta>
+                  <lt4:platform>2</lt4:platform>
+                  <lt4:operator>South West Trains</lt4:operator>
+                  <lt4:operatorCode>SW</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:length>5</lt4:length>
+                  <lt4:serviceID>JKHCdijlX9lRFw2FwqELPA==</lt4:serviceID>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>London Waterloo</lt4:locationName>
+                        <lt4:crs>WAT</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>Weybridge</lt4:locationName>
+                        <lt4:crs>WYB</lt4:crs>
+                     </lt4:location>
+                  </lt5:destination>
+                  <lt5:previousCallingPoints>
+                     <lt4:callingPointList>
+                        <lt4:callingPoint>
+                           <lt4:locationName>London Waterloo</lt4:locationName>
+                           <lt4:crs>WAT</lt4:crs>
+                           <lt4:st>20:52</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Vauxhall</lt4:locationName>
+                           <lt4:crs>VXH</lt4:crs>
+                           <lt4:st>20:56</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Queenstown Road Battersea</lt4:locationName>
+                           <lt4:crs>QRB</lt4:crs>
+                           <lt4:st>20:59</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Clapham Junction</lt4:locationName>
+                           <lt4:crs>CLJ</lt4:crs>
+                           <lt4:st>21:02</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Wandsworth Town</lt4:locationName>
+                           <lt4:crs>WNT</lt4:crs>
+                           <lt4:st>21:05</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Putney</lt4:locationName>
+                           <lt4:crs>PUT</lt4:crs>
+                           <lt4:st>21:08</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Barnes</lt4:locationName>
+                           <lt4:crs>BNS</lt4:crs>
+                           <lt4:st>21:12</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Barnes Bridge</lt4:locationName>
+                           <lt4:crs>BNI</lt4:crs>
+                           <lt4:st>21:14</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Chiswick</lt4:locationName>
+                           <lt4:crs>CHK</lt4:crs>
+                           <lt4:st>21:17</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Kew Bridge</lt4:locationName>
+                           <lt4:crs>KWB</lt4:crs>
+                           <lt4:st>21:20</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Brentford</lt4:locationName>
+                           <lt4:crs>BFD</lt4:crs>
+                           <lt4:st>21:23</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Syon Lane</lt4:locationName>
+                           <lt4:crs>SYL</lt4:crs>
+                           <lt4:st>21:25</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                     </lt4:callingPointList>
+                  </lt5:previousCallingPoints>
+               </lt5:service>
+               <lt5:service>
+                  <lt4:sta>21:34</lt4:sta>
+                  <lt4:eta>On time</lt4:eta>
+                  <lt4:platform>1</lt4:platform>
+                  <lt4:operator>South West Trains</lt4:operator>
+                  <lt4:operatorCode>SW</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:length>5</lt4:length>
+                  <lt4:serviceID>MrHNnCAHgnHGs5KtWtLkWw==</lt4:serviceID>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>London Waterloo</lt4:locationName>
+                        <lt4:crs>WAT</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>London Waterloo</lt4:locationName>
+                        <lt4:crs>WAT</lt4:crs>
+                        <lt4:via>via Brentford</lt4:via>
+                     </lt4:location>
+                  </lt5:destination>
+                  <lt5:previousCallingPoints>
+                     <lt4:callingPointList>
+                        <lt4:callingPoint>
+                           <lt4:locationName>London Waterloo</lt4:locationName>
+                           <lt4:crs>WAT</lt4:crs>
+                           <lt4:st>20:45</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Vauxhall</lt4:locationName>
+                           <lt4:crs>VXH</lt4:crs>
+                           <lt4:st>20:49</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Queenstown Road Battersea</lt4:locationName>
+                           <lt4:crs>QRB</lt4:crs>
+                           <lt4:st>20:52</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Clapham Junction</lt4:locationName>
+                           <lt4:crs>CLJ</lt4:crs>
+                           <lt4:st>20:55</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Wandsworth Town</lt4:locationName>
+                           <lt4:crs>WNT</lt4:crs>
+                           <lt4:st>20:58</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Putney</lt4:locationName>
+                           <lt4:crs>PUT</lt4:crs>
+                           <lt4:st>21:01</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Barnes</lt4:locationName>
+                           <lt4:crs>BNS</lt4:crs>
+                           <lt4:st>21:05</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Mortlake</lt4:locationName>
+                           <lt4:crs>MTL</lt4:crs>
+                           <lt4:st>21:07</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>North Sheen</lt4:locationName>
+                           <lt4:crs>NSH</lt4:crs>
+                           <lt4:st>21:09</lt4:st>
+                           <lt4:at>No report</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Richmond</lt4:locationName>
+                           <lt4:crs>RMD</lt4:crs>
+                           <lt4:st>21:12</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>St Margarets (London)</lt4:locationName>
+                           <lt4:crs>SMG</lt4:crs>
+                           <lt4:st>21:14</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Twickenham</lt4:locationName>
+                           <lt4:crs>TWI</lt4:crs>
+                           <lt4:st>21:17</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Whitton</lt4:locationName>
+                           <lt4:crs>WTN</lt4:crs>
+                           <lt4:st>21:20</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Hounslow</lt4:locationName>
+                           <lt4:crs>HOU</lt4:crs>
+                           <lt4:st>21:31</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                     </lt4:callingPointList>
+                  </lt5:previousCallingPoints>
+               </lt5:service>
+               <lt5:service>
+                  <lt4:sta>21:42</lt4:sta>
+                  <lt4:eta>On time</lt4:eta>
+                  <lt4:platform>2</lt4:platform>
+                  <lt4:operator>South West Trains</lt4:operator>
+                  <lt4:operatorCode>SW</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:length>5</lt4:length>
+                  <lt4:serviceID>KZKpsdgdiY6LbruTA47MXw==</lt4:serviceID>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>London Waterloo</lt4:locationName>
+                        <lt4:crs>WAT</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>Mortlake</lt4:locationName>
+                        <lt4:crs>MTL</lt4:crs>
+                     </lt4:location>
+                  </lt5:destination>
+                  <lt5:previousCallingPoints>
+                     <lt4:callingPointList>
+                        <lt4:callingPoint>
+                           <lt4:locationName>London Waterloo</lt4:locationName>
+                           <lt4:crs>WAT</lt4:crs>
+                           <lt4:st>21:07</lt4:st>
+                           <lt4:at>21:09</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Vauxhall</lt4:locationName>
+                           <lt4:crs>VXH</lt4:crs>
+                           <lt4:st>21:11</lt4:st>
+                           <lt4:at>21:14</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Queenstown Road Battersea</lt4:locationName>
+                           <lt4:crs>QRB</lt4:crs>
+                           <lt4:st>21:14</lt4:st>
+                           <lt4:at>21:17</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Clapham Junction</lt4:locationName>
+                           <lt4:crs>CLJ</lt4:crs>
+                           <lt4:st>21:17</lt4:st>
+                           <lt4:at>21:20</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Wandsworth Town</lt4:locationName>
+                           <lt4:crs>WNT</lt4:crs>
+                           <lt4:st>21:20</lt4:st>
+                           <lt4:at>21:23</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Putney</lt4:locationName>
+                           <lt4:crs>PUT</lt4:crs>
+                           <lt4:st>21:23</lt4:st>
+                           <lt4:at>21:25</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Barnes</lt4:locationName>
+                           <lt4:crs>BNS</lt4:crs>
+                           <lt4:st>21:27</lt4:st>
+                           <lt4:et>21:29</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Barnes Bridge</lt4:locationName>
+                           <lt4:crs>BNI</lt4:crs>
+                           <lt4:st>21:29</lt4:st>
+                           <lt4:et>21:31</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Chiswick</lt4:locationName>
+                           <lt4:crs>CHK</lt4:crs>
+                           <lt4:st>21:32</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Kew Bridge</lt4:locationName>
+                           <lt4:crs>KWB</lt4:crs>
+                           <lt4:st>21:35</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Brentford</lt4:locationName>
+                           <lt4:crs>BFD</lt4:crs>
+                           <lt4:st>21:38</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Syon Lane</lt4:locationName>
+                           <lt4:crs>SYL</lt4:crs>
+                           <lt4:st>21:40</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                     </lt4:callingPointList>
+                  </lt5:previousCallingPoints>
+               </lt5:service>
+               <lt5:service>
+                  <lt4:sta>21:49</lt4:sta>
+                  <lt4:eta>On time</lt4:eta>
+                  <lt4:platform>1</lt4:platform>
+                  <lt4:operator>South West Trains</lt4:operator>
+                  <lt4:operatorCode>SW</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:length>5</lt4:length>
+                  <lt4:serviceID>aYrRqWajTunEv1pN8iNX7A==</lt4:serviceID>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>Weybridge</lt4:locationName>
+                        <lt4:crs>WYB</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>London Waterloo</lt4:locationName>
+                        <lt4:crs>WAT</lt4:crs>
+                        <lt4:via>via Brentford</lt4:via>
+                     </lt4:location>
+                  </lt5:destination>
+                  <lt5:previousCallingPoints>
+                     <lt4:callingPointList>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Weybridge</lt4:locationName>
+                           <lt4:crs>WYB</lt4:crs>
+                           <lt4:st>21:03</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Addlestone</lt4:locationName>
+                           <lt4:crs>ASN</lt4:crs>
+                           <lt4:st>21:07</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Chertsey</lt4:locationName>
+                           <lt4:crs>CHY</lt4:crs>
+                           <lt4:st>21:10</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Virginia Water</lt4:locationName>
+                           <lt4:crs>VIR</lt4:crs>
+                           <lt4:st>21:24</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Egham</lt4:locationName>
+                           <lt4:crs>EGH</lt4:crs>
+                           <lt4:st>21:27</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Staines</lt4:locationName>
+                           <lt4:crs>SNS</lt4:crs>
+                           <lt4:st>21:33</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Ashford (Surrey)</lt4:locationName>
+                           <lt4:crs>AFS</lt4:crs>
+                           <lt4:st>21:36</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Feltham</lt4:locationName>
+                           <lt4:crs>FEL</lt4:crs>
+                           <lt4:st>21:41</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Hounslow</lt4:locationName>
+                           <lt4:crs>HOU</lt4:crs>
+                           <lt4:st>21:46</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                     </lt4:callingPointList>
+                  </lt5:previousCallingPoints>
+               </lt5:service>
+               <lt5:service>
+                  <lt4:sta>21:57</lt4:sta>
+                  <lt4:eta>On time</lt4:eta>
+                  <lt4:platform>2</lt4:platform>
+                  <lt4:operator>South West Trains</lt4:operator>
+                  <lt4:operatorCode>SW</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:length>5</lt4:length>
+                  <lt4:serviceID>T+5Fvgrmoa6KlHHnI2hnyw==</lt4:serviceID>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>London Waterloo</lt4:locationName>
+                        <lt4:crs>WAT</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>Weybridge</lt4:locationName>
+                        <lt4:crs>WYB</lt4:crs>
+                     </lt4:location>
+                  </lt5:destination>
+                  <lt5:previousCallingPoints>
+                     <lt4:callingPointList>
+                        <lt4:callingPoint>
+                           <lt4:locationName>London Waterloo</lt4:locationName>
+                           <lt4:crs>WAT</lt4:crs>
+                           <lt4:st>21:22</lt4:st>
+                           <lt4:at>On time</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Vauxhall</lt4:locationName>
+                           <lt4:crs>VXH</lt4:crs>
+                           <lt4:st>21:26</lt4:st>
+                           <lt4:at>21:28</lt4:at>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Queenstown Road Battersea</lt4:locationName>
+                           <lt4:crs>QRB</lt4:crs>
+                           <lt4:st>21:29</lt4:st>
+                           <lt4:et>21:31</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Clapham Junction</lt4:locationName>
+                           <lt4:crs>CLJ</lt4:crs>
+                           <lt4:st>21:32</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Wandsworth Town</lt4:locationName>
+                           <lt4:crs>WNT</lt4:crs>
+                           <lt4:st>21:35</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Putney</lt4:locationName>
+                           <lt4:crs>PUT</lt4:crs>
+                           <lt4:st>21:38</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Barnes</lt4:locationName>
+                           <lt4:crs>BNS</lt4:crs>
+                           <lt4:st>21:42</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Barnes Bridge</lt4:locationName>
+                           <lt4:crs>BNI</lt4:crs>
+                           <lt4:st>21:44</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Chiswick</lt4:locationName>
+                           <lt4:crs>CHK</lt4:crs>
+                           <lt4:st>21:47</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Kew Bridge</lt4:locationName>
+                           <lt4:crs>KWB</lt4:crs>
+                           <lt4:st>21:50</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Brentford</lt4:locationName>
+                           <lt4:crs>BFD</lt4:crs>
+                           <lt4:st>21:53</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                        <lt4:callingPoint>
+                           <lt4:locationName>Syon Lane</lt4:locationName>
+                           <lt4:crs>SYL</lt4:crs>
+                           <lt4:st>21:55</lt4:st>
+                           <lt4:et>On time</lt4:et>
+                           <lt4:length>5</lt4:length>
+                        </lt4:callingPoint>
+                     </lt4:callingPointList>
+                  </lt5:previousCallingPoints>
+               </lt5:service>
+            </lt5:trainServices>
+         </GetStationBoardResult>
+      </GetArrBoardWithDetailsResponse>
+   </soap:Body>
+</soap:Envelope>
