@@ -1,16 +1,7 @@
 var xmldoc = require('xmldoc')
 
-function parseLocation (location) {
-  return {
-    name: location.childNamed('lt4:locationName').val,
-    crs: location.childNamed('lt4:crs').val
-  }
-}
-
 function parseArrivalsBoardResponse (soapResponse) {
-  var board = extractResponseObject(soapResponse, 'GetArrivalBoardResponse')
-        .childNamed('GetStationBoardResult')
-        .childNamed('lt5:trainServices')
+  var board = getTrainServicesBoard(soapResponse, 'GetArrivalBoardResponse')
   var trains = []
   board.eachChild(function (service) {
     trains.push(parseStandardService(service))
@@ -19,9 +10,7 @@ function parseArrivalsBoardResponse (soapResponse) {
 }
 
 function parseArrivalsBoardWithDetails (soapResponse) {
-  var board = extractResponseObject(soapResponse, 'GetArrBoardWithDetailsResponse')
-        .childNamed('GetStationBoardResult')
-        .childNamed('lt5:trainServices')
+  var board = getTrainServicesBoard(soapResponse, 'GetArrBoardWithDetailsResponse')
   var trains = []
 
   board.eachChild(function (service) {
@@ -41,9 +30,7 @@ function parseArrivalsBoardWithDetails (soapResponse) {
 }
 
 function parseArrivalsDepartureBoard (soapResponse) {
-  var board = extractResponseObject(soapResponse, 'GetArrivalDepartureBoardResponse')
-        .childNamed('GetStationBoardResult')
-        .childNamed('lt5:trainServices')
+  var board = getTrainServicesBoard(soapResponse, 'GetArrivalDepartureBoardResponse')
   var trains = []
   board.eachChild(function (service) {
     trains.push(parseStandardService(service))
@@ -52,9 +39,7 @@ function parseArrivalsDepartureBoard (soapResponse) {
 }
 
 function parseArrivalsDepartureBoardWithDetails (soapResponse) {
-  var board = extractResponseObject(soapResponse, 'GetArrDepBoardWithDetailsResponse')
-        .childNamed('GetStationBoardResult')
-        .childNamed('lt5:trainServices')
+  var board = getTrainServicesBoard(soapResponse, 'GetArrDepBoardWithDetailsResponse')
   var trains = []
 
   board.eachChild(function (service) {
@@ -98,43 +83,8 @@ function parseServiceIdResponse (soapResponse) {
   return {'serviceDetails': service}
 }
 
-function parseCallingPointList (soapCallingPointList) {
-  var callingPoints = []
-  soapCallingPointList.eachChild(function (child) {
-    var callingPoint = {}
-    child.eachChild(function (element) {
-      switch (element.name) {
-        case 'lt4:length':
-          callingPoint.length = element.val
-          break
-        case 'lt4:crs':
-          callingPoint.crs = element.val
-          break
-        case 'lt4:locationName':
-          callingPoint.locationName = element.val
-          break
-        case 'lt4:st':
-          callingPoint.st = element.val
-          break
-        case 'lt4:et':
-          callingPoint.et = element.val
-          break
-      }
-    })
-    callingPoints.push(callingPoint)
-  })
-  return callingPoints
-}
-
-function extractResponseObject (soapMessage, response) {
-  var parsed = new xmldoc.XmlDocument(soapMessage)
-  return parsed.childNamed('soap:Body').childNamed(response)
-}
-
 function parseDepartureBoardResponse (soapResponse) {
-  var board = extractResponseObject(soapResponse, 'GetDepartureBoardResponse')
-        .childNamed('GetStationBoardResult')
-        .childNamed('lt5:trainServices')
+  var board = getTrainServicesBoard(soapResponse, 'GetDepartureBoardResponse')
   var trains = []
 
   board.eachChild(function (service) {
@@ -144,9 +94,7 @@ function parseDepartureBoardResponse (soapResponse) {
 }
 
 function parseDepartureBoardWithDetailsResponse (soapResponse) {
-  var board = extractResponseObject(soapResponse, 'GetDepBoardWithDetailsResponse')
-        .childNamed('GetStationBoardResult')
-        .childNamed('lt5:trainServices')
+  var board = getTrainServicesBoard(soapResponse, 'GetDepBoardWithDetailsResponse')
   var trains = []
   board.eachChild(function (service) {
     var train = parseStandardService(service)
@@ -201,11 +149,8 @@ function parseNextDepartureWithDetailsResponse (response) {
 }
 
 function parseNextArrivalResponse (response) {
-  var board = extractResponseObject(response, 'GetArrivalBoardResponse')
-        .childNamed('GetStationBoardResult')
-        .childNamed('lt5:trainServices')
+  var board = getTrainServicesBoard(response, 'GetArrivalBoardResponse')
   var trains = []
-
   board.eachChild(function (service) {
     trains.push(parseStandardService(service))
   })
@@ -244,6 +189,13 @@ function parseFastestDepartureWithDetails (response) {
     trains.push(train)
   })
   return {'trainServices': trains}
+}
+
+function getTrainServicesBoard (response, responseType) {
+  var board = extractResponseObject(response, responseType)
+                  .childNamed('GetStationBoardResult')
+                  .childNamed('lt5:trainServices')
+  return board
 }
 
 function parseStandardService (service) {
@@ -297,6 +249,46 @@ function parseStandardService (service) {
     }
   })
   return train
+}
+
+function parseCallingPointList (soapCallingPointList) {
+  var callingPoints = []
+  soapCallingPointList.eachChild(function (child) {
+    var callingPoint = {}
+    child.eachChild(function (element) {
+      switch (element.name) {
+        case 'lt4:length':
+          callingPoint.length = element.val
+          break
+        case 'lt4:crs':
+          callingPoint.crs = element.val
+          break
+        case 'lt4:locationName':
+          callingPoint.locationName = element.val
+          break
+        case 'lt4:st':
+          callingPoint.st = element.val
+          break
+        case 'lt4:et':
+          callingPoint.et = element.val
+          break
+      }
+    })
+    callingPoints.push(callingPoint)
+  })
+  return callingPoints
+}
+
+function extractResponseObject (soapMessage, response) {
+  var parsed = new xmldoc.XmlDocument(soapMessage)
+  return parsed.childNamed('soap:Body').childNamed(response)
+}
+
+function parseLocation (location) {
+  return {
+    name: location.childNamed('lt4:locationName').val,
+    crs: location.childNamed('lt4:crs').val
+  }
 }
 
 module.exports.parseArrivalsBoardWithDetails = parseArrivalsBoardWithDetails
