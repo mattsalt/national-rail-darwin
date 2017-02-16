@@ -283,6 +283,7 @@ function getDepartureBoardDestination (response, responseType) {
         .childNamed('DeparturesBoard')
         .childNamed('lt5:departures')
         .childNamed('lt5:destination')
+
   return board
 }
 

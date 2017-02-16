@@ -22,4 +22,4 @@ client.getNextDepartureWithDetails('LDS', 'YRK', {}, resultLogger)
 client.getDepartureBoardWithDetails('LDS', {filter: 'YRK'}, resultLogger)
 client.getFastestDeparture('LDS', 'YRK', {}, resultLogger)
 client.getFastestDepartureWithDetails('LDS', 'YRK', {}, resultLogger)
-
+client.getStationDetails('Clapham Junction', resultLogger)

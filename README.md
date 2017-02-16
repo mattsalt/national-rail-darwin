@@ -18,7 +18,7 @@ npm install national-rail-darwin
 
 All 11 requests exposed by the Darwin api are available in `national-rail-darwin`
 - getDepartureBoard(crsCode, options, callback)
-- getArrivalBoard(crsCode, options, callback)
+- getArrivalsBoard(crsCode, options, callback)
 - getArrivalsBoardWithDetails(crsCode, options, callback)
 - getArrivalsDepartureBoard(crsCode, options, callback)
 - getArrivalsDepartureBoardWithDetails(crsCode, options, callback)
@@ -28,6 +28,10 @@ All 11 requests exposed by the Darwin api are available in `national-rail-darwin
 - getDepartureBoardWithDetails(crsCode, options, callback)
 - getFastestDeparture(crsCode, destinationCrsCode, options, callback)
 - getFastestDepartureWithDetails(crsCode, destinationCrsCode, options, callback)
+
+Additional functions
+- getStationDetails(Station, callback) 
+
 
 Your api token can either be provided when the client is created or picked up from the environment variable `DARWIN_TOKEN`.
 
@@ -170,3 +174,11 @@ rail.getFastestDepartureWithDetails('from', 'destination crs', {}, function(err,
 })
 ```
 Same response as getFastestDeparture but includes service details such as previous and subsequent calling points.
+
+#### getStationDetails
+```javascript
+rail.getStationDetails('Leeds', function(err,result){
+    //do stuff
+})
+```
+Look up station details including CRSCode from the full station name
