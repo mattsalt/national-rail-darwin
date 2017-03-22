@@ -1,6 +1,6 @@
 {
   "name": "national-rail-darwin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": " national rail's darwin soap based api",
   "main": "index.js",
   "scripts": {

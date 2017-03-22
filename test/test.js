@@ -155,4 +155,3 @@ describe('Arrival Departure Board with Details parsing is correct', function () 
     assert.equal('On time', arr[0].et)
   })
 })
-
