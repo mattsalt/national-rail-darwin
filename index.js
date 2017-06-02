@@ -48,20 +48,31 @@ function thenableGET (url) {
   })
 }
 
-Darwin.prototype.getDepartureBoard = function (station, options, callback) {
-  var requestXML = null
-  if (options && options.rows) {
-    requestXML = templates.departureBoard.replace('$$ROWS$$', options.numrows)
-  } else {
-    requestXML = templates.departureBoard.replace('$$ROWS$$', 15)
+function applyOptions (requestXML, options) {
+  var optionDefaults = {
+    timeOffset:   [ 0, 'INT' ],
+    timeWindow:   [ 120, 'INT' ],
+    rows:         [ 15, 'INT' ],
+    filter:       [ '', 'TEXT' ],
+    destination:  [ '', 'TEXT' ]
+  };
+  if (options) {
+    for ( var key in optionDefaults ) {
+      var value = optionDefaults[key][0];
+      if (options[key]) {
+        if (optionDefaults[key][1]=='INT') value=parseInt(options[key]);
+        else value=options[key]
+      }
+      requestXML = requestXML.replace('$$'+key.toUpperCase()+'$$', value)
+    }
   }
+  return requestXML;
+}
+
+Darwin.prototype.getDepartureBoard = function (station, options, callback) {
+  var requestXML = applyOptions(templates.departureBoard,options);
 
   requestXML = requestXML.replace('$$FROM$$', station)
-  if (options && options.filter) {
-    requestXML = requestXML.replace('$$FILTER$$', options.filter)
-  } else {
-    requestXML = requestXML.replace('$$FILTER$$', '')
-  }
   this.thenablePOST(requestXML).then(function (result) {
     callback(null, parser.parseDepartureBoardResponse(result))
   }).catch(function (err) {
@@ -70,19 +81,9 @@ Darwin.prototype.getDepartureBoard = function (station, options, callback) {
 }
 
 Darwin.prototype.getDepartureBoardWithDetails = function (station, options, callback) {
-  var requestXML = null
-  if (options && options.rows) {
-    requestXML = templates.departureBoardWithDetails.replace('$$ROWS$$', options.numrows)
-  } else {
-    requestXML = templates.departureBoardWithDetails.replace('$$ROWS$$', 15)
-  }
+  var requestXML = applyOptions(templates.departureBoardWithDetails,options);
 
   requestXML = requestXML.replace('$$FROM$$', station)
-  if (options && options.filter) {
-    requestXML = requestXML.replace('$$FILTER$$', options.filter)
-  } else {
-    requestXML = requestXML.replace('$$FILTER$$', '')
-  }
   this.thenablePOST(requestXML).then(function (result) {
     callback(null, parser.parseDepartureBoardWithDetailsResponse(result))
   }).catch(function (err) {
@@ -91,18 +92,9 @@ Darwin.prototype.getDepartureBoardWithDetails = function (station, options, call
 }
 
 Darwin.prototype.getArrivalsBoard = function (station, options, callback) {
-  var requestXML = null
-  if (options && options.rows) {
-    requestXML = templates.arrivalsBoard.replace('$$ROWS$$', options.numrows)
-  } else {
-    requestXML = templates.arrivalsBoard.replace('$$ROWS$$', 15)
-  }
+  var requestXML = applyOptions(templates.arrivalsBoard,options);
+
   requestXML = requestXML.replace('$$FROM$$', station)
-  if (options && options.destination) {
-    requestXML = requestXML.replace('$$FILTER$$', options.destination)
-  } else {
-    requestXML = requestXML.replace('$$FILTER$$', '')
-  }
   this.thenablePOST(requestXML).then(function (result) {
     callback(null, parser.parseArrivalsBoardResponse(result))
   }).catch(function (err) {
@@ -111,18 +103,9 @@ Darwin.prototype.getArrivalsBoard = function (station, options, callback) {
 }
 
 Darwin.prototype.getArrivalsBoardWithDetails = function (station, options, callback) {
-  var requestXML = null
-  if (options && options.rows) {
-    requestXML = templates.arrivalsBoardWithDetails.replace('$$ROWS$$', options.numrows)
-  } else {
-    requestXML = templates.arrivalsBoardWithDetails.replace('$$ROWS$$', 15)
-  }
+  var requestXML = applyOptions(templates.arrivalsBoardWithDetails,options);
+
   requestXML = requestXML.replace('$$FROM$$', station)
-  if (options && options.destination) {
-    requestXML = requestXML.replace('$$FILTER$$', options.destination)
-  } else {
-    requestXML = requestXML.replace('$$FILTER$$', '')
-  }
   this.thenablePOST(requestXML).then(function (result) {
     callback(null, parser.parseArrivalsBoardWithDetails(result))
   }).catch(function (err) {
@@ -131,18 +114,9 @@ Darwin.prototype.getArrivalsBoardWithDetails = function (station, options, callb
 }
 
 Darwin.prototype.getArrivalsDepartureBoard = function (station, options, callback) {
-  var requestXML = null
-  if (options && options.rows) {
-    requestXML = templates.arrivalsDepartureBoard.replace('$$ROWS$$', options.numrows)
-  } else {
-    requestXML = templates.arrivalsDepartureBoard.replace('$$ROWS$$', 15)
-  }
+  var requestXML = applyOptions(templates.arrivalsDepartureBoard,options);
+
   requestXML = requestXML.replace('$$FROM$$', station)
-  if (options && options.destination) {
-    requestXML = requestXML.replace('$$FILTER$$', options.destination)
-  } else {
-    requestXML = requestXML.replace('$$FILTER$$', '')
-  }
   this.thenablePOST(requestXML).then(function (result) {
     callback(null, parser.parseArrivalsDepartureBoard(result))
   }).catch(function (err) {
@@ -151,18 +125,9 @@ Darwin.prototype.getArrivalsDepartureBoard = function (station, options, callbac
 }
 
 Darwin.prototype.getArrivalsDepartureBoardWithDetails = function (station, options, callback) {
-  var requestXML = null
-  if (options && options.rows) {
-    requestXML = templates.arrivalsDepartureBoardWithDetails.replace('$$ROWS$$', options.numrows)
-  } else {
-    requestXML = templates.arrivalsDepartureBoardWithDetails.replace('$$ROWS$$', 15)
-  }
+  var requestXML = applyOptions(templates.arrivalsDepartureBoardWithDetails,options);
+
   requestXML = requestXML.replace('$$FROM$$', station)
-  if (options && options.destination) {
-    requestXML = requestXML.replace('$$FILTER$$', options.destination)
-  } else {
-    requestXML = requestXML.replace('$$FILTER$$', '')
-  }
   this.thenablePOST(requestXML).then(function (result) {
     callback(null, parser.parseArrivalsDepartureBoardWithDetails(result))
   }).catch(function (err) {
@@ -180,8 +145,10 @@ Darwin.prototype.getServiceDetails = function (serviceId, callback) {
 }
 
 Darwin.prototype.getNextDeparture = function (station, destination, options, callback) {
-  var requestXML = templates.nextDeparture.replace('$$FROM$$', station)
-  requestXML = requestXML.replace('$$DESTINATION$$', destination)
+  options.destination = destination;
+  var requestXML = applyOptions(templates.nextDeparture,options);
+  requestXML = requestXML.replace('$$FROM$$', station);
+
   this.thenablePOST(requestXML).then(function (result) {
     callback(null, parser.parseNextDestinationResponse(result))
   }).catch(function (err) {
@@ -190,8 +157,10 @@ Darwin.prototype.getNextDeparture = function (station, destination, options, cal
 }
 
 Darwin.prototype.getNextDepartureWithDetails = function (station, destination, options, callback) {
-  var requestXML = templates.nextDepartureWithDetails.replace('$$FROM$$', station)
-  requestXML = requestXML.replace('$$DESTINATION$$', destination)
+  options.destination = destination;
+  var requestXML = applyOptions(templates.nextDepartureWithDetails,options);
+  requestXML = requestXML.replace('$$FROM$$', station);
+
   this.thenablePOST(requestXML).then(function (result) {
     callback(null, parser.parseNextDepartureWithDetailsResponse(result))
   }).catch(function (err) {
@@ -200,8 +169,10 @@ Darwin.prototype.getNextDepartureWithDetails = function (station, destination, o
 }
 
 Darwin.prototype.getArrival = function (station, destination, options, callback) {
-  var requestXML = templates.nextArrival.replace('$$FROM$$', station)
-  requestXML = requestXML.replace('$$DESTINATION$$', destination)
+  options.destination = destination;
+  var requestXML = applyOptions(templates.nextArrival,options);
+  requestXML = requestXML.replace('$$FROM$$', station);
+
   this.thenablePOST(requestXML).then(function (result) {
     callback(null, parser.parseNextArrivalResponse(result))
   }).catch(function (err) {
@@ -210,8 +181,12 @@ Darwin.prototype.getArrival = function (station, destination, options, callback)
 }
 
 Darwin.prototype.getFastestDeparture = function (station, destination, options, callback) {
-  var requestXML = templates.fastestDeparture.replace('$$FROM$$', station)
-  requestXML = requestXML.replace('$$DESTINATION$$', destination)
+  options.destination = destination;
+  var requestXML = applyOptions(templates.fastestDeparture,options);
+  requestXML = requestXML.replace('$$FROM$$', station);
+  requestXML = applyOptions( requestXML, options );
+
+  console.log(requestXML);
   this.thenablePOST(requestXML).then(function (result) {
     callback(null, parser.parseFastestDeparture(result))
   }).catch(function (err) {
@@ -220,8 +195,10 @@ Darwin.prototype.getFastestDeparture = function (station, destination, options, 
 }
 
 Darwin.prototype.getFastestDepartureWithDetails = function (station, destination, options, callback) {
-  var requestXML = templates.fastestDepartureWithDetails.replace('$$FROM$$', station)
-  requestXML = requestXML.replace('$$DESTINATION$$', destination)
+  options.destination = destination;
+  var requestXML = applyOptions(templates.fastestDepartureWithDetails,options);
+  requestXML = requestXML.replace('$$FROM$$', station);
+
   this.thenablePOST(requestXML).then(function (result) {
     callback(null, parser.parseFastestDeparturesWithDetail(result))
   }).catch(function (err) {

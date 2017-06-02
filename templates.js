@@ -9,18 +9,18 @@ var soapHeader =
 var getServiceBoardStandardRequest =
 `<ldb:numRows>$$ROWS$$</ldb:numRows>` +
 `<ldb:crs>$$FROM$$</ldb:crs>` +
-`<ldb:filterCrs>$$FILTER$$</ldb:filterCrs>` +
+`<ldb:filterCrs>$$DESTINATION$$</ldb:filterCrs>` +
 `<ldb:filterType>to</ldb:filterType>` +
-`<ldb:timeOffset>0</ldb:timeOffset>` +
-`<ldb:timeWindow>120</ldb:timeWindow>`
+`<ldb:timeOffset>$$TIMEOFFSET$$</ldb:timeOffset>` +
+`<ldb:timeWindow>$$TIMEWINDOW$$</ldb:timeWindow>`
 
 var getServiceStandardRequest =
 `<ldb:crs>$$FROM$$</ldb:crs>` +
 `<ldb:filterList>` +
 `    <ldb:crs>$$DESTINATION$$</ldb:crs>` +
 `</ldb:filterList>` +
-`<ldb:timeOffset>0</ldb:timeOffset>` +
-`<ldb:timeWindow>120</ldb:timeWindow>`
+`<ldb:timeOffset>$$TIMEOFFSET$$</ldb:timeOffset>` +
+`<ldb:timeWindow>$$TIMEWINDOW$$</ldb:timeWindow>`
 
 var arrivalsBoardWithDetails =
 soapHeader +
