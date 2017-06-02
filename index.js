@@ -98,7 +98,7 @@ Darwin.prototype.getArrivalsBoard = function (station, options, callback) {
   this.thenablePOST(requestXML).then(function (result) {
     callback(null, parser.parseArrivalsBoardResponse(result))
   }).catch(function (err) {
-    allback(err, null)
+    callback(err, null)
   })
 }
 
@@ -138,7 +138,6 @@ Darwin.prototype.getArrivalsDepartureBoardWithDetails = function (station, optio
 Darwin.prototype.getServiceDetails = function (serviceId, callback) {
   var requestXML = templates.serviceDetails.replace('$$SERVICEID$$', serviceId)
   this.thenablePOST(requestXML).then(function (result) {
-    console.log(result);
     callback(null, parser.parseServiceIdResponse(result))
   }).catch(function (err) {
     callback(err, null)
