@@ -4,7 +4,7 @@
   "description": " national rail's darwin soap based api",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -28,7 +28,8 @@
     "xmldoc": "0.5.1"
   },
   "devDependencies": {
-    "mocha": "^3.2.0",
+    "assert": "^1.4.1",
+    "mocha": "^4.0.1",
     "standard": "^8.6.0"
   }
 }
