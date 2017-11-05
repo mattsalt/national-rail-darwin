@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <GetArrBoardWithDetailsResponse
+      xmlns="http://thalesgroup.com/RTTI/2016-02-16/ldb/">
+      <GetStationBoardResult
+        xmlns:lt6="http://thalesgroup.com/RTTI/2017-02-02/ldb/types"
+        xmlns:lt="http://thalesgroup.com/RTTI/2012-01-13/ldb/types"
+        xmlns:lt4="http://thalesgroup.com/RTTI/2015-11-27/ldb/types"
+        xmlns:lt5="http://thalesgroup.com/RTTI/2016-02-16/ldb/types"
+        xmlns:lt2="http://thalesgroup.com/RTTI/2014-02-20/ldb/types"
+        xmlns:lt3="http://thalesgroup.com/RTTI/2015-05-14/ldb/types">
+        <lt4:generatedAt>2017-11-05T13:01:03.9634517+00:00</lt4:generatedAt>
+        <lt4:locationName>Manchester Victoria</lt4:locationName>
+        <lt4:crs>MCV</lt4:crs>
+        <lt4:platformAvailable>true</lt4:platformAvailable>
+        <lt5:busServices>
+          <lt5:service>
+            <lt4:sta>13:13</lt4:sta>
+            <lt4:eta>On time</lt4:eta>
+            <lt4:platform>BUS</lt4:platform>
+            <lt4:operator>Northern</lt4:operator>
+            <lt4:operatorCode>NT</lt4:operatorCode>
+            <lt4:serviceType>bus</lt4:serviceType>
+            <lt4:serviceID>4K/pJ3foFNnVXFl6ON8t+A==</lt4:serviceID>
+            <lt5:origin>
+              <lt4:location>
+                <lt4:locationName>Preston</lt4:locationName>
+                <lt4:crs>PRE</lt4:crs>
+              </lt4:location>
+            </lt5:origin>
+            <lt5:destination>
+              <lt4:location>
+                <lt4:locationName>Manchester Victoria</lt4:locationName>
+                <lt4:crs>MCV</lt4:crs>
+              </lt4:location>
+            </lt5:destination>
+            <lt5:previousCallingPoints>
+              <lt4:callingPointList serviceType="bus">
+                <lt4:callingPoint>
+                  <lt4:locationName>Preston</lt4:locationName>
+                  <lt4:crs>PRE</lt4:crs>
+                  <lt4:st>11:00</lt4:st>
+                  <lt4:et>On time</lt4:et>
+                </lt4:callingPoint>
+                <lt4:callingPoint>
+                  <lt4:locationName>Leyland</lt4:locationName>
+                  <lt4:crs>LEY</lt4:crs>
+                  <lt4:st>11:20</lt4:st>
+                  <lt4:et>On time</lt4:et>
+                </lt4:callingPoint>
+                <lt4:callingPoint>
+                  <lt4:locationName>Buckshaw Parkway</lt4:locationName>
+                  <lt4:crs>BSV</lt4:crs>
+                  <lt4:st>11:34</lt4:st>
+                  <lt4:et>On time</lt4:et>
+                </lt4:callingPoint>
+                <lt4:callingPoint>
+                  <lt4:locationName>Chorley</lt4:locationName>
+                  <lt4:crs>CRL</lt4:crs>
+                  <lt4:st>11:49</lt4:st>
+                  <lt4:et>On time</lt4:et>
+                </lt4:callingPoint>
+                <lt4:callingPoint>
+                  <lt4:locationName>Adlington (Lancashire)</lt4:locationName>
+                  <lt4:crs>ADL</lt4:crs>
+                  <lt4:st>11:59</lt4:st>
+                  <lt4:et>On time</lt4:et>
+                </lt4:callingPoint>
+                <lt4:callingPoint>
+                  <lt4:locationName>Blackrod</lt4:locationName>
+                  <lt4:crs>BLK</lt4:crs>
+                  <lt4:st>12:06</lt4:st>
+                  <lt4:et>On time</lt4:et>
+                </lt4:callingPoint>
+                <lt4:callingPoint>
+                  <lt4:locationName>Horwich Parkway</lt4:locationName>
+                  <lt4:crs>HWI</lt4:crs>
+                  <lt4:st>12:12</lt4:st>
+                  <lt4:et>On time</lt4:et>
+                </lt4:callingPoint>
+                <lt4:callingPoint>
+                  <lt4:locationName>Lostock</lt4:locationName>
+                  <lt4:crs>LOT</lt4:crs>
+                  <lt4:st>12:20</lt4:st>
+                  <lt4:et>On time</lt4:et>
+                </lt4:callingPoint>
+                <lt4:callingPoint>
+                  <lt4:locationName>Bolton</lt4:locationName>
+                  <lt4:crs>BON</lt4:crs>
+                  <lt4:st>12:38</lt4:st>
+                  <lt4:et>On time</lt4:et>
+                </lt4:callingPoint>
+                <lt4:callingPoint>
+                  <lt4:locationName>Salford Crescent</lt4:locationName>
+                  <lt4:crs>SLD</lt4:crs>
+                  <lt4:st>13:03</lt4:st>
+                  <lt4:et>On time</lt4:et>
+                </lt4:callingPoint>
+              </lt4:callingPointList>
+            </lt5:previousCallingPoints>
+          </lt5:service>
+        </lt5:busServices>
+      </GetStationBoardResult>
+    </GetArrBoardWithDetailsResponse>
+  </soap:Body>
+</soap:Envelope>

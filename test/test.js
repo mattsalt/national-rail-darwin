@@ -155,3 +155,12 @@ describe('Arrival Departure Board with Details parsing is correct', function () 
     assert.equal('On time', arr[0].et)
   })
 })
+
+describe('Arrival Departure Board with Details when no train services are available', function () {
+  var fileContent = fs.readFileSync('./exampleResponses/arrivalBoardWithDets_bus.xml', 'UTF-8')
+  var parsedResult = parsers.parseArrivalsBoardWithDetails(fileContent)
+
+  it('does not throw an error', function () {
+    assert.deepEqual([], parsedResult.trainServices)
+  })
+})
