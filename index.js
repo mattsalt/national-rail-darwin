@@ -186,7 +186,6 @@ Darwin.prototype.getFastestDeparture = function (station, destination, options, 
   requestXML = requestXML.replace('$$FROM$$', station);
   requestXML = applyOptions( requestXML, options );
 
-  console.log(requestXML);
   this.thenablePOST(requestXML).then(function (result) {
     callback(null, parser.parseFastestDeparture(result))
   }).catch(function (err) {
