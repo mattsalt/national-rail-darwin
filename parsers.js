@@ -1,70 +1,82 @@
 var xmldoc = require('xmldoc')
 
-function parseArrivalsBoardResponse (soapResponse) {
+function parseArrivalsBoardResponse(soapResponse) {
   var board = getTrainServicesBoard(soapResponse, 'GetArrivalBoardResponse')
   var trains = []
-  board.eachChild(function (service) {
-    trains.push(parseStandardService(service))
-  })
-  return {'trainServices': trains}
+
+  try {
+    board.eachChild(function (service) {
+      trains.push(parseStandardService(service))
+    })
+  } catch (e) { }
+
+  return { 'trainServices': trains }
 }
 
-function parseArrivalsBoardWithDetails (soapResponse) {
+function parseArrivalsBoardWithDetails(soapResponse) {
   var board = getTrainServicesBoard(soapResponse, 'GetArrBoardWithDetailsResponse')
   var trains = []
 
-  board.eachChild(function (service) {
-    var train = parseStandardService(service)
-    service.eachChild(function (element) {
-      switch (element.name) {
-        case 'lt5:previousCallingPoints':
-          var previousCallingPoints = element.childNamed('lt4:callingPointList')
-          train.previousCallingPoints = parseCallingPointList(previousCallingPoints)
-          break
-      }
+  try {
+    board.eachChild(function (service) {
+      var train = parseStandardService(service)
+      service.eachChild(function (element) {
+        switch (element.name) {
+          case 'lt5:previousCallingPoints':
+            var previousCallingPoints = element.childNamed('lt4:callingPointList')
+            train.previousCallingPoints = parseCallingPointList(previousCallingPoints)
+            break
+        }
+      })
+      trains.push(train)
     })
-    trains.push(train)
-  })
+  } catch (e) { }
 
-  return {'trainServices': trains}
+  return { 'trainServices': trains }
 }
 
-function parseArrivalsDepartureBoard (soapResponse) {
+function parseArrivalsDepartureBoard(soapResponse) {
   var board = getTrainServicesBoard(soapResponse, 'GetArrivalDepartureBoardResponse')
   var trains = []
-  board.eachChild(function (service) {
-    trains.push(parseStandardService(service))
-  })
-  return {'trainServices': trains}
+
+  try {
+    board.eachChild(function (service) {
+      trains.push(parseStandardService(service))
+    })
+  } catch (e) { }
+
+  return { 'trainServices': trains }
 }
 
-function parseArrivalsDepartureBoardWithDetails (soapResponse) {
+function parseArrivalsDepartureBoardWithDetails(soapResponse) {
   var board = getTrainServicesBoard(soapResponse, 'GetArrDepBoardWithDetailsResponse')
   var trains = []
 
-  board.eachChild(function (service) {
-    var train = parseStandardService(service)
-    service.eachChild(function (element) {
-      switch (element.name) {
-        case 'lt5:previousCallingPoints':
-          var previousCallingPoints = element.childNamed('lt4:callingPointList')
-          train.previousCallingPoints = parseCallingPointList(previousCallingPoints)
-          break
-        case 'lt5:subsequentCallingPoints':
-          var subsequentCallingPoints = element.childNamed('lt4:callingPointList')
-          train.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
-          break
-      }
+  try {
+    board.eachChild(function (service) {
+      var train = parseStandardService(service)
+      service.eachChild(function (element) {
+        switch (element.name) {
+          case 'lt5:previousCallingPoints':
+            var previousCallingPoints = element.childNamed('lt4:callingPointList')
+            train.previousCallingPoints = parseCallingPointList(previousCallingPoints)
+            break
+          case 'lt5:subsequentCallingPoints':
+            var subsequentCallingPoints = element.childNamed('lt4:callingPointList')
+            train.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
+            break
+        }
+      })
+      trains.push(train)
     })
-    trains.push(train)
-  })
+  } catch (e) { }
 
-  return {'trainServices': trains}
+  return { 'trainServices': trains }
 }
 
-function parseServiceIdResponse (soapResponse) {
+function parseServiceIdResponse(soapResponse) {
   var serviceXml = extractResponseObject(soapResponse, 'GetServiceDetailsResponse')
-        .childNamed('GetServiceDetailsResult')
+    .childNamed('GetServiceDetailsResult')
   var service = parseStandardService(serviceXml)
 
   serviceXml.eachChild(function (element) {
@@ -80,112 +92,138 @@ function parseServiceIdResponse (soapResponse) {
     }
   })
 
-  return {'serviceDetails': service}
+  return { 'serviceDetails': service }
 }
 
-function parseDepartureBoardResponse (soapResponse) {
+function parseDepartureBoardResponse(soapResponse) {
   var board = getTrainServicesBoard(soapResponse, 'GetDepartureBoardResponse')
   var trains = []
 
-  board.eachChild(function (service) {
-    trains.push(parseStandardService(service))
-  })
-  return {'trainServices': trains}
+  try {
+    board.eachChild(function (service) {
+      trains.push(parseStandardService(service))
+    })
+  } catch (e) { }
+
+  return { 'trainServices': trains }
 }
 
-function parseDepartureBoardWithDetailsResponse (soapResponse) {
+function parseDepartureBoardWithDetailsResponse(soapResponse) {
   var board = getTrainServicesBoard(soapResponse, 'GetDepBoardWithDetailsResponse')
   var trains = []
-  board.eachChild(function (service) {
-    var train = parseStandardService(service)
-    service.eachChild(function (element) {
-      switch (element.name) {
-        case 'lt5:subsequentCallingPoints':
-          var subsequentCallingPoints = element.childNamed('lt4:callingPointList')
-          train.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
-          break
-      }
+
+  try {
+
+    board.eachChild(function (service) {
+      var train = parseStandardService(service)
+      service.eachChild(function (element) {
+        switch (element.name) {
+          case 'lt5:subsequentCallingPoints':
+            var subsequentCallingPoints = element.childNamed('lt4:callingPointList')
+            train.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
+            break
+        }
+      })
+      trains.push(train)
     })
-    trains.push(train)
-  })
-  return {'trainServices': trains}
+  } catch (e) { }
+
+  return { 'trainServices': trains }
 }
 
-function parseNextDestinationResponse (response) {
+function parseNextDestinationResponse(response) {
   var board = getDepartureBoardDestination(response, 'GetNextDeparturesResponse')
   var trains = []
-  board.eachChild(function (service) {
-    trains.push(parseStandardService(service))
-  })
 
-  return {'trainServices': trains}
+  try {
+
+    board.eachChild(function (service) {
+      trains.push(parseStandardService(service))
+    })
+  } catch (e) { }
+
+  return { 'trainServices': trains }
 }
 
-function parseNextDepartureWithDetailsResponse (response) {
+function parseNextDepartureWithDetailsResponse(response) {
   var board = getDepartureBoardDestination(response, 'GetNextDeparturesWithDetailsResponse')
   var trains = []
 
-  board.eachChild(function (service) {
-    var train = parseStandardService(service)
-    service.eachChild(function (element) {
-      switch (element.name) {
-        case 'lt5:subsequentCallingPoints':
-          var subsequentCallingPoints = element.childNamed('lt4:callingPointList')
-          train.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
-          break
-      }
+  try {
+    board.eachChild(function (service) {
+      var train = parseStandardService(service)
+      service.eachChild(function (element) {
+        switch (element.name) {
+          case 'lt5:subsequentCallingPoints':
+            var subsequentCallingPoints = element.childNamed('lt4:callingPointList')
+            train.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
+            break
+        }
+      })
+      trains.push(train)
     })
-    trains.push(train)
-  })
+  } catch (e) { }
 
-  return {'trainServices': trains}
+  return { 'trainServices': trains }
 }
 
-function parseNextArrivalResponse (response) {
+function parseNextArrivalResponse(response) {
   var board = getTrainServicesBoard(response, 'GetArrivalBoardResponse')
   var trains = []
-  board.eachChild(function (service) {
-    trains.push(parseStandardService(service))
-  })
-  return {'trainServices': trains}
+
+  try {
+
+    board.eachChild(function (service) {
+      trains.push(parseStandardService(service))
+    })
+  } catch (e) { }
+
+  return { 'trainServices': trains }
 }
 
-function parseFastestDeparture (response) {
+function parseFastestDeparture(response) {
   var board = getDepartureBoardDestination(response, 'GetFastestDeparturesResponse')
   var trains = []
-  board.eachChild(function (service) {
-    trains.push(parseStandardService(service))
-  })
-  return {'trainServices': trains}
+
+  try {
+
+    board.eachChild(function (service) {
+      trains.push(parseStandardService(service))
+    })
+  } catch (e) { }
+  return { 'trainServices': trains }
 }
 
-function parseFastestDepartureWithDetails (response) {
+function parseFastestDepartureWithDetails(response) {
   var board = getDepartureBoardDestination(response, 'GetFastestDeparturesWithDetailsResponse')
   var trains = []
+  try {
 
-  board.eachChild(function (service) {
-    var train = parseStandardService(service)
-    service.eachChild(function (element) {
-      switch (element.name) {
-        case 'lt5:subsequentCallingPoints':
-          var subsequentCallingPoints = element.childNamed('lt4:callingPointList')
-          train.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
-          break
-      }
+    board.eachChild(function (service) {
+      var train = parseStandardService(service)
+      service.eachChild(function (element) {
+        switch (element.name) {
+          case 'lt5:subsequentCallingPoints':
+            var subsequentCallingPoints = element.childNamed('lt4:callingPointList')
+            train.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
+            break
+        }
+      })
+      trains.push(train)
     })
-    trains.push(train)
-  })
-  return {'trainServices': trains}
+  } catch (e) { }
+
+  return { 'trainServices': trains }
 }
 
-function getTrainServicesBoard (response, responseType) {
+function getTrainServicesBoard(response, responseType) {
   var board = extractResponseObject(response, responseType)
-                  .childNamed('GetStationBoardResult')
-                  .childNamed('lt5:trainServices')
+    .childNamed('GetStationBoardResult')
+    .childNamed('lt5:trainServices')
   return board
 }
 
-function parseStandardService (service) {
+function parseStandardService(service) {
   var train = {}
   service.eachChild(function (element) {
     switch (element.name) {
@@ -238,7 +276,7 @@ function parseStandardService (service) {
   return train
 }
 
-function parseCallingPointList (soapCallingPointList) {
+function parseCallingPointList(soapCallingPointList) {
   var callingPoints = []
   soapCallingPointList.eachChild(function (child) {
     var callingPoint = {}
@@ -266,23 +304,23 @@ function parseCallingPointList (soapCallingPointList) {
   return callingPoints
 }
 
-function extractResponseObject (soapMessage, response) {
+function extractResponseObject(soapMessage, response) {
   var parsed = new xmldoc.XmlDocument(soapMessage)
   return parsed.childNamed('soap:Body').childNamed(response)
 }
 
-function parseLocation (location) {
+function parseLocation(location) {
   return {
     name: location.childNamed('lt4:locationName').val,
     crs: location.childNamed('lt4:crs').val
   }
 }
 
-function getDepartureBoardDestination (response, responseType) {
+function getDepartureBoardDestination(response, responseType) {
   var board = extractResponseObject(response, responseType)
-        .childNamed('DeparturesBoard')
-        .childNamed('lt5:departures')
-        .childNamed('lt5:destination')
+    .childNamed('DeparturesBoard')
+    .childNamed('lt5:departures')
+    .childNamed('lt5:destination')
 
   return board
 }

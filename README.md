@@ -23,17 +23,22 @@ All 11 requests exposed by the Darwin api are available in `national-rail-darwin
 - getArrivalsDepartureBoard(crsCode, options, callback)
 - getArrivalsDepartureBoardWithDetails(crsCode, options, callback)
 - getServiceDetails(serviceId, callback)
-- getNextDeparture(crsCode, destinationCrsCode, options, callback) 
-- getNextDepartureWithDetails(crsCode, destinationCrsCode, options, callback) 
+- getNextDeparture(crsCode, destinationCrsCode, options, callback)
+- getNextDepartureWithDetails(crsCode, destinationCrsCode, options, callback)
 - getDepartureBoardWithDetails(crsCode, options, callback)
 - getFastestDeparture(crsCode, destinationCrsCode, options, callback)
 - getFastestDepartureWithDetails(crsCode, destinationCrsCode, options, callback)
 
 Additional functions
-- getStationDetails(Station, callback) 
+- getStationDetails(Station, callback)
 
 
 Your api token can either be provided when the client is created or picked up from the environment variable `DARWIN_TOKEN`.
+
+```
+  var Rail = require('national-rail-darwin')
+  var rail = new Rail() // or -> new Rail(DARWIN_TOKEN)
+```
 
 ### Options
 
@@ -43,7 +48,7 @@ Some functions take an options object. See the specific method definitions for d
 
 All methods return arrays of basic service objects of the form:
 ```
-{ 
+{
   sta: '23:57',
   eta: 'On time',
   std: '23:57',
@@ -54,14 +59,14 @@ All methods return arrays of basic service objects of the form:
     name:<stationname>,
     crs:<crsCode>
   },
-  destination: {    
+  destination: {
     name:<stationname>,
     crs:<crsCode>
   },
   length: '5',
   serviceId: 'xxxxxxxxxxxxxxxx+xx/xxx=='
 }
-```       
+```
 
 #### getDepartureBoard
 ```javascript

@@ -1,13 +1,14 @@
 var Rail = require('../index.js')
 var fs = require('fs')
-var token = fs.readFileSync('../token.txt', 'UTF-8')
+var path = require('path')
+var token = fs.readFileSync(path.resolve('.', 'token.txt'), 'UTF-8')
 var client = new Rail(token)
 
 function resultLogger (err, result) {
   if (err) {
-    console.log(err)
+    // console.log(err)
   } else {
-    console.log(result)
+    // console.log(result)
   }
 }
 
