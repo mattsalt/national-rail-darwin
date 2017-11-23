@@ -1,6 +1,6 @@
 var xmldoc = require('xmldoc')
 
-function parseArrivalsBoardResponse(soapResponse) {
+function parseArrivalsBoardResponse (soapResponse) {
   var board = getTrainServicesBoard(soapResponse, 'GetArrivalBoardResponse')
   var trains = []
 
@@ -13,7 +13,7 @@ function parseArrivalsBoardResponse(soapResponse) {
   return { 'trainServices': trains }
 }
 
-function parseArrivalsBoardWithDetails(soapResponse) {
+function parseArrivalsBoardWithDetails (soapResponse) {
   var board = getTrainServicesBoard(soapResponse, 'GetArrBoardWithDetailsResponse')
   var trains = []
 
@@ -35,7 +35,7 @@ function parseArrivalsBoardWithDetails(soapResponse) {
   return { 'trainServices': trains }
 }
 
-function parseArrivalsDepartureBoard(soapResponse) {
+function parseArrivalsDepartureBoard (soapResponse) {
   var board = getTrainServicesBoard(soapResponse, 'GetArrivalDepartureBoardResponse')
   var trains = []
 
@@ -48,7 +48,7 @@ function parseArrivalsDepartureBoard(soapResponse) {
   return { 'trainServices': trains }
 }
 
-function parseArrivalsDepartureBoardWithDetails(soapResponse) {
+function parseArrivalsDepartureBoardWithDetails (soapResponse) {
   var board = getTrainServicesBoard(soapResponse, 'GetArrDepBoardWithDetailsResponse')
   var trains = []
 
@@ -74,7 +74,7 @@ function parseArrivalsDepartureBoardWithDetails(soapResponse) {
   return { 'trainServices': trains }
 }
 
-function parseServiceIdResponse(soapResponse) {
+function parseServiceIdResponse (soapResponse) {
   var serviceXml = extractResponseObject(soapResponse, 'GetServiceDetailsResponse')
     .childNamed('GetServiceDetailsResult')
   var service = parseStandardService(serviceXml)
@@ -95,7 +95,7 @@ function parseServiceIdResponse(soapResponse) {
   return { 'serviceDetails': service }
 }
 
-function parseDepartureBoardResponse(soapResponse) {
+function parseDepartureBoardResponse (soapResponse) {
   var board = getTrainServicesBoard(soapResponse, 'GetDepartureBoardResponse')
   var trains = []
 
@@ -108,12 +108,11 @@ function parseDepartureBoardResponse(soapResponse) {
   return { 'trainServices': trains }
 }
 
-function parseDepartureBoardWithDetailsResponse(soapResponse) {
+function parseDepartureBoardWithDetailsResponse (soapResponse) {
   var board = getTrainServicesBoard(soapResponse, 'GetDepBoardWithDetailsResponse')
   var trains = []
 
   try {
-
     board.eachChild(function (service) {
       var train = parseStandardService(service)
       service.eachChild(function (element) {
@@ -131,12 +130,11 @@ function parseDepartureBoardWithDetailsResponse(soapResponse) {
   return { 'trainServices': trains }
 }
 
-function parseNextDestinationResponse(response) {
+function parseNextDestinationResponse (response) {
   var board = getDepartureBoardDestination(response, 'GetNextDeparturesResponse')
   var trains = []
 
   try {
-
     board.eachChild(function (service) {
       trains.push(parseStandardService(service))
     })
@@ -145,7 +143,7 @@ function parseNextDestinationResponse(response) {
   return { 'trainServices': trains }
 }
 
-function parseNextDepartureWithDetailsResponse(response) {
+function parseNextDepartureWithDetailsResponse (response) {
   var board = getDepartureBoardDestination(response, 'GetNextDeparturesWithDetailsResponse')
   var trains = []
 
@@ -167,12 +165,11 @@ function parseNextDepartureWithDetailsResponse(response) {
   return { 'trainServices': trains }
 }
 
-function parseNextArrivalResponse(response) {
+function parseNextArrivalResponse (response) {
   var board = getTrainServicesBoard(response, 'GetArrivalBoardResponse')
   var trains = []
 
   try {
-
     board.eachChild(function (service) {
       trains.push(parseStandardService(service))
     })
@@ -181,12 +178,11 @@ function parseNextArrivalResponse(response) {
   return { 'trainServices': trains }
 }
 
-function parseFastestDeparture(response) {
+function parseFastestDeparture (response) {
   var board = getDepartureBoardDestination(response, 'GetFastestDeparturesResponse')
   var trains = []
 
   try {
-
     board.eachChild(function (service) {
       trains.push(parseStandardService(service))
     })
@@ -194,11 +190,10 @@ function parseFastestDeparture(response) {
   return { 'trainServices': trains }
 }
 
-function parseFastestDepartureWithDetails(response) {
+function parseFastestDepartureWithDetails (response) {
   var board = getDepartureBoardDestination(response, 'GetFastestDeparturesWithDetailsResponse')
   var trains = []
   try {
-
     board.eachChild(function (service) {
       var train = parseStandardService(service)
       service.eachChild(function (element) {
@@ -216,14 +211,14 @@ function parseFastestDepartureWithDetails(response) {
   return { 'trainServices': trains }
 }
 
-function getTrainServicesBoard(response, responseType) {
+function getTrainServicesBoard (response, responseType) {
   var board = extractResponseObject(response, responseType)
     .childNamed('GetStationBoardResult')
     .childNamed('lt5:trainServices')
   return board
 }
 
-function parseStandardService(service) {
+function parseStandardService (service) {
   var train = {}
   service.eachChild(function (element) {
     switch (element.name) {
@@ -276,7 +271,7 @@ function parseStandardService(service) {
   return train
 }
 
-function parseCallingPointList(soapCallingPointList) {
+function parseCallingPointList (soapCallingPointList) {
   var callingPoints = []
   soapCallingPointList.eachChild(function (child) {
     var callingPoint = {}
@@ -304,19 +299,19 @@ function parseCallingPointList(soapCallingPointList) {
   return callingPoints
 }
 
-function extractResponseObject(soapMessage, response) {
+function extractResponseObject (soapMessage, response) {
   var parsed = new xmldoc.XmlDocument(soapMessage)
   return parsed.childNamed('soap:Body').childNamed(response)
 }
 
-function parseLocation(location) {
+function parseLocation (location) {
   return {
     name: location.childNamed('lt4:locationName').val,
     crs: location.childNamed('lt4:crs').val
   }
 }
 
-function getDepartureBoardDestination(response, responseType) {
+function getDepartureBoardDestination (response, responseType) {
   var board = extractResponseObject(response, responseType)
     .childNamed('DeparturesBoard')
     .childNamed('lt5:departures')
