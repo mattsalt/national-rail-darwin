@@ -8,7 +8,6 @@ var baseUrl = 'https://lite.realtime.nationalrail.co.uk/OpenLDBWS/ldb9.asmx'
 
 var Darwin = function (apiKey, options) {
   this.key = apiKey || process.env.DARWIN_TOKEN
-  console.log('this.key = ' + this.key)
 }
 
 Darwin.prototype.thenablePOST = function (xml) {
