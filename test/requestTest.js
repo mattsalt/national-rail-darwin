@@ -16,6 +16,13 @@ describe('Check request xmls build correctly', function () {
     assert.equal(request, fileContent.trim('string'))
   })
 
+  it('Get Arrival Board with options', function () {
+    var fileContent = fs.readFileSync('./exampleRequests/ArrivalBoardOptions.xml', 'UTF-8')
+    var request = requestBuilder.getArrivalsBoard('ISL', 
+        {'timeOffset':5, 'timeWindow':60, 'rows':5,'destination':'WAT'})
+    assert.equal(request, fileContent.trim('string'))
+  })
+
   it('Get Arrival Board with Details', function () {
     var fileContent = fs.readFileSync('./exampleRequests/getArrivalBoardWithDetails.xml', 'UTF-8')
     var request = requestBuilder.getArrivalsBoardWithDetails('ISL', {})
