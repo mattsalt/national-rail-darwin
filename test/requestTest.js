@@ -69,7 +69,7 @@ describe('Check request xmls build correctly', function () {
     assert.equal(request, fileContent.trim('string'))
   })
 
-it('Get Next Departures Request', function () {
+  it('Get Next Departures Request', function () {
     var fileContent = fs.readFileSync('./exampleRequests/getNextDeparture.xml', 'UTF-8')
     var request = requestBuilder.getNextDeparture('ISL', 'WAT', {})
     assert.equal(request, fileContent.trim('string'))
