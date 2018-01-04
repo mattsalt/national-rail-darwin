@@ -1,5 +1,9 @@
 /* eslint-env mocha */
 
+/*
+    Test parsers are working correctly.
+*/
+
 var assert = require('assert')
 var parsers = require('../parsers.js')
 var fs = require('fs')

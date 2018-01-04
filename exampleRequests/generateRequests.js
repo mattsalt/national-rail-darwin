@@ -1,3 +1,7 @@
+/**
+  Creates a complete set of requests for se with testing
+*/
+
 var requestBuilder = require('../requestBuilder.js')
 
 console.log(requestBuilder.getDepartureBoardRequest('ISL', {}))
