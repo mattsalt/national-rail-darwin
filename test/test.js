@@ -59,19 +59,19 @@ describe('Arrival Departure Board', function () {
 
   it('1 Services returned', function () {
     assert.equal(1, parsedResult.trainServices.length)
-  }) 
+  })
 
   it('Service 1 on time', function () {
     assert.equal('On time', parsedResult.trainServices[0].eta)
-  }) 
+  })
 
   it('Service 1 platform ', function () {
     assert.equal(1, parsedResult.trainServices[0].platform)
-  })  
+  })
 
   it('Service 1 length ', function () {
     assert.equal(10, parsedResult.trainServices[0].length)
-  }) 
+  })
 
   it('Service 1 destination ', function () {
     assert.equal('London Waterloo', parsedResult.trainServices[0].destination.name)
@@ -162,7 +162,6 @@ describe('Arrival Departure Board with Details parsing is correct', function () 
   })
 })
 
-
 /* arrivalsBoard.xml */
 describe('Arrival Departure Board', function () {
   var fileContent = fs.readFileSync('./exampleResponses/arrivalsBoard.xml', 'UTF-8')
@@ -170,19 +169,19 @@ describe('Arrival Departure Board', function () {
 
   it('10 Services returned', function () {
     assert.equal(10, parsedResult.trainServices.length)
-  }) 
+  })
 
   it('Service 9 on time', function () {
     assert.equal('On time', parsedResult.trainServices[8].eta)
-  }) 
+  })
 
   it('Service 9 platform ', function () {
     assert.equal(1, parsedResult.trainServices[8].platform)
-  })  
+  })
 
   it('Service 9 length ', function () {
     assert.equal(10, parsedResult.trainServices[8].length)
-  }) 
+  })
 
   it('Service 1 origin ', function () {
     assert.equal('Weybridge', parsedResult.trainServices[8].origin.name)
@@ -196,22 +195,22 @@ describe('Departure Board', function () {
 
   it('15 Services returned', function () {
     assert.equal(15, parsedResult.trainServices.length)
-  }) 
+  })
 
   it('Service 15 etd', function () {
     assert.equal('On time', parsedResult.trainServices[14].etd)
-  }) 
+  })
   it('Service 15 eta undefined', function () {
     assert.equal(undefined, parsedResult.trainServices[14].eta)
-  }) 
+  })
 
   it('Service 15 platform ', function () {
     assert.equal(1, parsedResult.trainServices[14].platform)
-  })  
+  })
 
   it('Service 15 length ', function () {
     assert.equal(10, parsedResult.trainServices[14].length)
-  }) 
+  })
 
   it('Service 1 origin ', function () {
     assert.equal('Weybridge', parsedResult.trainServices[0].origin.name)
@@ -225,27 +224,27 @@ describe('Departure Board With Details', function () {
 
   it('10 Services returned', function () {
     assert.equal(10, parsedResult.trainServices.length)
-  }) 
+  })
 
   it('Service 10 std', function () {
     assert.equal('20:43', parsedResult.trainServices[9].std)
-  })   
+  })
 
   it('Service 10 sta undefined', function () {
     assert.equal(undefined, parsedResult.trainServices[9].sta)
-  }) 
+  })
 
   it('Service 10 platform ', function () {
     assert.equal(4, parsedResult.trainServices[9].platform)
-  })  
+  })
 
   it('Service 10 operator ', function () {
     assert.equal('Great Northern', parsedResult.trainServices[9].operator)
-  }) 
+  })
 
   it('Service 10 has 9 calling points ', function () {
     assert.equal(9, parsedResult.trainServices[0].subsequentCallingPoints.length)
-  })  
+  })
 
   it('Service 10 calling point 9 is Cambridge ', function () {
     assert.equal('Cambridge', parsedResult.trainServices[0].subsequentCallingPoints[8].locationName)
@@ -314,7 +313,6 @@ describe('FastestDeparture with Details parsed correctly', function () {
   })
 })
 
-
 /* nextDeparture.xml */
 describe('getNextDeparture parsed correctly', function () {
   var fileContent = fs.readFileSync('./exampleResponses/nextDeparture.xml', 'UTF-8')
@@ -323,25 +321,23 @@ describe('getNextDeparture parsed correctly', function () {
   it('1 train service returned', function () {
     assert.equal(1, parsedResult.trainServices.length)
   })
-  
+
   it('RSID Parsed correctly', function () {
     assert.equal('TP536900', parsedResult.trainServices[0].rsid)
-  })  
+  })
 
   it('Destination', function () {
     assert.equal('Manchester Piccadilly', parsedResult.trainServices[0].destination.name)
-  }) 
+  })
 
   it('STD is parsed', function () {
     assert.equal('18:53', parsedResult.trainServices[0].std)
-  }) 
+  })
 
   it('STA is undefined for departure board', function () {
     assert.equal(undefined, parsedResult.trainServices[0].sta)
   })
-
 })
-
 
 /* nextDepartureWithDetails.xml */
 describe('getNextDepartureWithDetails parsed correctly', function () {
