@@ -8,15 +8,13 @@ function applyOptions (requestXML, options) {
     filter: [ '', 'TEXT' ],
     destination: [ '', 'TEXT' ]
   }
-  if (options) {
-    for (var key in optionDefaults) {
-      var value = optionDefaults[key][0]
-      if (options[key]) {
-        if (optionDefaults[key][1] === 'INT') value = parseInt(options[key])
-        else value = options[key]
-      }
-      requestXML = requestXML.replace('$$' + key.toUpperCase() + '$$', value)
+  for (var key in optionDefaults) {
+    var value = optionDefaults[key][0]
+    if (options && options[key]) {
+      if (optionDefaults[key][1] === 'INT') value = parseInt(options[key])
+      else value = options[key]
     }
+    requestXML = requestXML.replace('$$' + key.toUpperCase() + '$$', value)
   }
   return requestXML
 }
