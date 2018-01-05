@@ -74,7 +74,7 @@ function parseArrivalsDepartureBoardWithDetails (soapResponse) {
   return { 'trainServices': trains }
 }
 
-function parseServiceIdResponse (soapResponse) {
+function parseServiceDetails (soapResponse) {
   var serviceXml = extractResponseObject(soapResponse, 'GetServiceDetailsResponse')
     .childNamed('GetServiceDetailsResult')
   var service = parseStandardService(serviceXml)
@@ -130,7 +130,7 @@ function parseDepartureBoardWithDetailsResponse (soapResponse) {
   return { 'trainServices': trains }
 }
 
-function parseNextDestinationResponse (response) {
+function parseNextDepartureResponse (response) {
   var board = getDepartureBoardDestination(response, 'GetNextDeparturesResponse')
   var trains = []
 
@@ -159,19 +159,6 @@ function parseNextDepartureWithDetailsResponse (response) {
         }
       })
       trains.push(train)
-    })
-  } catch (e) { }
-
-  return { 'trainServices': trains }
-}
-
-function parseNextArrivalResponse (response) {
-  var board = getTrainServicesBoard(response, 'GetArrivalBoardResponse')
-  var trains = []
-
-  try {
-    board.eachChild(function (service) {
-      trains.push(parseStandardService(service))
     })
   } catch (e) { }
 
@@ -320,15 +307,18 @@ function getDepartureBoardDestination (response, responseType) {
   return board
 }
 
+module.exports.parseArrivalsBoardResponse = parseArrivalsBoardResponse
 module.exports.parseArrivalsBoardWithDetails = parseArrivalsBoardWithDetails
 module.exports.parseArrivalsDepartureBoard = parseArrivalsDepartureBoard
 module.exports.parseArrivalsDepartureBoardWithDetails = parseArrivalsDepartureBoardWithDetails
+
 module.exports.parseDepartureBoardResponse = parseDepartureBoardResponse
 module.exports.parseDepartureBoardWithDetailsResponse = parseDepartureBoardWithDetailsResponse
-module.exports.parseServiceIdResponse = parseServiceIdResponse
-module.exports.parseArrivalsBoardResponse = parseArrivalsBoardResponse
-module.exports.parseNextDestinationResponse = parseNextDestinationResponse
-module.exports.parseNextDepartureWithDetailsResponse = parseNextDepartureWithDetailsResponse
-module.exports.parseNextArrivalResponse = parseNextArrivalResponse
+
 module.exports.parseFastestDeparture = parseFastestDeparture
 module.exports.parseFastestDeparturesWithDetail = parseFastestDepartureWithDetails
+
+module.exports.parseNextDepartureResponse = parseNextDepartureResponse
+module.exports.parseNextDepartureWithDetailsResponse = parseNextDepartureWithDetailsResponse
+
+module.exports.parseServiceDetails = parseServiceDetails
