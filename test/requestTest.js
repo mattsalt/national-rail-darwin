@@ -10,7 +10,7 @@ var fs = require('fs')
 describe('Check request xmls build correctly', function () {
   it('Arrival Departure Board with Details', function () {
     var fileContent = fs.readFileSync('./exampleRequests/getArrDepBoardWithDetailsRequest.xml', 'UTF-8')
-    var request = requestBuilder.getArrivalsDepartureBoardWithDetails('ISL', {})
+    var request = requestBuilder.getArrivalsDepartureBoardWithDetails('ISL')
     assert.equal(request, fileContent.trim('string'))
   })
 
