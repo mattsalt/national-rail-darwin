@@ -63,7 +63,6 @@ client.thenablePOST(requestBuilder.getArrival('ISL', 'WAT', {})).then(function (
 })
 client.thenablePOST(requestBuilder.getServiceDetails('123456789', {})).then(function (result) {
   console.log('12) Success')
-  console.log(result.body)
 }).catch(function (err) {
   console.log('12) Error: ' + err.statusCode + ' ' + err.body)
 })

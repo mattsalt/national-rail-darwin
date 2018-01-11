@@ -112,7 +112,7 @@ Darwin.prototype.getServiceDetails = function (serviceId, callback) {
 }
 
 Darwin.prototype.getNextDeparture = function (station, destination, options, callback) {
-  var requestXML = requestBuilder.getFastestDeparture(station, destination, options)
+  var requestXML = requestBuilder.getNextDeparture(station, destination, options)
   this.thenablePOST(requestXML).then(function (result) {
     callback(null, parser.parseNextDepartureResponse(result))
   }).catch(function (err) {

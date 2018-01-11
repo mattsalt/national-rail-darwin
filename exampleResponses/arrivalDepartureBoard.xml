@@ -1,25 +1,26 @@
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <soap:Body>
-      <GetArrivalDepartureBoardResponse xmlns="http://thalesgroup.com/RTTI/2016-02-16/ldb/">
-         <GetStationBoardResult xmlns:lt3="http://thalesgroup.com/RTTI/2015-05-14/ldb/types" xmlns:lt5="http://thalesgroup.com/RTTI/2016-02-16/ldb/types" xmlns:lt4="http://thalesgroup.com/RTTI/2015-11-27/ldb/types" xmlns:lt="http://thalesgroup.com/RTTI/2012-01-13/ldb/types" xmlns:lt2="http://thalesgroup.com/RTTI/2014-02-20/ldb/types">
-            <lt4:generatedAt>2017-02-15T07:28:00.087979+00:00</lt4:generatedAt>
+      <GetArrivalDepartureBoardResponse xmlns="http://thalesgroup.com/RTTI/2017-10-01/ldb/">
+         <GetStationBoardResult xmlns:lt="http://thalesgroup.com/RTTI/2012-01-13/ldb/types" xmlns:lt6="http://thalesgroup.com/RTTI/2017-02-02/ldb/types" xmlns:lt7="http://thalesgroup.com/RTTI/2017-10-01/ldb/types" xmlns:lt4="http://thalesgroup.com/RTTI/2015-11-27/ldb/types" xmlns:lt5="http://thalesgroup.com/RTTI/2016-02-16/ldb/types" xmlns:lt2="http://thalesgroup.com/RTTI/2014-02-20/ldb/types" xmlns:lt3="http://thalesgroup.com/RTTI/2015-05-14/ldb/types">
+            <lt4:generatedAt>2018-01-11T18:31:44.5623443+00:00</lt4:generatedAt>
             <lt4:locationName>Isleworth</lt4:locationName>
             <lt4:crs>ISL</lt4:crs>
             <lt4:filterLocationName>Putney</lt4:filterLocationName>
             <lt4:filtercrs>PUT</lt4:filtercrs>
             <lt4:platformAvailable>true</lt4:platformAvailable>
-            <lt5:trainServices>
-               <lt5:service>
-                  <lt4:sta>07:32</lt4:sta>
+            <lt7:trainServices>
+               <lt7:service>
+                  <lt4:sta>18:34</lt4:sta>
                   <lt4:eta>On time</lt4:eta>
-                  <lt4:std>07:32</lt4:std>
+                  <lt4:std>18:34</lt4:std>
                   <lt4:etd>On time</lt4:etd>
                   <lt4:platform>1</lt4:platform>
-                  <lt4:operator>South West Trains</lt4:operator>
+                  <lt4:operator>South Western Railway</lt4:operator>
                   <lt4:operatorCode>SW</lt4:operatorCode>
                   <lt4:serviceType>train</lt4:serviceType>
                   <lt4:length>10</lt4:length>
-                  <lt4:serviceID>eZBO5rN2k26is5bajV9AmQ==</lt4:serviceID>
+                  <lt4:serviceID>wfmF+NYLrCpeoJVHBxSxrQ==</lt4:serviceID>
+                  <lt5:rsid>SW182100</lt5:rsid>
                   <lt5:origin>
                      <lt4:location>
                         <lt4:locationName>London Waterloo</lt4:locationName>
@@ -33,8 +34,239 @@
                         <lt4:via>via Brentford</lt4:via>
                      </lt4:location>
                   </lt5:destination>
-               </lt5:service>
-            </lt5:trainServices>
+               </lt7:service>
+               <lt7:service>
+                  <lt4:sta>18:42</lt4:sta>
+                  <lt4:eta>On time</lt4:eta>
+                  <lt4:std>18:42</lt4:std>
+                  <lt4:etd>On time</lt4:etd>
+                  <lt4:platform>2</lt4:platform>
+                  <lt4:operator>South Western Railway</lt4:operator>
+                  <lt4:operatorCode>SW</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:length>10</lt4:length>
+                  <lt4:serviceID>nh3WKFCFpkwRTwqpzEUc/A==</lt4:serviceID>
+                  <lt5:rsid>SW211600</lt5:rsid>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>London Waterloo</lt4:locationName>
+                        <lt4:crs>WAT</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>Mortlake</lt4:locationName>
+                        <lt4:crs>MTL</lt4:crs>
+                     </lt4:location>
+                  </lt5:destination>
+               </lt7:service>
+               <lt7:service>
+                  <lt4:sta>18:49</lt4:sta>
+                  <lt4:eta>18:51</lt4:eta>
+                  <lt4:std>18:49</lt4:std>
+                  <lt4:etd>18:51</lt4:etd>
+                  <lt4:platform>1</lt4:platform>
+                  <lt4:operator>South Western Railway</lt4:operator>
+                  <lt4:operatorCode>SW</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:length>4</lt4:length>
+                  <lt4:serviceID>KXIphaTeuVHS0/a4SWgoAg==</lt4:serviceID>
+                  <lt5:rsid>SW188000</lt5:rsid>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>Weybridge</lt4:locationName>
+                        <lt4:crs>WYB</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>London Waterloo</lt4:locationName>
+                        <lt4:crs>WAT</lt4:crs>
+                        <lt4:via>via Brentford</lt4:via>
+                     </lt4:location>
+                  </lt5:destination>
+               </lt7:service>
+               <lt7:service>
+                  <lt4:sta>19:04</lt4:sta>
+                  <lt4:eta>On time</lt4:eta>
+                  <lt4:std>19:04</lt4:std>
+                  <lt4:etd>On time</lt4:etd>
+                  <lt4:platform>1</lt4:platform>
+                  <lt4:operator>South Western Railway</lt4:operator>
+                  <lt4:operatorCode>SW</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:length>8</lt4:length>
+                  <lt4:serviceID>b5oGjwYNIrFOQCoeerXVsA==</lt4:serviceID>
+                  <lt5:rsid>SW182200</lt5:rsid>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>London Waterloo</lt4:locationName>
+                        <lt4:crs>WAT</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>London Waterloo</lt4:locationName>
+                        <lt4:crs>WAT</lt4:crs>
+                        <lt4:via>via Brentford</lt4:via>
+                     </lt4:location>
+                  </lt5:destination>
+               </lt7:service>
+               <lt7:service>
+                  <lt4:sta>19:12</lt4:sta>
+                  <lt4:eta>On time</lt4:eta>
+                  <lt4:std>19:12</lt4:std>
+                  <lt4:etd>On time</lt4:etd>
+                  <lt4:platform>2</lt4:platform>
+                  <lt4:operator>South Western Railway</lt4:operator>
+                  <lt4:operatorCode>SW</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:length>10</lt4:length>
+                  <lt4:serviceID>5QgCfHmYd7JNvbV0YSyhVw==</lt4:serviceID>
+                  <lt5:rsid>SW211700</lt5:rsid>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>London Waterloo</lt4:locationName>
+                        <lt4:crs>WAT</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>Mortlake</lt4:locationName>
+                        <lt4:crs>MTL</lt4:crs>
+                     </lt4:location>
+                  </lt5:destination>
+               </lt7:service>
+               <lt7:service>
+                  <lt4:sta>19:19</lt4:sta>
+                  <lt4:eta>On time</lt4:eta>
+                  <lt4:std>19:19</lt4:std>
+                  <lt4:etd>On time</lt4:etd>
+                  <lt4:platform>1</lt4:platform>
+                  <lt4:operator>South Western Railway</lt4:operator>
+                  <lt4:operatorCode>SW</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:length>4</lt4:length>
+                  <lt4:serviceID>2HTkZpwWG3h0h2h2gnYvPw==</lt4:serviceID>
+                  <lt5:rsid>SW188200</lt5:rsid>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>Weybridge</lt4:locationName>
+                        <lt4:crs>WYB</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>London Waterloo</lt4:locationName>
+                        <lt4:crs>WAT</lt4:crs>
+                        <lt4:via>via Brentford</lt4:via>
+                     </lt4:location>
+                  </lt5:destination>
+               </lt7:service>
+               <lt7:service>
+                  <lt4:sta>19:34</lt4:sta>
+                  <lt4:eta>On time</lt4:eta>
+                  <lt4:std>19:34</lt4:std>
+                  <lt4:etd>On time</lt4:etd>
+                  <lt4:platform>1</lt4:platform>
+                  <lt4:operator>South Western Railway</lt4:operator>
+                  <lt4:operatorCode>SW</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:length>8</lt4:length>
+                  <lt4:serviceID>+kJe9WIrueGPWUYhDzmRQg==</lt4:serviceID>
+                  <lt5:rsid>SW182300</lt5:rsid>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>London Waterloo</lt4:locationName>
+                        <lt4:crs>WAT</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>London Waterloo</lt4:locationName>
+                        <lt4:crs>WAT</lt4:crs>
+                        <lt4:via>via Brentford</lt4:via>
+                     </lt4:location>
+                  </lt5:destination>
+               </lt7:service>
+               <lt7:service>
+                  <lt4:sta>19:42</lt4:sta>
+                  <lt4:eta>On time</lt4:eta>
+                  <lt4:std>19:42</lt4:std>
+                  <lt4:etd>On time</lt4:etd>
+                  <lt4:platform>2</lt4:platform>
+                  <lt4:operator>South Western Railway</lt4:operator>
+                  <lt4:operatorCode>SW</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:length>10</lt4:length>
+                  <lt4:serviceID>cm080rz49AMkBqto0DmPCQ==</lt4:serviceID>
+                  <lt5:rsid>SW211800</lt5:rsid>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>London Waterloo</lt4:locationName>
+                        <lt4:crs>WAT</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>Mortlake</lt4:locationName>
+                        <lt4:crs>MTL</lt4:crs>
+                     </lt4:location>
+                  </lt5:destination>
+               </lt7:service>
+               <lt7:service>
+                  <lt4:sta>19:49</lt4:sta>
+                  <lt4:eta>On time</lt4:eta>
+                  <lt4:std>19:49</lt4:std>
+                  <lt4:etd>On time</lt4:etd>
+                  <lt4:platform>1</lt4:platform>
+                  <lt4:operator>South Western Railway</lt4:operator>
+                  <lt4:operatorCode>SW</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:length>10</lt4:length>
+                  <lt4:serviceID>14nFdX55toGlajTRiRUE7g==</lt4:serviceID>
+                  <lt5:rsid>SW188400</lt5:rsid>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>Weybridge</lt4:locationName>
+                        <lt4:crs>WYB</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>London Waterloo</lt4:locationName>
+                        <lt4:crs>WAT</lt4:crs>
+                        <lt4:via>via Brentford</lt4:via>
+                     </lt4:location>
+                  </lt5:destination>
+               </lt7:service>
+               <lt7:service>
+                  <lt4:sta>20:04</lt4:sta>
+                  <lt4:eta>On time</lt4:eta>
+                  <lt4:std>20:04</lt4:std>
+                  <lt4:etd>On time</lt4:etd>
+                  <lt4:platform>1</lt4:platform>
+                  <lt4:operator>South Western Railway</lt4:operator>
+                  <lt4:operatorCode>SW</lt4:operatorCode>
+                  <lt4:serviceType>train</lt4:serviceType>
+                  <lt4:length>10</lt4:length>
+                  <lt4:serviceID>oUW4Wt3Vc+7BHVWXcrkWpQ==</lt4:serviceID>
+                  <lt5:rsid>SW182400</lt5:rsid>
+                  <lt5:origin>
+                     <lt4:location>
+                        <lt4:locationName>London Waterloo</lt4:locationName>
+                        <lt4:crs>WAT</lt4:crs>
+                     </lt4:location>
+                  </lt5:origin>
+                  <lt5:destination>
+                     <lt4:location>
+                        <lt4:locationName>London Waterloo</lt4:locationName>
+                        <lt4:crs>WAT</lt4:crs>
+                        <lt4:via>via Brentford</lt4:via>
+                     </lt4:location>
+                  </lt5:destination>
+               </lt7:service>
+            </lt7:trainServices>
          </GetStationBoardResult>
       </GetArrivalDepartureBoardResponse>
    </soap:Body>

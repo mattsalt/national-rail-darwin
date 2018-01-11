@@ -38,70 +38,70 @@
                 <lt4:crs>MCV</lt4:crs>
               </lt4:location>
             </lt5:destination>
-            <lt5:previousCallingPoints>
-              <lt4:callingPointList serviceType="bus">
-                <lt4:callingPoint>
+            <lt7:subsequentCallingPoints>
+              <lt7:callingPointList serviceType="bus">
+                <lt7:callingPoint>
                   <lt4:locationName>Preston</lt4:locationName>
                   <lt4:crs>PRE</lt4:crs>
                   <lt4:st>11:00</lt4:st>
                   <lt4:et>On time</lt4:et>
-                </lt4:callingPoint>
-                <lt4:callingPoint>
+                </lt7:callingPoint>
+                <lt7:callingPoint>
                   <lt4:locationName>Leyland</lt4:locationName>
                   <lt4:crs>LEY</lt4:crs>
                   <lt4:st>11:20</lt4:st>
                   <lt4:et>On time</lt4:et>
-                </lt4:callingPoint>
-                <lt4:callingPoint>
+                </lt7:callingPoint>
+                <lt7:callingPoint>
                   <lt4:locationName>Buckshaw Parkway</lt4:locationName>
                   <lt4:crs>BSV</lt4:crs>
                   <lt4:st>11:34</lt4:st>
                   <lt4:et>On time</lt4:et>
-                </lt4:callingPoint>
-                <lt4:callingPoint>
+                </lt7:callingPoint>
+                <lt7:callingPoint>
                   <lt4:locationName>Chorley</lt4:locationName>
                   <lt4:crs>CRL</lt4:crs>
                   <lt4:st>11:49</lt4:st>
                   <lt4:et>On time</lt4:et>
-                </lt4:callingPoint>
-                <lt4:callingPoint>
+                </lt7:callingPoint>
+                <lt7:callingPoint>
                   <lt4:locationName>Adlington (Lancashire)</lt4:locationName>
                   <lt4:crs>ADL</lt4:crs>
                   <lt4:st>11:59</lt4:st>
                   <lt4:et>On time</lt4:et>
-                </lt4:callingPoint>
-                <lt4:callingPoint>
+                </lt7:callingPoint>
+                <lt7:callingPoint>
                   <lt4:locationName>Blackrod</lt4:locationName>
                   <lt4:crs>BLK</lt4:crs>
                   <lt4:st>12:06</lt4:st>
                   <lt4:et>On time</lt4:et>
-                </lt4:callingPoint>
-                <lt4:callingPoint>
+                </lt7:callingPoint>
+                <lt7:callingPoint>
                   <lt4:locationName>Horwich Parkway</lt4:locationName>
                   <lt4:crs>HWI</lt4:crs>
                   <lt4:st>12:12</lt4:st>
                   <lt4:et>On time</lt4:et>
-                </lt4:callingPoint>
-                <lt4:callingPoint>
+                </lt7:callingPoint>
+                <lt7:callingPoint>
                   <lt4:locationName>Lostock</lt4:locationName>
                   <lt4:crs>LOT</lt4:crs>
                   <lt4:st>12:20</lt4:st>
                   <lt4:et>On time</lt4:et>
-                </lt4:callingPoint>
-                <lt4:callingPoint>
+                </lt7:callingPoint>
+                <lt7:callingPoint>
                   <lt4:locationName>Bolton</lt4:locationName>
                   <lt4:crs>BON</lt4:crs>
                   <lt4:st>12:38</lt4:st>
                   <lt4:et>On time</lt4:et>
-                </lt4:callingPoint>
-                <lt4:callingPoint>
+                </lt7:callingPoint>
+                <lt7:callingPoint>
                   <lt4:locationName>Salford Crescent</lt4:locationName>
                   <lt4:crs>SLD</lt4:crs>
                   <lt4:st>13:03</lt4:st>
                   <lt4:et>On time</lt4:et>
-                </lt4:callingPoint>
-              </lt4:callingPointList>
-            </lt5:previousCallingPoints>
+                </lt7:callingPoint>
+              </lt7:callingPointList>
+            </lt7:subsequentCallingPoints>
           </lt5:service>
         </lt5:busServices>
       </GetStationBoardResult>
