@@ -22,8 +22,8 @@ function parseArrivalsBoardWithDetails (soapResponse) {
       var train = parseStandardService(service)
       service.eachChild(function (element) {
         switch (element.name) {
-          case 'lt5:previousCallingPoints':
-            var previousCallingPoints = element.childNamed('lt4:callingPointList')
+          case 'lt7:previousCallingPoints':
+            var previousCallingPoints = element.childNamed('lt7:callingPointList')
             train.previousCallingPoints = parseCallingPointList(previousCallingPoints)
             break
         }
@@ -57,12 +57,12 @@ function parseArrivalsDepartureBoardWithDetails (soapResponse) {
       var train = parseStandardService(service)
       service.eachChild(function (element) {
         switch (element.name) {
-          case 'lt5:previousCallingPoints':
-            var previousCallingPoints = element.childNamed('lt4:callingPointList')
+          case 'lt7:previousCallingPoints':
+            var previousCallingPoints = element.childNamed('lt7:callingPointList')
             train.previousCallingPoints = parseCallingPointList(previousCallingPoints)
             break
-          case 'lt5:subsequentCallingPoints':
-            var subsequentCallingPoints = element.childNamed('lt4:callingPointList')
+          case 'lt7:subsequentCallingPoints':
+            var subsequentCallingPoints = element.childNamed('lt7:callingPointList')
             train.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
             break
         }
@@ -81,12 +81,12 @@ function parseServiceDetails (soapResponse) {
 
   serviceXml.eachChild(function (element) {
     switch (element.name) {
-      case 'lt4:previousCallingPoints':
-        var previousCallingPoints = element.childNamed('lt4:callingPointList')
+      case 'lt7:previousCallingPoints':
+        var previousCallingPoints = element.childNamed('lt7:callingPointList')
         service.previousCallingPoints = parseCallingPointList(previousCallingPoints)
         break
-      case 'lt4:subsequentCallingPoints':
-        var subsequentCallingPoints = element.childNamed('lt4:callingPointList')
+      case 'lt7:subsequentCallingPoints':
+        var subsequentCallingPoints = element.childNamed('lt7:callingPointList')
         service.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
         break
     }
@@ -98,7 +98,6 @@ function parseServiceDetails (soapResponse) {
 function parseDepartureBoardResponse (soapResponse) {
   var board = getTrainServicesBoard(soapResponse, 'GetDepartureBoardResponse')
   var trains = []
-
   try {
     board.eachChild(function (service) {
       trains.push(parseStandardService(service))
@@ -117,8 +116,8 @@ function parseDepartureBoardWithDetailsResponse (soapResponse) {
       var train = parseStandardService(service)
       service.eachChild(function (element) {
         switch (element.name) {
-          case 'lt5:subsequentCallingPoints':
-            var subsequentCallingPoints = element.childNamed('lt4:callingPointList')
+          case 'lt7:subsequentCallingPoints':
+            var subsequentCallingPoints = element.childNamed('lt7:callingPointList')
             train.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
             break
         }
@@ -152,8 +151,8 @@ function parseNextDepartureWithDetailsResponse (response) {
       var train = parseStandardService(service)
       service.eachChild(function (element) {
         switch (element.name) {
-          case 'lt5:subsequentCallingPoints':
-            var subsequentCallingPoints = element.childNamed('lt4:callingPointList')
+          case 'lt7:subsequentCallingPoints':
+            var subsequentCallingPoints = element.childNamed('lt7:callingPointList')
             train.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
             break
         }
@@ -185,8 +184,8 @@ function parseFastestDepartureWithDetails (response) {
       var train = parseStandardService(service)
       service.eachChild(function (element) {
         switch (element.name) {
-          case 'lt5:subsequentCallingPoints':
-            var subsequentCallingPoints = element.childNamed('lt4:callingPointList')
+          case 'lt7:subsequentCallingPoints':
+            var subsequentCallingPoints = element.childNamed('lt7:callingPointList')
             train.subsequentCallingPoints = parseCallingPointList(subsequentCallingPoints)
             break
         }
@@ -201,7 +200,7 @@ function parseFastestDepartureWithDetails (response) {
 function getTrainServicesBoard (response, responseType) {
   var board = extractResponseObject(response, responseType)
     .childNamed('GetStationBoardResult')
-    .childNamed('lt5:trainServices')
+    .childNamed('lt7:trainServices')
   return board
 }
 
@@ -210,46 +209,60 @@ function parseStandardService (service) {
   service.eachChild(function (element) {
     switch (element.name) {
       case 'lt4:generatedAt':
+      case 'lt7:generatedAt':
         service.generatedAt = element.val
         break
       case 'lt4:std':
+      case 'lt7:std':
         train.std = element.val
         break
       case 'lt4:etd':
+      case 'lt7:etd':
         train.etd = element.val
         break
       case 'lt4:sta':
+      case 'lt7:sta':
         train.sta = element.val
         break
       case 'lt4:eta':
+      case 'lt7:eta':
         train.eta = element.val
         break
       case 'lt4:platform':
+      case 'lt7:platform':
         train.platform = element.val
         break
       case 'lt4:delayReason':
+      case 'lt7:delayReason':
         train.delayReason = element.val
         break
       case 'lt4:serviceID':
+      case 'lt7:serviceID':
         train.serviceId = element.val
         break
       case 'lt4:length':
+      case 'lt7:length':
         train.length = element.val
         break
       case 'lt4:operator':
+      case 'lt7:operator':
         train.operator = element.val
         break
       case 'lt4:operatorCode':
+      case 'lt7:operatorCode':
         train.operatorCode = element.val
         break
       case 'lt5:rsid':
+      case 'lt7:rsid':
         train.rsid = element.val
         break
       case 'lt5:origin':
+      case 'lt7:origin':
         var origin = element.childNamed('lt4:location')
         train.origin = parseLocation(origin)
         break
       case 'lt5:destination':
+      case 'lt7:destination':
         var destin = element.childNamed('lt4:location')
         train.destination = parseLocation(destin)
         break
@@ -264,19 +277,19 @@ function parseCallingPointList (soapCallingPointList) {
     var callingPoint = {}
     child.eachChild(function (element) {
       switch (element.name) {
-        case 'lt4:length':
+        case 'lt7:length':
           callingPoint.length = element.val
           break
-        case 'lt4:crs':
+        case 'lt7:crs':
           callingPoint.crs = element.val
           break
-        case 'lt4:locationName':
+        case 'lt7:locationName':
           callingPoint.locationName = element.val
           break
-        case 'lt4:st':
+        case 'lt7:st':
           callingPoint.st = element.val
           break
-        case 'lt4:et':
+        case 'lt7:et':
           callingPoint.et = element.val
           break
       }
@@ -301,8 +314,8 @@ function parseLocation (location) {
 function getDepartureBoardDestination (response, responseType) {
   var board = extractResponseObject(response, responseType)
     .childNamed('DeparturesBoard')
-    .childNamed('lt5:departures')
-    .childNamed('lt5:destination')
+    .childNamed('lt7:departures')
+    .childNamed('lt7:destination')
 
   return board
 }
