@@ -4,7 +4,7 @@ var Bluebird = require('bluebird')
 var requestBuilder = require('./requestBuilder.js')
 var parser = require('./parsers.js')
 
-var baseUrl = 'https://lite.realtime.nationalrail.co.uk/OpenLDBWS/ldb9.asmx'
+var baseUrl = 'https://lite.realtime.nationalrail.co.uk/OpenLDBWS/ldb11.asmx'
 
 var Darwin = function (apiKey, options) {
   this.key = apiKey || process.env.DARWIN_TOKEN
@@ -21,6 +21,7 @@ Darwin.prototype.thenablePOST = function (xml) {
       body: xmlWithToken
     }, function (err, response, body) {
       if (err) {
+        console.log(err)
         reject(err)
       } else if (response.statusCode > 300) {
         reject(response)
