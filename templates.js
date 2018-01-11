@@ -1,10 +1,10 @@
 var soapHeader =
-`<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://thalesgroup.com/RTTI/2013-11-28/Token/types" xmlns:ldb="http://thalesgroup.com/RTTI/2016-02-16/ldb/">` +
-    `<soapenv:Header>` +
+'<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://thalesgroup.com/RTTI/2013-11-28/Token/types" xmlns:ldb="http://thalesgroup.com/RTTI/2017-10-01/ldb/">' +
+    `<soap:Header>` +
         `<typ:AccessToken>` +
             `<typ:TokenValue>$$TOKEN$$</typ:TokenValue>` +
         `</typ:AccessToken>` +
-    `</soapenv:Header>`
+    `</soap:Header>`
 
 var getServiceBoardStandardRequest =
 `<ldb:numRows>$$ROWS$$</ldb:numRows>` +
@@ -23,75 +23,70 @@ var getServiceStandardRequest =
 `<ldb:timeWindow>$$TIMEWINDOW$$</ldb:timeWindow>`
 
 var arrivalsBoardWithDetails =
-soapHeader +
-    `<soapenv:Body>` +
+    soapHeader +
+    `<soap:Body>` +
         `<ldb:GetArrBoardWithDetailsRequest>` +
             getServiceBoardStandardRequest +
         `</ldb:GetArrBoardWithDetailsRequest>` +
-    `</soapenv:Body>` +
-`</soapenv:Envelope>`
+    `</soap:Body>` +
+`</soap:Envelope>`
 
 var arrivalsDepartureBoard =
-soapHeader +
-    `<soapenv:Body>` +
+    soapHeader +
+    `<soap:Body>` +
         `<ldb:GetArrivalDepartureBoardRequest>` +
             getServiceBoardStandardRequest +
         `</ldb:GetArrivalDepartureBoardRequest>` +
-    `</soapenv:Body>` +
-`</soapenv:Envelope>`
+    `</soap:Body>` +
+`</soap:Envelope>`
 
 var arrivalsDepartureBoardWithDetails =
-soapHeader +
-    `<soapenv:Body>` +
+    soapHeader +
+    `<soap:Body>` +
         `<ldb:GetArrDepBoardWithDetailsRequest>` +
             getServiceBoardStandardRequest +
         `</ldb:GetArrDepBoardWithDetailsRequest>` +
-    `</soapenv:Body>` +
-`</soapenv:Envelope>`
+    `</soap:Body>` +
+`</soap:Envelope>`
 
 var departureBoardTemplate =
-soapHeader +
-    `<soapenv:Body>` +
+    soapHeader +
+    `<soap:Body>` +
         `<ldb:GetDepartureBoardRequest>` +
             getServiceBoardStandardRequest +
         `</ldb:GetDepartureBoardRequest>` +
-    `</soapenv:Body>` +
-`</soapenv:Envelope>`
+    `</soap:Body>` +
+`</soap:Envelope>`
 
 var departureBoardWithDetails =
-soapHeader +
-     `<soapenv:Body>` +
+    soapHeader +
+     `<soap:Body>` +
          `<ldb:GetDepBoardWithDetailsRequest>` +
              getServiceBoardStandardRequest +
          `</ldb:GetDepBoardWithDetailsRequest>` +
-     `</soapenv:Body>` +
-`</soapenv:Envelope>`
+     `</soap:Body>` +
+`</soap:Envelope>`
 
 var arrivalsBoardTemplate =
-soapHeader +
-    `<soapenv:Body>` +
+    soapHeader +
+    `<soap:Body>` +
         `<ldb:GetArrivalBoardRequest>` +
             getServiceBoardStandardRequest +
         `</ldb:GetArrivalBoardRequest>` +
-    `</soapenv:Body>` +
-`</soapenv:Envelope>`
+    `</soap:Body>` +
+`</soap:Envelope>`
 
 var serviceDetailsTemplate =
-soapHeader +
-    `<soapenv:Body>` +
+    soapHeader +
+    `<soap:Body>` +
         `<ldb:GetServiceDetailsRequest>` +
             `<ldb:serviceID>$$SERVICEID$$</ldb:serviceID>` +
         `</ldb:GetServiceDetailsRequest>` +
-    `</soapenv:Body>` +
-`</soapenv:Envelope>`
+    `</soap:Body>` +
+`</soap:Envelope>`
 
 var nextDeparture =
-`<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://thalesgroup.com/RTTI/2013-11-28/Token/types" xmlns:ldb="http://thalesgroup.com/RTTI/2016-02-16/ldb/">` +
-    `<soap:Header>` +
-         `<typ:AccessToken>` +
-             `<typ:TokenValue>$$TOKEN$$</typ:TokenValue>` +
-         `</typ:AccessToken>` +
-    `</soap:Header>` +
+    soapHeader +
     `<soap:Body>` +
         `<ldb:GetNextDeparturesRequest>` +
              getServiceStandardRequest +
@@ -100,12 +95,7 @@ var nextDeparture =
 `</soap:Envelope>`
 
 var nextDepartureWithDetails =
-`<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://thalesgroup.com/RTTI/2013-11-28/Token/types" xmlns:ldb="http://thalesgroup.com/RTTI/2016-02-16/ldb/">` +
-    `<soap:Header>` +
-        `<typ:AccessToken>` +
-            `<typ:TokenValue>$$TOKEN$$</typ:TokenValue>` +
-        `</typ:AccessToken>` +
-    `</soap:Header>` +
+    soapHeader +
     `<soap:Body>` +
         `<ldb:GetNextDeparturesWithDetailsRequest>` +
             getServiceStandardRequest +
@@ -114,12 +104,7 @@ var nextDepartureWithDetails =
 `</soap:Envelope>`
 
 var nextArrival =
-`<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="http://thalesgroup.com/RTTI/2013-11-28/Token/types" xmlns:ldb="http://thalesgroup.com/RTTI/2016-02-16/ldb/">` +
-    `<soap:Header>` +
-        `<typ:AccessToken>` +
-            `<typ:TokenValue>$$TOKEN$$</typ:TokenValue>` +
-        `</typ:AccessToken>` +
-    `</soap:Header>` +
+    soapHeader +
     `<soap:Body>` +
         `<ldb:GetArrivalBoardRequest>` +
             getServiceStandardRequest +
@@ -128,22 +113,22 @@ var nextArrival =
 `</soap:Envelope>`
 
 var fastestDeparture =
-soapHeader +
-    `<soapenv:Body>` +
+    soapHeader +
+    `<soap:Body>` +
         `<ldb:GetFastestDeparturesRequest>` +
             getServiceStandardRequest +
         `</ldb:GetFastestDeparturesRequest>` +
-    `</soapenv:Body>` +
-`</soapenv:Envelope>`
+    `</soap:Body>` +
+`</soap:Envelope>`
 
 var fastestDepartureWithDetails =
-soapHeader +
-    `<soapenv:Body>` +
+    soapHeader +
+    `<soap:Body>` +
         `<ldb:GetFastestDeparturesWithDetailsRequest>` +
             getServiceStandardRequest +
         `</ldb:GetFastestDeparturesWithDetailsRequest>` +
-    `</soapenv:Body>` +
-`</soapenv:Envelope>`
+    `</soap:Body>` +
+`</soap:Envelope>`
 
 module.exports.departureBoard = departureBoardTemplate
 module.exports.arrivalsBoard = arrivalsBoardTemplate
@@ -158,3 +143,4 @@ module.exports.fastestDeparture = fastestDeparture
 module.exports.fastestDepartureWithDetails = fastestDepartureWithDetails
 
 module.exports.nextArrival = nextArrival
+module.exports.header = soapHeader

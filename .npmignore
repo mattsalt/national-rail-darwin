@@ -1,4 +1,5 @@
 .editorconfig
 token.txt
 exampleResponses
-templateStringTest.js
+exampleRequests
+.nyc_output

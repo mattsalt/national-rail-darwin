@@ -1,10 +1,10 @@
 {
   "name": "national-rail-darwin",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": " national rail's darwin soap based api",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "nyc mocha"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
   "devDependencies": {
     "assert": "^1.4.1",
     "mocha": "^4.0.1",
+    "nyc": "^11.4.1",
     "standard": "^8.6.0"
   }
 }
