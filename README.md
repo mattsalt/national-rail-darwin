@@ -196,3 +196,5 @@ national-rail-darwin now provides a command line tool, darwin, for querying the 
 darwin --help
 ```
 for usage details.
+
+To authenticate using the command line you can either specify your API token using the --token flag or set env.DARWIN_TOKEN.
