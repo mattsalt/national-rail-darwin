@@ -187,3 +187,12 @@ rail.getStationDetails('Leeds', function(err,result){
 })
 ```
 Look up station details including CRSCode from the full station name
+
+
+### Command Line 
+
+national-rail-darwin now provides a command line tool, darwin, for querying the  Darwin API. All Darwin requests are accessible via this tool. Install globally and run
+```
+darwin --help
+```
+for usage details.
