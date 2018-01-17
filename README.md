@@ -1,7 +1,6 @@
 # national-rail-darwin
 
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
-
 [![Test Status](https://travis-ci.org/mattsalt/national-rail-darwin.svg?branch=master)](https://travis-ci.org/mattsalt/national-rail-darwin)
 
 ### Introduction
