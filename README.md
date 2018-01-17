@@ -2,6 +2,8 @@
 
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
+[![Test Status](https://travis-ci.org/mattsalt/national-rail-darwin.svg?branch=master)](https://travis-ci.org/mattsalt/national-rail-darwin)
+
 ### Introduction
 
 `national-rail-darwin` aims to give you json object representations of the SOAP responses from National Rail's Darwin api. Details of the api can be found [here](http://lite.realtime.nationalrail.co.uk/openldbws/)
