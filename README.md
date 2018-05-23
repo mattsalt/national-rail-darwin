@@ -71,7 +71,7 @@ All methods return arrays of basic service objects of the form:
 
 #### getDepartureBoard
 ```javascript
-rail.getDepartureBoard('LGX', {}, function(err,result){
+rail.getDepartureBoard('WAT', {}, function(err,result){
     //do stuff
 })
 ```
@@ -157,7 +157,7 @@ Returns the next train leaving from supplied station calling at the destination 
 
 #### getDepartureBoardWithDetails
 ```javascript
-rail.getDepartureBoardWithDetails('LGX', {}, function(err,result){
+rail.getDepartureBoardWithDetails('WAT', {}, function(err,result){
     //do stuff
 })
 ```
