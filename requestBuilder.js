@@ -5,7 +5,6 @@ function applyOptions (requestXML, options) {
     timeOffset: [ 0, 'INT' ],
     timeWindow: [ 120, 'INT' ],
     rows: [ 15, 'INT' ],
-    filter: [ '', 'TEXT' ],
     destination: [ '', 'TEXT' ]
   }
   for (var key in optionDefaults) {
