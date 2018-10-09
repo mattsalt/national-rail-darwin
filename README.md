@@ -78,7 +78,7 @@ rail.getDepartureBoard('WAT', {}, function(err,result){
 
 Gets all public departures for the supplied station within 2 hours.
 Options:
-'filter': Only show trains that call at the supplied station.
+'destination': Only show trains that call at the supplied station.
 'rows': Maximum number of services to retrieve (1 - 149).
 
 #### getArrivalsBoard
@@ -91,7 +91,7 @@ rail.getArrivalsBoard('PUT', {}, function(err, result){
 
 Similar to getDepartureBoard but shows arrivals within the next two hours.
 Options:
-'filter': Only show trains that have called at the supplied station.
+'destination': Only show trains that have called at the supplied station.
 'rows': Maximum number of services to retrieve.
 
 #### getArrivalsBoardWithDetails
@@ -103,7 +103,7 @@ rail.getArrivalsBoardWithDetails('PUT', {}, function(err, result){
 ```
 Adds service details including previous calling points to the getArrivalsBoardResult.
 Options:
-'filter': Only show trains that have called at the supplied station.
+'destination': Only show trains that have called at the supplied station.
 'rows': Maximum number of services to retrieve.
 
 #### getArrivalsDepartureBoard
@@ -115,7 +115,7 @@ rail.getArrivalsDepartureBoard('PUT', {}, function(err, result){
 ```
 Returns all public arrivals and departures for the supplied CRS code within 2 hours.
 Options:
-'filter': Only show trains that have called at the supplied station.
+'destination': Only show trains that have called at the supplied station.
 'rows': Maximum number of services to retrieve.
 
 #### getArrivalsDepartureBoardWithDetails
@@ -127,7 +127,7 @@ rail.getArrivalsDepartureBoardWithDetails('PUT', {}, function(err, result){
 ```
 Returns array of train services with both previous and subsequent calling points included for each service.
 Options:
-'filter': Only show trains that have called at the supplied station.
+'destination': Only show trains that have called at the supplied station.
 'rows': Maximum number of services to retrieve.
 
 #### getServiceDetails
@@ -162,7 +162,7 @@ rail.getDepartureBoardWithDetails('WAT', {}, function(err,result){
 })
 ```
 Adds a list of future calling points to the standard departure board response.
-'filter': Only show trains that call at the supplied station.
+'destination': Only show trains that call at the supplied station.
 'rows': Maximum number of services to retrieve.
 
 #### getFastestDeparture
