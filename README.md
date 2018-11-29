@@ -190,7 +190,7 @@ rail.getStationDetails('Leeds', function(err,result){
 Look up station details including CRSCode from the full station name
 
 
-### Command Line 
+### Command Line
 
 national-rail-darwin now provides a command line tool, darwin, for querying the  Darwin API. All Darwin requests are accessible via this tool. Install globally and run
 ```
@@ -198,4 +198,12 @@ darwin --help
 ```
 for usage details.
 
-To authenticate using the command line you can either specify your API token using the --token flag or set env.DARWIN_TOKEN.
+To authenticate using the command line you can either specify your API token using the `--token` flag or set `DARWIN_TOKEN` as an environment variable.
+
+You can print the result as raw JSON by using the `--json` option if you want
+to manipulate the output with something like [`jq`](https://stedolan.github.io/jq/).
+
+For example:
+```
+darwin --json -t XXX arr-board ANZ | jq '.trainServices[]'
+```
