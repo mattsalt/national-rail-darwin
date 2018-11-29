@@ -25,13 +25,15 @@ function getClient () {
   return new Rail(token)
 }
 
-var printer = function (err, result) {
-  if (err) {
-    console.log(err.statusCode)
-    console.log(err.body)
-    console.log(err)
-  } else {
-    console.log(util.inspect(result, {depth: null}))
+var getPrinter = function (json) {
+  return (err, result) => {
+    if (err) {
+      console.log(err.statusCode)
+      console.log(err.body)
+      console.log(err)
+    } else {
+      console.log(json ? JSON.stringify(result) : util.inspect(result, {depth: null}))
+    }
   }
 }
 
@@ -42,13 +44,14 @@ program
     .option('-r, --rows <rows>', 'Maximum number of rows to return. Defaults to 15.')
     .option('-w, --window <window>', 'Maxmimum number of minutes to search within. Defaults to 120.')
     .option('-t, --token <token>', 'Specify Darwin API token to use. Defaults to env.DARWIN_TOKEN')
+    .option('-j, --json', 'Return raw JSON')
 
 program
     .command('arr-board <station>')
     .alias('ab')
     .description('Print Arrival Board')
     .action((station, options) => {
-      getClient().getArrivalsBoard(station, processOptions(options.parent), printer)
+      getClient().getArrivalsBoard(station, processOptions(options.parent), getPrinter(options.parent.json))
     })
 
 program
@@ -56,7 +59,7 @@ program
     .alias('ab-details')
     .description('Print Arrival Board with Details')
     .action((station, options) => {
-      getClient().getArrivalsBoardWithDetails(station, processOptions(options.parent), printer)
+      getClient().getArrivalsBoardWithDetails(station, processOptions(options.parent), getPrinter(options.parent.json))
     })
 
 program
@@ -64,7 +67,7 @@ program
     .alias('ad')
     .description('Print Arrival Departure Board')
     .action((station, options) => {
-      getClient().getArrivalsDepartureBoard(station, processOptions(options.parent), printer)
+      getClient().getArrivalsDepartureBoard(station, processOptions(options.parent), getPrinter(options.parent.json))
     })
 
 program
@@ -72,7 +75,7 @@ program
     .alias('ad-details')
     .description('Print Arrival Departure Board with Details')
     .action((station, options) => {
-      getClient().getArrivalsDepartureBoardWithDetails(station, processOptions(options.parent), printer)
+      getClient().getArrivalsDepartureBoardWithDetails(station, processOptions(options.parent), getPrinter(options.parent.json))
     })
 
 program
@@ -80,7 +83,7 @@ program
     .alias('db')
     .description('Print Departure Board')
     .action((station, options) => {
-      getClient().getDepartureBoard(station, processOptions(options.parent), printer)
+      getClient().getDepartureBoard(station, processOptions(options.parent), getPrinter(options.parent.json))
     })
 
 program
@@ -88,7 +91,7 @@ program
     .alias('db-details')
     .description('Print Departure Board with Details')
     .action((station, options) => {
-      getClient().getDepartureBoardWithDetails(station, processOptions(options.parent), printer)
+      getClient().getDepartureBoardWithDetails(station, processOptions(options.parent), getPrinter(options.parent.json))
     })
 
 program
@@ -96,7 +99,7 @@ program
     .alias('fd')
     .description('Print Fastest Departure')
     .action((station, destination, options) => {
-      getClient().getFastestDeparture(station, destination, processOptions(options.parent), printer)
+      getClient().getFastestDeparture(station, destination, processOptions(options.parent), getPrinter(options.parent.json))
     })
 
 program
@@ -104,7 +107,7 @@ program
     .alias('fd-details')
     .description('Print Fastest Departure with Details')
     .action((station, destination, options) => {
-      getClient().getFastestDepartureWithDetails(station, destination, processOptions(options.parent), printer)
+      getClient().getFastestDepartureWithDetails(station, destination, processOptions(options.parent), getPrinter(options.parent.json))
     })
 
 program
@@ -112,7 +115,7 @@ program
     .alias('na')
     .description('Print Next Arrival')
     .action((station, destination, options) => {
-      getClient().getArrival(station, destination, processOptions(options.parent), printer)
+      getClient().getArrival(station, destination, processOptions(options.parent), getPrinter(options.parent.json))
     })
 
 program
@@ -120,7 +123,7 @@ program
     .alias('nd')
     .description('Print Next Departure')
     .action((station, destination, options) => {
-      getClient().getNextDeparture(station, destination, processOptions(options.parent), printer)
+      getClient().getNextDeparture(station, destination, processOptions(options.parent), getPrinter(options.parent.json))
     })
 
 program
@@ -128,7 +131,7 @@ program
     .alias('nd-details')
     .description('Print Next Departure with Details')
     .action((station, destination, options) => {
-      getClient().getNextDepartureWithDetails(station, destination, processOptions(options.parent), printer)
+      getClient().getNextDepartureWithDetails(station, destination, processOptions(options.parent), getPrinter(options.parent.json))
     })
 
 program
@@ -136,7 +139,7 @@ program
     .alias('sd')
     .description('Print Service Details')
     .action((serviceId) => {
-      getClient().getServiceDetails(serviceId, printer)
+      getClient().getServiceDetails(serviceId, getPrinter(options.parent.json))
     })
 
 program.parse(process.argv)
