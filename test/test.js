@@ -3,6 +3,22 @@ var assert = require('assert')
 var parsers = require('../parsers.js')
 var fs = require('fs')
 
+describe('Client options override correctly', function () {
+  var Rail = require('../index.js')
+
+  it('Original base url remains when not overriden', function () {
+    const baseUrl = 'https://lite.realtime.nationalrail.co.uk/OpenLDBWS/ldb11.asmx'
+    let client = new Rail('abc123')
+    assert.equal(client.getBaseUrl(), baseUrl)
+  })
+
+  it('Overrides the base url', function () {
+    const newBaseUrl = 'http://somewhere'
+    let client = new Rail('abc123', { baseUrl: newBaseUrl })
+    assert.equal(client.getBaseUrl(), newBaseUrl)
+  })
+})
+
 /* arrivalBoardWithDets.xml */
 describe('ArrivalBoardWithDetails parsed correctly', function () {
   var fileContent = fs.readFileSync('./exampleResponses/arrivalBoardWithDets.xml', 'UTF-8')
