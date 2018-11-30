@@ -13,6 +13,10 @@ var Darwin = function (apiKey, options) {
   }
 }
 
+Darwin.prototype.getBaseUrl = function () {
+  return baseUrl
+}
+
 Darwin.prototype.thenablePOST = function (xml) {
   var xmlWithToken = xml.replace('$$TOKEN$$', this.key)
   return new Bluebird(function (resolve, reject) {
