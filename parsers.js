@@ -10,7 +10,11 @@ function parseArrivalsBoardResponse (soapResponse) {
     })
   } catch (e) { }
 
-  return { 'trainServices': trains }
+  try {
+	var locationInfo = getLocationInfo(soapResponse, 'GetArrivalBoardResponse')
+  } catch (e) { }
+  
+  return { 'trainServices': trains, 'locationInfo': locationInfo}
 }
 
 function parseArrivalsBoardWithDetails (soapResponse) {
@@ -32,7 +36,11 @@ function parseArrivalsBoardWithDetails (soapResponse) {
     })
   } catch (e) { }
 
-  return { 'trainServices': trains }
+  try {
+	var locationInfo = getLocationInfo(soapResponse, 'GetArrBoardWithDetailsResponse')
+  } catch (e) { }
+  
+  return { 'trainServices': trains, 'locationInfo': locationInfo}
 }
 
 function parseArrivalsDepartureBoard (soapResponse) {
@@ -45,7 +53,11 @@ function parseArrivalsDepartureBoard (soapResponse) {
     })
   } catch (e) { }
 
-  return { 'trainServices': trains }
+  try {
+	var locationInfo = getLocationInfo(soapResponse, 'GetArrivalDepartureBoardResponse')
+  } catch (e) { }
+  
+  return { 'trainServices': trains, 'locationInfo': locationInfo}
 }
 
 function parseArrivalsDepartureBoardWithDetails (soapResponse) {
@@ -71,7 +83,11 @@ function parseArrivalsDepartureBoardWithDetails (soapResponse) {
     })
   } catch (e) { }
 
-  return { 'trainServices': trains }
+  try {
+	var locationInfo = getLocationInfo(soapResponse, 'GetArrDepBoardWithDetailsResponse')
+  } catch (e) { }
+  
+  return { 'trainServices': trains, 'locationInfo': locationInfo}
 }
 
 function parseServiceDetails (soapResponse) {
@@ -91,8 +107,12 @@ function parseServiceDetails (soapResponse) {
         break
     }
   })
-
-  return { 'serviceDetails': service }
+  
+  try {
+	var locationInfo = getLocationInfo(soapResponse, 'GetServiceDetailsResponse')
+  } catch (e) { }
+  
+  return { 'serviceDetails': service , 'locationInfo': locationInfo}
 }
 
 function parseDepartureBoardResponse (soapResponse) {
@@ -103,8 +123,12 @@ function parseDepartureBoardResponse (soapResponse) {
       trains.push(parseStandardService(service))
     })
   } catch (e) { }
-
-  return { 'trainServices': trains }
+  
+  try {
+	var locationInfo = getLocationInfo(soapResponse, 'GetDepartureBoardResponse')
+  } catch (e) { }
+  
+  return { 'trainServices': trains, 'locationInfo': locationInfo}
 }
 
 function parseDepartureBoardWithDetailsResponse (soapResponse) {
@@ -126,7 +150,11 @@ function parseDepartureBoardWithDetailsResponse (soapResponse) {
     })
   } catch (e) { }
 
-  return { 'trainServices': trains }
+  try {
+	var locationInfo = getLocationInfo(soapResponse, 'GetDepBoardWithDetailsResponse')
+  } catch (e) { }
+  
+  return { 'trainServices': trains, 'locationInfo': locationInfo}
 }
 
 function parseNextDepartureResponse (response) {
@@ -139,7 +167,11 @@ function parseNextDepartureResponse (response) {
     })
   } catch (e) { }
 
-  return { 'trainServices': trains }
+  try {
+	var locationInfo = getLocationInfo(soapResponse, 'GetNextDeparturesResponse')
+  } catch (e) { }
+  
+  return { 'trainServices': trains, 'locationInfo': locationInfo}
 }
 
 function parseNextDepartureWithDetailsResponse (response) {
@@ -161,7 +193,11 @@ function parseNextDepartureWithDetailsResponse (response) {
     })
   } catch (e) { }
 
-  return { 'trainServices': trains }
+  try {
+	var locationInfo = getLocationInfo(soapResponse, 'GetNextDeparturesWithDetailsResponse')
+  } catch (e) { }
+  
+  return { 'trainServices': trains, 'locationInfo': locationInfo}
 }
 
 function parseFastestDeparture (response) {
@@ -173,7 +209,12 @@ function parseFastestDeparture (response) {
       trains.push(parseStandardService(service))
     })
   } catch (e) { }
-  return { 'trainServices': trains }
+  
+  try {
+	var locationInfo = getLocationInfo(soapResponse, 'GetFastestDeparturesResponse')
+  } catch (e) { }
+  
+  return { 'trainServices': trains, 'locationInfo': locationInfo}
 }
 
 function parseFastestDepartureWithDetails (response) {
@@ -194,14 +235,37 @@ function parseFastestDepartureWithDetails (response) {
     })
   } catch (e) { }
 
-  return { 'trainServices': trains }
+  try {
+	var locationInfo = getLocationInfo(soapResponse, 'GetFastestDeparturesWithDetailsResponse')
+  } catch (e) { }
+  
+  return { 'trainServices': trains, 'locationInfo': locationInfo}
 }
 
 function getTrainServicesBoard (response, responseType) {
   var board = extractResponseObject(response, responseType)
-    .childNamed('GetStationBoardResult')
+	.childNamed('GetStationBoardResult')
     .childNamed('lt7:trainServices')
   return board
+}
+
+function getLocationInfo (response, responseType) {
+  var locationInfo = { messages: [] }
+  var station = extractResponseObject(response, responseType)
+    .childNamed('GetStationBoardResult')
+  station.eachChild(function (element) {
+    switch (element.name) {
+	  case 'lt4:locationName':
+	    locationInfo.name = element.val
+	  case 'lt4:crs':
+	    locationInfo.crs = element.val
+	  case 'lt4:nrccMessages':
+	    station.childNamed('lt4:nrccMessages').eachChild(function (element) {
+		  if (element.name === 'lt:message' && !locationInfo.messages.includes(element.val)) locationInfo.messages.push(element.val)
+		})
+	}
+  })
+  return locationInfo
 }
 
 function parseStandardService (service) {
@@ -235,6 +299,12 @@ function parseStandardService (service) {
       case 'lt4:delayReason':
       case 'lt7:delayReason':
         train.delayReason = element.val
+        break
+	  case 'lt7:isCancelled':
+        train.isCancelled = element.val
+        break
+	  case 'lt7:cancelReason':
+        train.cancelReason = element.val
         break
       case 'lt4:serviceID':
       case 'lt7:serviceID':
@@ -305,10 +375,12 @@ function extractResponseObject (soapMessage, response) {
 }
 
 function parseLocation (location) {
-  return {
+  locationInfo = {
     name: location.childNamed('lt4:locationName').val,
-    crs: location.childNamed('lt4:crs').val
+    crs: location.childNamed('lt4:crs').val,
   }
+  if (location.childNamed('lt4:via')) locationInfo.via = location.childNamed('lt4:via').val
+  return locationInfo
 }
 
 function getDepartureBoardDestination (response, responseType) {
